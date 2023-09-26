@@ -4,7 +4,6 @@ import { Switch, Route } from 'react-router-dom'
 import { restoreUser } from './store/session'
 import LandingPage from './components/LandingPage'
 import Navigation from './components/Navigation'
-import LoginFormPage from './components/LoginFormPage'
 import SignUpFormPage from './components/SignUpFormPage'
 
 function App() {
@@ -26,9 +25,6 @@ function App() {
           <Switch>
             <Route exact path='/'>
               <LandingPage />
-            </Route>
-            <Route exact path='/login'>
-              <LoginFormPage />
             </Route>
             <Route exact path='/signup'>
               <SignUpFormPage />
