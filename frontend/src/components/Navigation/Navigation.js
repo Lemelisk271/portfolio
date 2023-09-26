@@ -1,14 +1,13 @@
 import { useContext, useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
-import { NavLink } from 'react-router-dom'
 import ProfileButton from './ProfileButton'
 import { DarkModeContext } from '../../context/DarkModeContext'
 import './Navigation.css'
 
 const Navigation = ({ isLoaded }) => {
   const sessionUser = useSelector(state => state.session.user)
-  const { darkMode, setDarkMode } = useContext(DarkModeContext)
   const [darkButton, setDarkButton] = useState('')
+  const { darkMode, setDarkMode } = useContext(DarkModeContext)
 
   useEffect(() => {
     if (darkMode) {
@@ -39,8 +38,11 @@ const Navigation = ({ isLoaded }) => {
     )
   }
 
+  const navClass = darkMode ? 'navigation-dark' : 'navigation-light'
+
   return (
-    <div className='navigation'>
+    <div className={navClass}>
+      <h1>Zach Smith, Software Developer</h1>
       {isLoaded && sessionLinks}
     </div>
   )

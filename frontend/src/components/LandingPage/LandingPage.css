@@ -1,0 +1,88 @@
+.landingPage {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  min-height: calc(100vh - 133px);
+}
+
+.landingPage-userSelect {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 10px;
+  width: 40%;
+}
+
+.landingPage-userSelect-light {
+  background-color: white;
+}
+
+.landingPage-userSelect-dark {
+ background-color: black;
+}
+
+.landingPage-user img {
+  width: 300px;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.landingPage-user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.landingPage-user h3, p {
+  margin: 0;
+}
+
+.landingPage-user-dark {
+  color: white
+}
+
+.landingPage-content {
+  width: 100%;
+}
+
+.landingPage-select {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto 0;
+  width: 100%;
+}
+
+.landingPage-select button {
+  background-color: none;
+  border: none;
+  cursor: pointer;
+  width: 90%;
+  font-size: 20px;
+  padding: 20px;
+  margin-bottom: 10px;
+}
+
+.landingPage-select-light button {
+  background-color: white;
+  border: 1px solid #EF946C;
+  border-radius: 20px;
+}
+
+.landingPage-select-light button:hover {
+  background-color: #EF946C;
+}
+
+.landingPage-select-dark button {
+  background-color: black;
+  border: 1px solid #B74F6F;
+  border-radius: 20px;
+  color: white;
+}
+
+.landingPage-select-dark button:hover {
+  background-color: #B74F6F;
+}

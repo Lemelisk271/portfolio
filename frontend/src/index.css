@@ -1,5 +1,9 @@
+* {
+  font-family: 'Inter', sans-serif;
+}
+
 nav, main {
-  max-width: 1024px;
+  max-width: 1440px;
   margin: 0 auto;
 }
 

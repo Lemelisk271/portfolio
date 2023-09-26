@@ -55,4 +55,22 @@ router.post('/', validateSignup, async (req, res) => {
   })
 })
 
+router.get('/', async (_req, res, next) => {
+  const user = await User.findOne({
+    where: {
+      username: 'zwsmith'
+    }
+  })
+
+  if (!user) {
+    const err = new Error("Not Found")
+    err.status = 404
+    err.title = "User Not Found"
+    err.errors = {message: "The requested user couldn't be found."}
+    return next(err)
+  }
+
+  return res.json(user)
+})
+
 module.exports = router
