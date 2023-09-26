@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom'
 import { login } from '../../store/session'
 
 const LoginFormPage = () => {
-  const dispatch = useDispatch
+  const dispatch = useDispatch()
   const sessionUser = useSelector(state => state.session.user)
   const [credential, setCredential] = useState('')
   const [password, setPassword] = useState('')
