@@ -39,7 +39,7 @@ const LandingPage = () => {
 
   if (page === 'about') {
     pageContent = (
-      <AboutPage />
+      <AboutPage user={user} />
     )
   } else if (page === 'projects') {
     pageContent = (
