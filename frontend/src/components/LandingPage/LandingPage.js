@@ -1,6 +1,10 @@
 import { useState, useEffect, useContext } from 'react'
 import { csrfFetch } from '../../store/csrf'
 import { DarkModeContext } from '../../context/DarkModeContext'
+import { PageContext } from '../../context/PageContext'
+import AboutPage from '../AboutPage'
+import ContactPage from '../ContactPage'
+import ProjectPage from '../ProjectPage'
 import './LandingPage.css'
 
 const LandingPage = () => {
@@ -8,6 +12,7 @@ const LandingPage = () => {
   const [user, setUser] = useState({})
   const [phone, setPhone] = useState('')
   const { darkMode } = useContext(DarkModeContext)
+  const { page, setPage } = useContext(PageContext)
 
   useEffect(() => {
     const loadPage = async () => {
@@ -30,6 +35,37 @@ const LandingPage = () => {
   const userClass = "landingPage-user" + (darkMode ? " landingPage-user-dark" : " landingPage-user-light")
   const selectClass = "landingPage-select" + (darkMode ? " landingPage-select-dark" : " landingPage-select-light")
 
+  let pageContent
+
+  if (page === 'about') {
+    pageContent = (
+      <AboutPage />
+    )
+  } else if (page === 'projects') {
+    pageContent = (
+      <ProjectPage />
+    )
+  } else {
+    pageContent = (
+      <ContactPage />
+    )
+  }
+
+  const aboutButton = (e) => {
+    e.preventDefault()
+    setPage('about')
+  }
+
+  const projectButton = (e) => {
+    e.preventDefault()
+    setPage('projects')
+  }
+
+  const contactButton = (e) => {
+    e.preventDefault()
+    setPage('contact')
+  }
+
   return (
     <>
       {isLoaded ? (
@@ -43,13 +79,13 @@ const LandingPage = () => {
               <p>{phone}</p>
             </div>
             <div className={selectClass}>
-              <button>About Me</button>
-              <button>Projects</button>
-              <button>Contact Me</button>
+              <button onClick={aboutButton}>About Me</button>
+              <button onClick={projectButton}>Projects</button>
+              <button onClick={contactButton}>Contact Me</button>
             </div>
           </div>
           <div className='landingPage-content'>
-            <h1>Content</h1>
+            {pageContent}
           </div>
         </div>
       ):(

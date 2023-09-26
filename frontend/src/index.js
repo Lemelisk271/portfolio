@@ -9,6 +9,7 @@ import configureStore from './store'
 import { ModalProvider, Modal } from './context/Modal'
 import * as sessionActions from './store/session'
 import DarkModeProvider from './context/DarkModeContext'
+import PageProvider from './context/PageContext'
 
 const store = configureStore()
 
@@ -22,16 +23,18 @@ if (process.env.NODE_ENV !== 'production') {
 
 function Root() {
   return (
-    <DarkModeProvider>
-      <ModalProvider>
-        <Provider store={store}>
-          <BrowserRouter>
-            <App />
-            <Modal />
-          </BrowserRouter>
-        </Provider>
-      </ModalProvider>
-    </DarkModeProvider>
+    <PageProvider>
+      <DarkModeProvider>
+        <ModalProvider>
+          <Provider store={store}>
+            <BrowserRouter>
+              <App />
+              <Modal />
+            </BrowserRouter>
+          </Provider>
+        </ModalProvider>
+      </DarkModeProvider>
+    </PageProvider>
   )
 }
 
