@@ -1,3 +1,16 @@
+* {
+  font-family: 'Inter', sans-serif;
+}
+
+nav, main {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+body {
+  width: 100%;
+}
+
 .error {
   color: red;
 }

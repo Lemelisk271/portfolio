@@ -1,13 +1,26 @@
+import { useContext, useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
-import { NavLink } from 'react-router-dom'
 import ProfileButton from './ProfileButton'
-import OpenModalButton from '../OpenModalButton'
-import LoginFormModal from '../LoginFormModal'
-import SignUpFormModal from '../SignUpFormModal'
+import { DarkModeContext } from '../../context/DarkModeContext'
 import './Navigation.css'
 
 const Navigation = ({ isLoaded }) => {
   const sessionUser = useSelector(state => state.session.user)
+  const [darkButton, setDarkButton] = useState('')
+  const { darkMode, setDarkMode } = useContext(DarkModeContext)
+
+  useEffect(() => {
+    if (darkMode) {
+      setDarkButton("Dark Mode: On")
+    } else {
+      setDarkButton("Dark Mode: Off")
+    }
+  }, [darkMode])
+
+  const darkModeButton = (e) => {
+    e.preventDefault()
+    setDarkMode(!darkMode)
+  }
 
   let sessionLinks
 
@@ -19,27 +32,18 @@ const Navigation = ({ isLoaded }) => {
     )
   } else {
     sessionLinks = (
-      <li>
-        <OpenModalButton
-          buttonText="Log In"
-          modalComponent={<LoginFormModal />}
-        />
-        <OpenModalButton
-          buttonText="Sign Up"
-          modalComponent={<SignUpFormModal />}
-        />
-      </li>
+      <>
+        <button onClick={darkModeButton}>{darkButton}</button>
+      </>
     )
   }
 
+  const navClass = darkMode ? 'navigation-dark' : 'navigation-light'
+
   return (
-    <div className='navigation'>
-      <ul>
-        <li>
-          <NavLink exact to="/">Home</NavLink>
-        </li>
-        {isLoaded && sessionLinks}
-      </ul>
+    <div className={navClass}>
+      <h1>Zach Smith, Software Developer</h1>
+      {isLoaded && sessionLinks}
     </div>
   )
 }
