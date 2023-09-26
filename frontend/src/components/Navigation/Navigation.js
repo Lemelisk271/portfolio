@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom'
 import ProfileButton from './ProfileButton'
 import OpenModalButton from '../OpenModalButton'
 import LoginFormModal from '../LoginFormModal'
+import SignUpFormModal from '../SignUpFormModal'
 import './Navigation.css'
 
 const Navigation = ({ isLoaded }) => {
@@ -23,7 +24,10 @@ const Navigation = ({ isLoaded }) => {
           buttonText="Log In"
           modalComponent={<LoginFormModal />}
         />
-        <NavLink to="/signup">Sign Up</NavLink>
+        <OpenModalButton
+          buttonText="Sign Up"
+          modalComponent={<SignUpFormModal />}
+        />
       </li>
     )
   }
