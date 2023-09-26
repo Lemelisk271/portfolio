@@ -33,6 +33,18 @@ module.exports = {
         type: Sequelize.STRING(256),
         allowNull: false
       },
+      about: {
+        type: Sequelize.TEXT,
+        allowNull: false,
+      },
+      profileImage: {
+        type: Sequelize.STRING(256),
+        allowNull: false
+      },
+      phone: {
+        type: Sequelize.STRING(10),
+        allowNull: false
+      },
       hashedPassword: {
         type: Sequelize.STRING.BINARY,
         allowNull: false
