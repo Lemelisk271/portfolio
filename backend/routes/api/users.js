@@ -2,7 +2,7 @@ const express = require('express')
 const bcrypt = require('bcryptjs')
 
 const { setTokenCookie, requireAuth } = require('../../utils/auth.js')
-const { User } = require('../../db/models')
+const { User, Skill } = require('../../db/models')
 
 const { check } = require('express-validator')
 const { handleValidationErrors } = require('../../utils/validation.js')
@@ -71,6 +71,24 @@ router.get('/', async (_req, res, next) => {
   }
 
   return res.json(user)
+})
+
+router.get('/:userId/skills', async (req, res, next) => {
+  const skills = await Skill.findAll({
+    where: {
+      userId: req.params.userId
+    }
+  })
+
+  if (!skills) {
+    const err = newError("Not Found")
+    err.status = 404
+    err.title = "Skills Not Found"
+    err.errors = {message: "There were no skills found for the selected user."}
+    return next(err)
+  }
+
+  return res.json(skills)
 })
 
 module.exports = router

@@ -36,24 +36,51 @@
   align-items: center;
 }
 
-.landingPage-user h3, p {
-  margin: 0;
+.landingPage-user h3, p, a {
+  margin: 5px 0 0 5px;
+}
+
+.landingPage-user a {
+  text-decoration: none;
+}
+
+.landingPage-user a:hover {
+  text-decoration: underline;
+}
+
+.landingPage-user-light a {
+  color: black
 }
 
 .landingPage-user-dark {
   color: white
 }
 
+.landingPage-user-dark a {
+  color: white
+}
+
 .landingPage-content {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.landingPage-content-light {
+  background-color: white;
+}
+
+.landingPage-content-dark {
+  background-color: #136F63;
 }
 
 .landingPage-select {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: auto 0;
   width: 100%;
+  margin-top: 20px;
 }
 
 .landingPage-select button {

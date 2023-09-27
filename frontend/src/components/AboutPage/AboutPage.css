@@ -1,0 +1,43 @@
+.aboutPage {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+}
+
+.aboutPage-about {
+  margin-bottom: 20px;
+}
+
+.aboutPage-about p {
+  width: 80%;
+  margin: 0 auto;
+  text-align: justify;
+}
+
+.aboutPage-skills {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.aboutPage-skillItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 15%;
+  margin: 10px;
+}
+
+.aboutPage-skillItem img {
+  height: 50px;
+  background-color: white;
+  padding: 10px;
+  border-radius: 50%;
+  margin-bottom: 5px;
+}
+
+.aboutPage-skillItem h3 {
+  margin: 0;
+}
