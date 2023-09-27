@@ -25,7 +25,6 @@ const LandingPage = () => {
       const lastFour = userData.phone.slice(6)
       setPhone(`(${areaCode}) ${firstThree}-${lastFour}`)
 
-      console.log(userData)
       setIsLoaded(true)
     }
     loadPage()
@@ -44,7 +43,7 @@ const LandingPage = () => {
     )
   } else if (page === 'projects') {
     pageContent = (
-      <ProjectPage />
+      <ProjectPage user={user}/>
     )
   } else {
     pageContent = (
