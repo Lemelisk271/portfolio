@@ -19,6 +19,7 @@ const AboutPage = ({ user }) => {
       setIsLoaded(true)
     }
     loadPage()
+    // eslint-disable-next-line
   }, [])
 
   const aboutSectionClass = "aboutPage-about" + (darkMode ? " aboutPage-about-dark" : " aboutPage-about-light")
