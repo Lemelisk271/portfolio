@@ -4,6 +4,7 @@ import { Switch, Route } from 'react-router-dom'
 import { restoreUser } from './store/session'
 import LandingPage from './components/LandingPage'
 import Navigation from './components/Navigation'
+import Footer from './components/Footer'
 
 function App() {
   const dispatch = useDispatch()
@@ -27,6 +28,9 @@ function App() {
             </Route>
           </Switch>
         </main>
+        <footer>
+          <Footer />
+        </footer>
       </>
     )}
     </>
