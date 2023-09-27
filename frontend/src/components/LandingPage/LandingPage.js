@@ -43,7 +43,7 @@ const LandingPage = () => {
     )
   } else if (page === 'projects') {
     pageContent = (
-      <ProjectPage />
+      <ProjectPage user={user}/>
     )
   } else {
     pageContent = (
