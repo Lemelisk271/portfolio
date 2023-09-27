@@ -1,0 +1,55 @@
+.contactPage {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.contactPage-email a {
+  margin-left: 20px;
+  text-decoration: none;
+}
+
+.contactPage-email a:hover {
+  text-decoration: underline;
+}
+
+.contactPage-email-light a {
+  color: #136F63
+}
+
+.contactPage-email-dark a {
+  color: white
+}
+
+.contactPage-phone p {
+  margin-left: 20px;
+}
+
+.contactPage-social {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 25%;
+}
+
+.contactPage-social i {
+  font-size: 56px;
+}
+
+.contactPage-social-light i {
+  color: #136F63
+}
+
+.contactPage-social-light i:hover {
+  color: black
+}
+
+.contactPage-social-dark i {
+  color: black
+}
+
+.contactPage-social-dark i:hover {
+  color: #EF946C
+}

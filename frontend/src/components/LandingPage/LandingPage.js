@@ -2,9 +2,11 @@ import { useState, useEffect, useContext } from 'react'
 import { csrfFetch } from '../../store/csrf'
 import { DarkModeContext } from '../../context/DarkModeContext'
 import { PageContext } from '../../context/PageContext'
+import { Link } from 'react-router-dom'
 import AboutPage from '../AboutPage'
 import ContactPage from '../ContactPage'
 import ProjectPage from '../ProjectPage'
+import Resume from '../Resume/Zach_Smith_Resume.pdf'
 import './LandingPage.css'
 
 const LandingPage = () => {
@@ -47,7 +49,7 @@ const LandingPage = () => {
     )
   } else {
     pageContent = (
-      <ContactPage />
+      <ContactPage user={user}/>
     )
   }
 
@@ -75,8 +77,9 @@ const LandingPage = () => {
               <img src={user.profileImage} alt={user.firstName}/>
               <h3>{user.firstName} {user.lastName}</h3>
               <p>{user.location}</p>
-              <a href={`mailto:${user.email}`}>zwsmith27@gmail.com</a>
+              <a href={`mailto:${user.email}`}>{user.email}</a>
               <p>{phone}</p>
+              <a href={Resume} download="Zach_Smith_Resume" target="_blank" rel="noreferrer">Download Resume</a>
             </div>
             <div className={selectClass}>
               <button onClick={aboutButton}>About Me</button>

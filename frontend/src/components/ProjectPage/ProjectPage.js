@@ -16,6 +16,7 @@ const ProjectPage = ({ user }) => {
       setIsLoaded(true)
     }
     loadPage()
+    // eslint-disable-next-line
   }, [])
 
   return (
