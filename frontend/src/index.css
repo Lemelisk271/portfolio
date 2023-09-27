@@ -19,3 +19,7 @@ body {
 .error {
   color: red;
 }
+
+footer {
+  height: 50px;
+}
