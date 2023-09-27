@@ -2,10 +2,11 @@ const express = require('express')
 const bcrypt = require('bcryptjs')
 
 const { setTokenCookie, requireAuth } = require('../../utils/auth.js')
-const { User, Skill, Project } = require('../../db/models')
+const { User, Skill, Project, Social } = require('../../db/models')
 
 const { check } = require('express-validator')
 const { handleValidationErrors } = require('../../utils/validation.js')
+const social = require('../../db/models/social.js')
 
 const router = express.Router()
 
@@ -107,6 +108,24 @@ router.get('/:userId/projects', async (req, res, next) => {
   }
 
   return res.json(projects)
+})
+
+router.get('/:userId/projects', async (req, res, next) => {
+  const socials = Social.findAll({
+    where: {
+      userId: req.params.userId
+    }
+  })
+
+  if (!socials) {
+    const err = new Error("Not Found")
+    err.status = 404
+    err.title = "Socials Not Found"
+    err.errors = {message: "There were no socials found for the selected user."}
+    next(err)
+  }
+
+  return res.json(socials)
 })
 
 module.exports = router
