@@ -3,27 +3,47 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class Skill extends Model {
+  class Project extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      Skill.belongsTo(models.User, {
+      Project.belongsTo(models.User, {
         foreignKey: 'userId'
       })
     }
   }
-  Skill.init({
-    skill: {
+  Project.init({
+    name: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [1, 50]
+        len: [1, 100]
       }
     },
-    icon: {
+    liveLink: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1, 256],
+        isUrl: true
+      }
+    },
+    repoLink: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1, 256],
+        isUrl: true
+      }
+    },
+    about: {
+      type: DataTypes.TEXT,
+      allowNull: false
+    },
+    previewImage: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
@@ -42,12 +62,12 @@ module.exports = (sequelize, DataTypes) => {
     }
   }, {
     sequelize,
-    modelName: 'Skill',
+    modelName: 'Project',
     defaultScope: {
       attributes: {
         exclude: ["createdAt", "updatedAt"]
       }
     }
   });
-  return Skill;
+  return Project;
 };

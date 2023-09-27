@@ -14,7 +14,6 @@ const AboutPage = ({ user }) => {
       const res = await csrfFetch(`/api/users/${user.id}/skills`)
       const skillData = await res.json()
       setSkills(skillData)
-      console.log(skillData)
       const aboutArray = user.about.split("\n")
       setAbout(aboutArray)
       setIsLoaded(true)
