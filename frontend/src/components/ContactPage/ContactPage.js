@@ -41,10 +41,10 @@ const ContactPage = ({ user }) => {
           </div>
           <div className={contactPagePhone}>
             <h2>Phone:</h2>
-            {phone}
+            <p>{phone}</p>
           </div>
+          <h2>Social Media:</h2>
           <div className={contactPageSocial}>
-            <h2>Social Media:</h2>
             {socials.map((social, i) => (
               <a key={i} href={social.link} target='_blank' rel="noreferrer"><i className={social.icon}></i></a>
             ))}
