@@ -34,6 +34,7 @@ const LandingPage = () => {
   const userSelectClass = "landingPage-userSelect" + (darkMode ? " landingPage-userSelect-dark" : " landingPage-userSelect-light")
   const userClass = "landingPage-user" + (darkMode ? " landingPage-user-dark" : " landingPage-user-light")
   const selectClass = "landingPage-select" + (darkMode ? " landingPage-select-dark" : " landingPage-select-light")
+  const landingPageContent = "landingPage-content" + (darkMode ? " landingPage-content-dark" : " landingPage-content-light")
 
   let pageContent
 
@@ -75,7 +76,7 @@ const LandingPage = () => {
               <img src={user.profileImage} alt={user.firstName}/>
               <h3>{user.firstName} {user.lastName}</h3>
               <p>{user.location}</p>
-              <p>{user.email}</p>
+              <a href={`mailto:${user.email}`}>zwsmith27@gmail.com</a>
               <p>{phone}</p>
             </div>
             <div className={selectClass}>
@@ -84,7 +85,7 @@ const LandingPage = () => {
               <button onClick={contactButton}>Contact Me</button>
             </div>
           </div>
-          <div className='landingPage-content'>
+          <div className={landingPageContent}>
             {pageContent}
           </div>
         </div>
