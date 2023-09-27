@@ -110,8 +110,8 @@ router.get('/:userId/projects', async (req, res, next) => {
   return res.json(projects)
 })
 
-router.get('/:userId/projects', async (req, res, next) => {
-  const socials = Social.findAll({
+router.get('/:userId/socials', async (req, res, next) => {
+  const socials = await Social.findAll({
     where: {
       userId: req.params.userId
     }
