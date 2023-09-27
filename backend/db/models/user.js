@@ -16,6 +16,9 @@ module.exports = (sequelize, DataTypes) => {
       User.hasMany(models.Project, {
         foreignKey: 'userId'
       })
+      User.hasMany(models.Social, {
+        foreignKey: 'userId'
+      })
     }
   }
   User.init({

@@ -14,7 +14,7 @@ module.exports = {
   async up (queryInterface, Sequelize) {
     const seeds = [
       {
-        email: 'zwsmith@gmail.com',
+        email: 'zwsmith27@gmail.com',
         username: 'zwsmith',
         firstName: 'Zach',
         lastName: 'Smith',
