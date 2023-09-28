@@ -9,6 +9,8 @@ import Navigation from './components/Navigation'
 import Footer from './components/Footer'
 import UltraDarkPage from './components/UltraDarkPage'
 import LoginFormPage from './components/LoginFormPage'
+import NotFoundPage from './components/NotFoundPage'
+import ProfilePage from './components/ProfilePage'
 
 function App() {
   const dispatch = useDispatch()
@@ -52,6 +54,12 @@ function App() {
                 </Route>
                 <Route exact path='/login'>
                   <LoginFormPage />
+                </Route>
+                <Route exact path='/profile'>
+                  <ProfilePage />
+                </Route>
+                <Route>
+                  <NotFoundPage />
                 </Route>
               </Switch>
             </main>
