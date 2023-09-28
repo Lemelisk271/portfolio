@@ -1,0 +1,48 @@
+.editProfileModal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px;
+}
+
+.editProfileModal-dark {
+  background-color: #136F63;
+  color: white
+}
+
+.editProfileModal-light {
+  background-color: white;
+  color: black
+}
+
+.editProfileModal form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.editProfileModal form div {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.editProfileModal form button {
+  margin-top: 20px;
+  font-size: 18px;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.editProfileModal-dark form button {
+  background-color: #B74F6F;
+  color: white;
+}
+
+.editProfileModal-light form button {
+  background-color: #EF946C;
+  color: white;
+}

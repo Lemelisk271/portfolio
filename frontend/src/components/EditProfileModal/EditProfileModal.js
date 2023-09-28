@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux'
 import { DarkModeContext } from '../../context/DarkModeContext'
 import { useModal } from '../../context/Modal'
 import { updateUser } from '../../store/session'
+import './EditProfileModal.css'
 
 const EditProfileModal = ({ user }) => {
   const dispatch = useDispatch()
@@ -61,8 +62,6 @@ const EditProfileModal = ({ user }) => {
     setValidationErrors(errors)
   }, [firstName, lastName, email, phone, location])
 
-  const editProfileClass = "editProfileModal" + (darkMode ? " editProfileModal-dark" : " editProfileModal-class")
-
   const handleSubmit = (e) => {
     e.preventDefault()
     setIsSubmitted(true)
@@ -88,6 +87,8 @@ const EditProfileModal = ({ user }) => {
         }
       })
   }
+
+  const editProfileClass = "editProfileModal" + (darkMode ? " editProfileModal-dark" : " editProfileModal-light")
 
   return (
     <div className={editProfileClass}>
