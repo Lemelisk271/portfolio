@@ -14,7 +14,6 @@ const ContactPage = ({ user }) => {
       const res = await csrfFetch(`/api/users/${user.id}/socials`)
       const socialsData = await res.json()
       setSocials(socialsData)
-      console.log(socialsData)
 
       const areaCode = user.phone.slice(0, 3)
       const firstThree = user.phone.slice(3, 6)

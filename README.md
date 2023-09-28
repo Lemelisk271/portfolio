@@ -1,9 +1,5 @@
-# Title
+# Zach Smith's Portfolio
 
-## Database Schema Design
+![portfolio]
 
-![db-schema]
-
-[db-schema]: ./images/temp.png
-
-## API Documentation
+[portfolio]: ./images/portfolio.png
