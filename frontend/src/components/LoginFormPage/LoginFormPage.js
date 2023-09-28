@@ -13,7 +13,7 @@ const LoginFormPage = () => {
   const [errors, setErrors] = useState({})
   const { darkMode } = useContext(DarkModeContext)
 
-  if (sessionUser) return <Redirect to ="/" />
+  if (sessionUser) return <Redirect to ="/profile" />
 
   const handleSubmit = (e) => {
     e.preventDefault()

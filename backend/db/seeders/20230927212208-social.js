@@ -11,13 +11,13 @@ if (process.env.NODE_ENV === 'production') {
 
 const socialList = [
   {
-    username: 'zwsmith',
+    username: 'zwsmith27',
     name: 'GitHub',
     icon: 'fa-brands fa-square-github',
     link: 'https://github.com/Lemelisk271'
   },
   {
-    username: 'zwsmith',
+    username: 'zwsmith27',
     name: 'LinkedIn',
     icon: 'fa-brands fa-linkedin',
     link: 'https://www.linkedin.com/in/zwsmith27/'

@@ -11,7 +11,7 @@ if (process.env.NODE_ENV === 'production') {
 
 const projectList = [
   {
-    username: 'zwsmith',
+    username: 'zwsmith27',
     name: 'Showup',
     liveLink: 'https://showup.onrender.com/',
     repoLink: 'https://github.com/Lemelisk271/ShowUp',
@@ -19,7 +19,7 @@ const projectList = [
     previewImage: 'https://zwsmith-portfolio.s3.us-west-2.amazonaws.com/showup.png'
   },
   {
-    username: 'zwsmith',
+    username: 'zwsmith27',
     name: 'Welp',
     liveLink: 'https://welp-686p.onrender.com/',
     repoLink: 'https://github.com/Lemelisk271/welp-group-project',
@@ -27,7 +27,7 @@ const projectList = [
     previewImage: 'https://zwsmith-portfolio.s3.us-west-2.amazonaws.com/welp.png'
   },
   {
-    username: 'zwsmith',
+    username: 'zwsmith27',
     name: 'TaskWombat',
     liveLink: 'https://taskwombat.onrender.com/',
     repoLink: 'https://github.com/Lemelisk271/taskwombat',
