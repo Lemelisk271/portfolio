@@ -34,10 +34,31 @@ const UltraDarkPage = () => {
   return (
     <div className='ultraDarkPage'>
       <div id="flashlight"></div>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Praesent elementum facilisis leo vel fringilla est ullamcorper eget. Aenean vel elit scelerisque mauris pellentesque pulvinar pellentesque habitant. In ante metus dictum at. Vel pharetra vel turpis nunc eget lorem dolor sed viverra. Feugiat vivamus at augue eget arcu dictum varius duis at. Cras fermentum odio eu feugiat pretium nibh ipsum consequat nisl. Sed ullamcorper morbi tincidunt ornare massa eget egestas. Urna molestie at elementum eu facilisis sed. Egestas fringilla phasellus faucibus scelerisque. Massa eget egestas purus viverra accumsan. Tristique nulla aliquet enim tortor at auctor urna nunc. Fringilla est ullamcorper eget nulla facilisi etiam dignissim diam. Porttitor eget dolor morbi non arcu risus quis varius quam. Netus et malesuada fames ac turpis egestas integer. Magna eget est lorem ipsum dolor sit amet.
-      </p>
-      <button onClick={ultraDarkButton}>Turn off Ultra Dark Mode.</button>
+      <div className='ultraDarkPage-content'>
+        <div className="ultraDarkPage-first">
+          <h3>You made it this far!</h3>
+          <h3>["hip", "hip"]</h3>
+          <p>"hip hip array!" Get it? I crack myself up!</p>
+          <i className="fa-solid fa-arrow-down"></i>
+          <h4>What's down there?</h4>
+        </div>
+        <div className="ultraDarkPage-second">
+          <h3>Oh no! The lightbulb burt out.</h3>
+          <img src='https://zwsmith-portfolio.s3.us-west-2.amazonaws.com/lightbulb.jpg' alt='Burnt Lightbulb'/>
+          <p>I'd fix that, but I'm a programmer and that's a hardware problem.</p>
+          <i className="fa-solid fa-arrow-left"></i>
+          <h4>What's that way?</h4>
+        </div>
+        <div className="ultraDarkPage-third">
+          <h3>Just a little further...</h3>
+          <p>Looking for another joke? I'm fresh out.</p>
+          <i className="fa-solid fa-arrow-right"></i>
+        </div>
+        <div className="ultraDarkPage-forth">
+          <h3>Well, that's anticlimactic.</h3>
+          <button onClick={ultraDarkButton}>Exit</button>
+        </div>
+      </div>
     </div>
   )
 }
