@@ -11,6 +11,7 @@ const ProjectPage = ({ user }) => {
     const loadPage = async () => {
       const res = await csrfFetch(`/api/users/${user.id}/projects`)
       const projectData = await res.json()
+      console.log(projectData)
       setProjects(projectData)
       setIsLoaded(true)
     }

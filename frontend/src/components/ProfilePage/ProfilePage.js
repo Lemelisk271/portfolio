@@ -3,6 +3,8 @@ import { useSelector } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import { csrfFetch } from '../../store/csrf'
 import { DarkModeContext } from '../../context/DarkModeContext'
+import EditProfileModal from '../EditProfileModal'
+import OpenModalButton from '../OpenModalButton'
 import './ProfilePage.css'
 
 const ProfilePage = () => {
@@ -77,7 +79,10 @@ const ProfilePage = () => {
                 </tbody>
               </table>
               <div className={profileUserButtonClass}>
-                <button>Edit Profile</button>
+                <OpenModalButton
+                  buttonText="Edit Profile"
+                  modalComponent={<EditProfileModal user={user}/>}
+                />
                 <button>View/Edit About</button>
                 <button>Change Password</button>
               </div>
