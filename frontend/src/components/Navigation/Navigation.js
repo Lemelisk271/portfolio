@@ -35,9 +35,11 @@ const Navigation = ({ isLoaded }) => {
 
   if (sessionUser) {
     sessionLinks = (
-      <li>
+      <>
+        <button onClick={darkModeButton}>{darkButton}</button>
+        <button onClick={ultraDarkButton}>Ultra Dark Mode: Off</button>
         <ProfileButton user={sessionUser}/>
-      </li>
+      </>
     )
   } else {
     sessionLinks = (
@@ -48,7 +50,7 @@ const Navigation = ({ isLoaded }) => {
     )
   }
 
-  const navClass = darkMode ? 'navigation-dark' : 'navigation-light'
+  const navClass = "navigation" + (darkMode ? ' navigation-dark' : ' navigation-light')
 
   return (
     <div className={navClass}>
