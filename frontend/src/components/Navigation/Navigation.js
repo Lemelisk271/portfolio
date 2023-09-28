@@ -21,7 +21,9 @@ const Navigation = ({ isLoaded }) => {
 
   const darkModeButton = (e) => {
     e.preventDefault()
-    setDarkMode(!darkMode)
+    let newMode = !darkMode
+    setDarkMode(newMode)
+    localStorage.setItem("darkMode", newMode)
   }
 
   const ultraDarkButton = (e) => {
