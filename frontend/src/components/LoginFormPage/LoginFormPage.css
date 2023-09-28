@@ -1,0 +1,55 @@
+.loginFormPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 150px);
+}
+
+.loginFormPage-dark {
+  background-color: black;
+  color: white;
+}
+
+.loginFormPage-light {
+  background-color: white;
+  color: black;
+}
+
+.loginFormPage form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px;
+  border-radius: 20px;
+}
+
+.loginFormPage-light form {
+  border: 5px solid #EF946C;
+}
+
+.loginFormPage-dark form {
+  border: 5px solid #B74F6F;
+}
+
+.loginFormPage form div {
+  display: flex;
+  flex-direction: column;
+}
+
+.loginFormPage form button {
+  margin-top: 20px;
+  font-size: 18px;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.loginFormPage-light form button {
+  background-color: #EF946C;
+}
+
+.loginFormPage-dark form button {
+  background-color: #B74F6F;
+}

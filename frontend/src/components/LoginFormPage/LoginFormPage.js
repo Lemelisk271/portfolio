@@ -1,16 +1,17 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import { login } from '../../store/session'
-import { useModal } from '../../context/Modal'
+import { DarkModeContext } from '../../context/DarkModeContext'
+import './LoginFormPage.css'
 
-const LoginFormModal = () => {
+const LoginFormPage = () => {
   const dispatch = useDispatch()
   const sessionUser = useSelector(state => state.session.user)
   const [credential, setCredential] = useState('')
   const [password, setPassword] = useState('')
   const [errors, setErrors] = useState({})
-  const { closeModal } = useModal()
+  const { darkMode } = useContext(DarkModeContext)
 
   if (sessionUser) return <Redirect to ="/" />
 
@@ -18,7 +19,6 @@ const LoginFormModal = () => {
     e.preventDefault()
     setErrors({})
     return dispatch(login({ credential, password }))
-      .then(closeModal)
       .catch(
       async (res) => {
         const data = await res.json()
@@ -29,8 +29,10 @@ const LoginFormModal = () => {
     )
   }
 
+  const loginPageClass = "loginFormPage" + (darkMode ? " loginFormPage-dark" : " loginFormPage-light")
+
   return (
-    <div className='loginFormPage'>
+    <div className={loginPageClass}>
       <h1>Log In</h1>
       <form onSubmit={handleSubmit}>
         <div>
@@ -62,4 +64,4 @@ const LoginFormModal = () => {
   )
 }
 
-export default LoginFormModal
+export default LoginFormPage
