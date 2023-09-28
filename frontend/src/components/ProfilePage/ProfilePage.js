@@ -9,6 +9,7 @@ import './ProfilePage.css'
 
 const ProfilePage = () => {
   const sessionUser = useSelector(state => state.session.user)
+  console.log(sessionUser)
   const [isLoaded, setIsLoaded] = useState(false)
   const [user, setUser] = useState({})
   const [phone, setPhone] = useState('')
@@ -18,7 +19,6 @@ const ProfilePage = () => {
     const loadPage = async () => {
       const res = await csrfFetch('/api/users')
       const userData = await res.json()
-      console.log(userData)
       setUser(userData)
 
       const areaCode = userData.phone.slice(0, 3)
@@ -29,7 +29,7 @@ const ProfilePage = () => {
       setIsLoaded(true)
     }
     loadPage()
-  }, [])
+  }, [sessionUser])
 
   if (!sessionUser) return <Redirect to="/"/>
 

@@ -62,6 +62,28 @@ export const logout = () => async (dispatch) => {
   return response
 }
 
+export const updateUser = (id, user) => async (dispatch) => {
+  const response = await csrfFetch(`/api/users/${id}`, {
+    method: 'PUT',
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(user)
+  })
+  if (response.ok) {
+    const data = await response.json()
+    dispatch(setUser(data.user))
+    return null
+  } else if (response.status < 500) {
+    const data = await response.json()
+    if (data.errors) {
+      return data.errors
+    }
+  } else {
+    return {message: "An Error Occurred, Please try Again."}
+  }
+}
+
 const initialState = { user: null }
 
 const sessionReducer = (state = initialState, action) => {

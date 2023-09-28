@@ -3,13 +3,24 @@ import { useSelector } from 'react-redux'
 import ProfileButton from './ProfileButton'
 import { DarkModeContext } from '../../context/DarkModeContext'
 import { UltraDarkModeContext } from '../../context/UltraDarkContext'
+import { csrfFetch } from '../../store/csrf'
 import './Navigation.css'
 
 const Navigation = ({ isLoaded }) => {
   const sessionUser = useSelector(state => state.session.user)
   const [darkButton, setDarkButton] = useState('')
+  const [user, setUser] = useState({})
   const { darkMode, setDarkMode } = useContext(DarkModeContext)
   const { ultraDarkMode, setUltraDarkMode } = useContext(UltraDarkModeContext)
+
+  useEffect(() => {
+    const loadUser = async () => {
+      const res = await csrfFetch('/api/users')
+      const userData = await res.json()
+      setUser(userData)
+    }
+    loadUser()
+  }, [sessionUser])
 
   useEffect(() => {
     if (darkMode) {
@@ -53,7 +64,7 @@ const Navigation = ({ isLoaded }) => {
 
   return (
     <div className={navClass}>
-      <h1>Zach Smith, Software Developer</h1>
+      <a href='/'><h1>{user.firstName} {user.lastName}, Software Developer</h1></a>
       <div>
         {isLoaded && sessionLinks}
       </div>

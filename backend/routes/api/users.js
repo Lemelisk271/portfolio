@@ -128,4 +128,36 @@ router.get('/:userId/socials', async (req, res, next) => {
   return res.json(socials)
 })
 
+router.put('/:userId', requireAuth, async (req, res, next) => {
+  const user = await User.findByPk(req.params.userId)
+
+  if (!user) {
+    const err = new Error("Note Fund")
+    err.status = 404
+    err.title = "User Not Fund"
+    err.errors = {message: "The requested user couldn't be found."}
+    return next(err)
+  }
+
+  user.set(req.body)
+
+  console.log("**********")
+  console.log(req.body)
+  console.log("**********")
+
+  await user.save()
+
+  const safeUser = {
+    id: user.id,
+    firstName: user.firstName,
+    lastName: user.lastName,
+    email: user.email,
+    username: user.username
+  }
+
+  await setTokenCookie(res, safeUser)
+
+  return res.status(201).json({user: safeUser})
+})
+
 module.exports = router
