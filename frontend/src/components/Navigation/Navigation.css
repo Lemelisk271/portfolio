@@ -18,9 +18,10 @@
   background-color: #134074;
 }
 
-.navigation h1 {
+.navigation a {
   margin-left: 20px;
-  font-size: 24px;
+  font-size: 18px;
+  text-decoration: none;
 }
 
 .navigation-light h1 {
