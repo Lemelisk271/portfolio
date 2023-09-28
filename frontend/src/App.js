@@ -28,6 +28,7 @@ function App() {
     } else {
       setDarkMode(false)
     }
+    // eslint-disable-next-line
   }, [darkMode])
 
   return (
