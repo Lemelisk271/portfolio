@@ -59,7 +59,7 @@ router.post('/', validateSignup, async (req, res) => {
 router.get('/', async (_req, res, next) => {
   const user = await User.findOne({
     where: {
-      username: 'zwsmith'
+      username: 'zwsmith27'
     }
   })
 
