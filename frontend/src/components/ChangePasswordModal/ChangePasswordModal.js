@@ -1,12 +1,15 @@
 import { useContext, useState, useEffect } from 'react'
 import { DarkModeContext } from '../../context/DarkModeContext'
+import { csrfFetch } from '../../store/csrf'
+import { useModal } from '../../context/Modal'
 
-const ChangePasswordModal = () => {
+const ChangePasswordModal = ({ user }) => {
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
   const [validationErrors, setValidationErrors] = useState({})
   const [isSubmitted, setIsSubmitted] = useState(false)
   const { darkMode } = useContext(DarkModeContext)
+  const { closeModal } = useModal()
 
   useEffect(() => {
     const errors = {}
@@ -22,7 +25,7 @@ const ChangePasswordModal = () => {
     setValidationErrors(errors)
   }, [password])
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     setIsSubmitted(true)
 
@@ -32,7 +35,21 @@ const ChangePasswordModal = () => {
       password
     }
 
-    console.log(passObj)
+    const res = await csrfFetch(`/api/users/${user.id}/password`, {
+      method: 'PUT',
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(passObj)
+    })
+    if (res.ok) {
+      closeModal()
+    } else {
+      const data = await res.json()
+      if (data.errors) {
+        setValidationErrors(data.errors)
+      }
+    }
   }
 
   const changePasswordClass = "changePasswordModal" + (darkMode ? "changePasswordModal-dark" : "changePasswordModal-light")
