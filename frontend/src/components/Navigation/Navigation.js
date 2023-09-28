@@ -37,7 +37,6 @@ const Navigation = ({ isLoaded }) => {
     sessionLinks = (
       <>
         <button onClick={darkModeButton}>{darkButton}</button>
-        <button onClick={ultraDarkButton}>Ultra Dark Mode: Off</button>
         <ProfileButton user={sessionUser}/>
       </>
     )

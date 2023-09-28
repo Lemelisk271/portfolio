@@ -1,0 +1,19 @@
+.profilePage {
+  display: flex;
+  flex-direction: column;
+}
+
+.profilePage-user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profilePage-user table th {
+  text-align: left;
+  padding-right: 10px;
+}
+
+.profilePage-user img {
+  height: 150px;
+}
