@@ -5,6 +5,7 @@ import { csrfFetch } from '../../store/csrf'
 import { DarkModeContext } from '../../context/DarkModeContext'
 import EditProfileModal from '../EditProfileModal'
 import OpenModalButton from '../OpenModalButton'
+import ChangePasswordModal from '../ChangePasswordModal'
 import './ProfilePage.css'
 
 const ProfilePage = () => {
@@ -84,7 +85,10 @@ const ProfilePage = () => {
                   modalComponent={<EditProfileModal user={user}/>}
                 />
                 <button>View/Edit About</button>
-                <button>Change Password</button>
+                <OpenModalButton
+                  buttonText="Change Password"
+                  modalComponent={<ChangePasswordModal user={user}/>}
+                />
               </div>
             </div>
           </div>

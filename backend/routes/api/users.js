@@ -141,10 +141,6 @@ router.put('/:userId', requireAuth, async (req, res, next) => {
 
   user.set(req.body)
 
-  console.log("**********")
-  console.log(req.body)
-  console.log("**********")
-
   await user.save()
 
   const safeUser = {
@@ -158,6 +154,26 @@ router.put('/:userId', requireAuth, async (req, res, next) => {
   await setTokenCookie(res, safeUser)
 
   return res.status(201).json({user: safeUser})
+})
+
+router.put('/:userId/password', requireAuth, async (req, res, next) => {
+  const { password } = req.body
+  const hashedPassword = bcrypt.hashSync(password)
+  const user = await User.findByPk(req.params.userId)
+
+  if (!user) {
+    const err = new Error("Not Found")
+    err.status = 404
+    err.title = "User Not Found"
+    err.errors = {message: "The requested user couldn't be found."}
+    return next(err)
+  }
+
+  user.set({ hashedPassword })
+
+  await user.save()
+
+  return res.status(201).json(user)
 })
 
 module.exports = router
