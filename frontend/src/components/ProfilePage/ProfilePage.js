@@ -8,6 +8,7 @@ import OpenModalButton from '../OpenModalButton'
 import ChangePasswordModal from '../ChangePasswordModal'
 import ChangeUserImageModal from '../ChangeUserImageModal'
 import AboutModal from '../AboutModal'
+import ProfileProjectListItem from '../ProfileProjectListItem'
 import './ProfilePage.css'
 
 const ProfilePage = () => {
@@ -15,6 +16,7 @@ const ProfilePage = () => {
   const [isLoaded, setIsLoaded] = useState(false)
   const [user, setUser] = useState({})
   const [phone, setPhone] = useState('')
+  const [projects, setProjects] = useState([])
   const { darkMode } = useContext(DarkModeContext)
 
   useEffect(() => {
@@ -28,6 +30,10 @@ const ProfilePage = () => {
       const lastFour = userData.phone.slice(6)
       setPhone(`(${areaCode}) ${firstThree}-${lastFour}`)
 
+      const projectRes = await csrfFetch(`/api/users/${sessionUser.id}/projects`)
+      const projectData = await projectRes.json()
+      setProjects(projectData)
+
       setIsLoaded(true)
     }
     loadPage()
@@ -38,6 +44,7 @@ const ProfilePage = () => {
   const profileInfoClass = "profilePage-info" + (darkMode ? " profilePage-info-dark" : " profilePage-info-light")
   const profileUserClass = "profilePage-user" + (darkMode ? " profilePage-user-dark" : " profilePage-user-light")
   const profileUserButtonClass = "profilePage-userButtons" + (darkMode ? " profilePage-userButtons-dark" : " profilePage-userButtons-light")
+  const profileProjectsClass = "profilePage-projects" + (darkMode ? " profilePage-projects-dark" : " profilePage-projects-light")
 
   return (
     <div className="profilePage">
@@ -74,10 +81,6 @@ const ProfilePage = () => {
                     <th scope='row'>Location:</th>
                     <td>{user.location}</td>
                   </tr>
-                  <tr>
-                    <th scope='row'>Profile Image URL:</th>
-                    <td>{user.profileImage}</td>
-                  </tr>
                 </tbody>
               </table>
               <div className={profileUserButtonClass}>
@@ -98,6 +101,12 @@ const ProfilePage = () => {
                   modalComponent={<ChangeUserImageModal user={user} />}
                 />
               </div>
+            </div>
+            <div className={profileProjectsClass}>
+              <h2>Projects</h2>
+              {projects.map((project, i) => (
+                <ProfileProjectListItem key={i} project={project} />
+              ))}
             </div>
           </div>
         </>
