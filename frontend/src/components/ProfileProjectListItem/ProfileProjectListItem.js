@@ -1,5 +1,7 @@
 import { useContext } from 'react'
 import { DarkModeContext } from '../../context/DarkModeContext'
+import EditProjectModal from '../EditProjectModal'
+import OpenModalButton from '../OpenModalButton'
 import './ProfileProjectListItem.css'
 
 const ProfileProjectListItem = ({ project }) => {
@@ -32,7 +34,10 @@ const ProfileProjectListItem = ({ project }) => {
         </tbody>
       </table>
       <div className={listItemButtonClass}>
-        <button>Edit Project</button>
+        <OpenModalButton
+          buttonText="Edit Project"
+          modalComponent={<EditProjectModal project={project}/>}
+        />
         <button>Change Project Image</button>
         <button>Delete Project</button>
       </div>
