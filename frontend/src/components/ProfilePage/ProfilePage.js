@@ -6,12 +6,12 @@ import { DarkModeContext } from '../../context/DarkModeContext'
 import EditProfileModal from '../EditProfileModal'
 import OpenModalButton from '../OpenModalButton'
 import ChangePasswordModal from '../ChangePasswordModal'
+import ChangeUserImageModal from '../ChangeUserImageModal'
 import AboutModal from '../AboutModal'
 import './ProfilePage.css'
 
 const ProfilePage = () => {
   const sessionUser = useSelector(state => state.session.user)
-  console.log(sessionUser)
   const [isLoaded, setIsLoaded] = useState(false)
   const [user, setUser] = useState({})
   const [phone, setPhone] = useState('')
@@ -92,6 +92,10 @@ const ProfilePage = () => {
                 <OpenModalButton
                   buttonText="Change Password"
                   modalComponent={<ChangePasswordModal user={user}/>}
+                />
+                <OpenModalButton
+                  buttonText="Change Profile Image"
+                  modalComponent={<ChangeUserImageModal user={user} />}
                 />
               </div>
             </div>

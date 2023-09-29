@@ -36,7 +36,7 @@ router.put('/:userId', requireAuth, singleMulterUpload("image"), async (req, res
 
   await setTokenCookie(res, safeUser)
 
-  return res.status(201).json({ user: safeUser})
+  return res.status(201).json({ user: safeUser })
 })
 
 module.exports = router

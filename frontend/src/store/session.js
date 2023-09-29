@@ -96,7 +96,7 @@ export const updateImage = (id, body) => async (dispatch) => {
     body: formData
   })
   if (res.ok) {
-    const data = res.json()
+    const data = await res.json()
     dispatch(setUser(data.user))
   } else if (res.status < 500) {
     const data = await res.json()

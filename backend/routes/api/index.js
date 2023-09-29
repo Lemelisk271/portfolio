@@ -8,6 +8,6 @@ router.use(restoreUser)
 
 router.use('/session', sessionRouter)
 router.use('/users', usersRouter)
-router.use('images', imageRouter)
+router.use('/images', imageRouter)
 
 module.exports = router
