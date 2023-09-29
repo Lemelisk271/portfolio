@@ -84,6 +84,30 @@ export const updateUser = (id, user) => async (dispatch) => {
   }
 }
 
+export const updateImage = (id, body) => async (dispatch) => {
+  const { image } = body
+  const formData = new FormData()
+  formData.append("image", image)
+  const res = await csrfFetch(`/api/images/${id}`, {
+    method: 'PUT',
+    headers: {
+      "Content-Type": "multipart/form-data"
+    },
+    body: formData
+  })
+  if (res.ok) {
+    const data = await res.json()
+    dispatch(setUser(data.user))
+  } else if (res.status < 500) {
+    const data = await res.json()
+    if (data.errors) {
+      return data.errors
+    }
+  } else {
+    return {message: "An Error Occurred, Please try Again."}
+  }
+}
+
 const initialState = { user: null }
 
 const sessionReducer = (state = initialState, action) => {
