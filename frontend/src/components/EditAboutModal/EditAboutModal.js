@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux'
 import { DarkModeContext } from '../../context/DarkModeContext'
 import { updateUser } from '../../store/session'
 import { useModal } from '../../context/Modal'
+import './EditAboutModal.css'
 
 const EditAboutModal = ({ user }) => {
   const dispatch = useDispatch()

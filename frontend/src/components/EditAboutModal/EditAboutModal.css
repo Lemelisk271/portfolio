@@ -1,23 +1,28 @@
-.aboutModal {
+.editAboutModal {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 50vw;
   padding: 50px;
-  text-align: justify;
 }
 
-.aboutModal-dark {
+.editAboutModal-dark {
   background-color: #136F63;
   color: white
 }
 
-.aboutModal-light {
+.editAboutModal-light {
   background-color: white;
   color: black
 }
 
-.aboutModal button {
+.editAboutModal form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.editAboutModal form button {
   margin-top: 20px;
   font-size: 18px;
   padding: 10px;
@@ -26,12 +31,12 @@
   cursor: pointer;
 }
 
-.aboutModal-dark button {
+.editAboutModal-dark form button {
   background-color: #B74F6F;
   color: white;
 }
 
-.aboutModal-light button {
+.editAboutModal-light form button {
   background-color: #EF946C;
   color: black;
 }
