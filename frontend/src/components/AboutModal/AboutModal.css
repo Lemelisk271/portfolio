@@ -1,0 +1,36 @@
+.aboutModal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50vw;
+  padding: 50px;
+}
+
+.aboutModal-dark {
+  background-color: #136F63;
+  color: white
+}
+
+.aboutModal-light {
+  background-color: white;
+  color: black
+}
+
+.aboutModal button {
+  margin-top: 20px;
+  font-size: 18px;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.aboutModal-dark button {
+  background-color: #B74F6F;
+  color: white;
+}
+
+.aboutModal-light button {
+  background-color: #EF946C;
+  color: black;
+}

@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from 'react'
 import { DarkModeContext } from '../../context/DarkModeContext'
+import './AboutModal.css'
 
 const AboutModal = ({ user }) => {
   const [about, setAbout] = useState([])
