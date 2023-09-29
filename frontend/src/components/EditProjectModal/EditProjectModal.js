@@ -1,4 +1,7 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
+import { DarkModeContext } from '../../context/DarkModeContext'
+import { csrfFetch } from '../../store/csrf'
+import { useModal } from '../../context/Modal'
 
 const EditProjectModal = ({ project }) => {
   const [name, setName] = useState(project.name)
@@ -7,6 +10,8 @@ const EditProjectModal = ({ project }) => {
   const [about, setAbout] = useState(project.about)
   const [validationErrors, setValidationErrors] = useState({})
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const { darkMode } = useContext(DarkModeContext)
+  const { closeModal } = useModal()
 
   const urlReg = /^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$/
 
@@ -32,7 +37,7 @@ const EditProjectModal = ({ project }) => {
     setValidationErrors(errors)
   }, [name, liveLink, repoLink, about])
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     setIsSubmitted(true)
 
@@ -45,11 +50,29 @@ const EditProjectModal = ({ project }) => {
       about
     }
 
-    console.log(projectObj)
+    const res = await csrfFetch(`/api/projects/${project.id}`, {
+      method: 'PUT',
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(projectObj)
+    })
+    if (res.ok) {
+      closeModal()
+    } else if (res.status < 500) {
+      const data = await res.json()
+      if (data.errors) {
+        return data.errors
+      }
+    } else {
+      return {message: "An Error Occurred, Please try Again."}
+    }
   }
 
+  const editProjectClass = "editProjectModal" + (darkMode ? " editProjectModal-dark" : " editProjectModal-light")
+
   return (
-    <div className="editProjectModal">
+    <div className={editProjectClass}>
       <h1>Edit {project.name}</h1>
       {(isSubmitted && Object.values(validationErrors).length > 0) && <ul>
           {Object.values(validationErrors).map((error, i) => (
