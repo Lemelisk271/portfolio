@@ -2,6 +2,8 @@ import { useState, useEffect, useContext } from 'react'
 import { DarkModeContext } from '../../context/DarkModeContext'
 import { csrfFetch } from '../../store/csrf'
 import { useModal } from '../../context/Modal'
+import { ResetContext } from '../../context/ResetContext'
+import './EditProjectModal.css'
 
 const EditProjectModal = ({ project }) => {
   const [name, setName] = useState(project.name)
@@ -11,6 +13,7 @@ const EditProjectModal = ({ project }) => {
   const [validationErrors, setValidationErrors] = useState({})
   const [isSubmitted, setIsSubmitted] = useState(false)
   const { darkMode } = useContext(DarkModeContext)
+  const { reset, setReset } = useContext(ResetContext)
   const { closeModal } = useModal()
 
   const urlReg = /^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$/
@@ -58,6 +61,7 @@ const EditProjectModal = ({ project }) => {
       body: JSON.stringify(projectObj)
     })
     if (res.ok) {
+      setReset(!reset)
       closeModal()
     } else if (res.status < 500) {
       const data = await res.json()
@@ -113,6 +117,8 @@ const EditProjectModal = ({ project }) => {
             id='about'
             value={about}
             onChange={e => setAbout(e.target.value)}
+            cols={30}
+            rows={5}
           />
         </div>
         <button type='submit'>Save</button>

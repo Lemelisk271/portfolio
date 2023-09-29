@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux'
 import { DarkModeContext } from '../../context/DarkModeContext'
 import { useModal } from '../../context/Modal'
 import { updateImage } from '../../store/session'
+import './ChangeUserImageModal.css'
 
 
 const ChangeUserImageModal = ({ user }) => {

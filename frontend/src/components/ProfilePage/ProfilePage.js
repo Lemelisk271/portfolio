@@ -9,6 +9,7 @@ import ChangePasswordModal from '../ChangePasswordModal'
 import ChangeUserImageModal from '../ChangeUserImageModal'
 import AboutModal from '../AboutModal'
 import ProfileProjectListItem from '../ProfileProjectListItem'
+import { ResetContext } from '../../context/ResetContext'
 import './ProfilePage.css'
 
 const ProfilePage = () => {
@@ -18,6 +19,7 @@ const ProfilePage = () => {
   const [phone, setPhone] = useState('')
   const [projects, setProjects] = useState([])
   const { darkMode } = useContext(DarkModeContext)
+  const { reset } = useContext(ResetContext)
 
   useEffect(() => {
     const loadPage = async () => {
@@ -37,7 +39,7 @@ const ProfilePage = () => {
       setIsLoaded(true)
     }
     loadPage()
-  }, [sessionUser])
+  }, [sessionUser, reset])
 
   if (!sessionUser) return <Redirect to="/"/>
 
