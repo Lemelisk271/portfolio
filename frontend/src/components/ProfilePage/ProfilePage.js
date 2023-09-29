@@ -6,6 +6,7 @@ import { DarkModeContext } from '../../context/DarkModeContext'
 import EditProfileModal from '../EditProfileModal'
 import OpenModalButton from '../OpenModalButton'
 import ChangePasswordModal from '../ChangePasswordModal'
+import AboutModal from '../AboutModal'
 import './ProfilePage.css'
 
 const ProfilePage = () => {
@@ -84,7 +85,10 @@ const ProfilePage = () => {
                   buttonText="Edit Profile"
                   modalComponent={<EditProfileModal user={user}/>}
                 />
-                <button>View/Edit About</button>
+                <OpenModalButton
+                  buttonText="View/Edit About"
+                  modalComponent={<AboutModal user={user}/>}
+                />
                 <OpenModalButton
                   buttonText="Change Password"
                   modalComponent={<ChangePasswordModal user={user}/>}
