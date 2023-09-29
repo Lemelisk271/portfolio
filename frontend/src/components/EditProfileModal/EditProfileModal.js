@@ -76,8 +76,6 @@ const EditProfileModal = ({ user }) => {
       location
     }
 
-    console.log(profileObj)
-
     return dispatch(updateUser(user.id, profileObj))
       .then(closeModal)
       .catch(async (res) => {

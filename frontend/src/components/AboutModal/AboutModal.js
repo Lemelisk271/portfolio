@@ -1,5 +1,7 @@
 import { useContext, useEffect, useState } from 'react'
 import { DarkModeContext } from '../../context/DarkModeContext'
+import EditAboutModal from '../EditAboutModal'
+import OpenModalButton from '../OpenModalButton'
 import './AboutModal.css'
 
 const AboutModal = ({ user }) => {
@@ -23,7 +25,10 @@ const AboutModal = ({ user }) => {
           {about.map((element, i) => (
             <p key={i}>{element}</p>
           ))}
-          <button>Edit About</button>
+          <OpenModalButton
+            buttonText="Edit About"
+            modalComponent={<EditAboutModal user={user}/>}
+          />
         </>
       ):(
         <>
