@@ -2,6 +2,7 @@ import { useContext, useState, useEffect } from 'react'
 import { DarkModeContext } from '../../context/DarkModeContext'
 import { csrfFetch } from '../../store/csrf'
 import { useModal } from '../../context/Modal'
+import './ChangePasswordModal.css'
 
 const ChangePasswordModal = ({ user }) => {
   const [password, setPassword] = useState('')
@@ -52,7 +53,7 @@ const ChangePasswordModal = ({ user }) => {
     }
   }
 
-  const changePasswordClass = "changePasswordModal" + (darkMode ? "changePasswordModal-dark" : "changePasswordModal-light")
+  const changePasswordClass = "changePasswordModal" + (darkMode ? " changePasswordModal-dark" : " changePasswordModal-light")
 
   return (
     <div className={changePasswordClass}>
