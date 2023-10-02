@@ -12,43 +12,43 @@ if (process.env.NODE_ENV === 'production') {
 const skillList = [
   {
     skill: "CSS",
-    icon: 'https://zwsmith-portfolio.s3.us-west-2.amazonaws.com/CSS.png'
+    icon: 'https://patchstagram-zwsmith.s3.us-west-2.amazonaws.com/CSS.png'
   },
   {
     skill: "GIT",
-    icon: 'https://zwsmith-portfolio.s3.us-west-2.amazonaws.com/git.png'
+    icon: 'https://patchstagram-zwsmith.s3.us-west-2.amazonaws.com/git.png'
   },
   {
     skill: "HTML",
-    icon: 'https://zwsmith-portfolio.s3.us-west-2.amazonaws.com/html.png'
+    icon: 'https://patchstagram-zwsmith.s3.us-west-2.amazonaws.com/html.png'
   },
   {
     skill: "JavaScript",
-    icon: 'https://zwsmith-portfolio.s3.us-west-2.amazonaws.com/JavaScript.png'
+    icon: 'https://patchstagram-zwsmith.s3.us-west-2.amazonaws.com/JavaScript.png'
   },
   {
     skill: "MySQL",
-    icon: 'https://zwsmith-portfolio.s3.us-west-2.amazonaws.com/mysql.png'
+    icon: 'https://patchstagram-zwsmith.s3.us-west-2.amazonaws.com/mysql.png'
   },
   {
     skill: "Node",
-    icon: 'https://zwsmith-portfolio.s3.us-west-2.amazonaws.com/node.png'
+    icon: 'https://patchstagram-zwsmith.s3.us-west-2.amazonaws.com/node.png'
   },
   {
     skill: "PostgreSQL",
-    icon: 'https://zwsmith-portfolio.s3.us-west-2.amazonaws.com/PostgreSQL.png'
+    icon: 'https://patchstagram-zwsmith.s3.us-west-2.amazonaws.com/PostgreSQL.png'
   },
   {
     skill: "Python",
-    icon: 'https://zwsmith-portfolio.s3.us-west-2.amazonaws.com/python.png'
+    icon: 'https://patchstagram-zwsmith.s3.us-west-2.amazonaws.com/python.png'
   },
   {
     skill: "React",
-    icon: 'https://zwsmith-portfolio.s3.us-west-2.amazonaws.com/react.png'
+    icon: 'https://patchstagram-zwsmith.s3.us-west-2.amazonaws.com/react.png'
   },
   {
     skill: "Redux",
-    icon: 'https://zwsmith-portfolio.s3.us-west-2.amazonaws.com/redux.png'
+    icon: 'https://patchstagram-zwsmith.s3.us-west-2.amazonaws.com/redux.png'
   }
 ]
 
