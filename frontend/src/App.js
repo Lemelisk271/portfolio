@@ -4,6 +4,7 @@ import { Switch, Route } from 'react-router-dom'
 import { restoreUser } from './store/session'
 import { UltraDarkModeContext } from './context/UltraDarkContext'
 import { DarkModeContext } from './context/DarkModeContext'
+import ReactGA from 'react-ga'
 import LandingPage from './components/LandingPage'
 import Navigation from './components/Navigation'
 import Footer from './components/Footer'
@@ -17,6 +18,8 @@ function App() {
   const [isLoaded, setIsLoaded] = useState(false)
   const { ultraDarkMode } = useContext(UltraDarkModeContext)
   const { darkMode, setDarkMode } = useContext(DarkModeContext)
+  const TRACKING_ID = "G-ZK1XCW9RS6"
+  ReactGA.initialize(TRACKING_ID)
 
   useEffect(() => {
     dispatch(restoreUser()).then(() => setIsLoaded(true))

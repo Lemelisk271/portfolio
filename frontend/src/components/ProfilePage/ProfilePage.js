@@ -9,6 +9,7 @@ import ChangePasswordModal from '../ChangePasswordModal'
 import ChangeUserImageModal from '../ChangeUserImageModal'
 import AboutModal from '../AboutModal'
 import ProfileProjectListItem from '../ProfileProjectListItem'
+import ProfileSkillListItem from '../ProfileSkillListItem'
 import { ResetContext } from '../../context/ResetContext'
 import './ProfilePage.css'
 
@@ -18,6 +19,7 @@ const ProfilePage = () => {
   const [user, setUser] = useState({})
   const [phone, setPhone] = useState('')
   const [projects, setProjects] = useState([])
+  const [skills, setSkills] = useState([])
   const { darkMode } = useContext(DarkModeContext)
   const { reset } = useContext(ResetContext)
 
@@ -36,6 +38,10 @@ const ProfilePage = () => {
       const projectData = await projectRes.json()
       setProjects(projectData)
 
+      const skillRes = await csrfFetch(`/api/users/${sessionUser.id}/skills`)
+      const skillData = await skillRes.json()
+      setSkills(skillData)
+
       setIsLoaded(true)
     }
     loadPage()
@@ -48,6 +54,7 @@ const ProfilePage = () => {
   const profileUserClass = "profilePage-user" + (darkMode ? " profilePage-user-dark" : " profilePage-user-light")
   const profileUserButtonClass = "profilePage-userButtons" + (darkMode ? " profilePage-userButtons-dark" : " profilePage-userButtons-light")
   const profileProjectsClass = "profilePage-projects" + (darkMode ? " profilePage-projects-dark" : " profilePage-projects-light")
+  const profileSkillClass = "profilePage-skills" + (darkMode ? " profilePage-skills-dark" : " profilePage-skills-light")
 
   return (
     <div className={profilePageClass}>
@@ -110,6 +117,12 @@ const ProfilePage = () => {
             <h2>Projects</h2>
             {projects.map((project, i) => (
               <ProfileProjectListItem key={i} project={project} />
+            ))}
+          </div>
+          <h2>Skills</h2>
+          <div className={profileSkillClass}>
+            {skills.map((skill, i) => (
+              <ProfileSkillListItem key={i} skill={skill} />
             ))}
           </div>
         </div>
