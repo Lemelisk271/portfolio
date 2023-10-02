@@ -9,6 +9,10 @@
   color: red;
 }
 
+.deleteProjectModal-dark h2 span {
+  color: #B74F6F;
+}
+
 .deleteProjectModal-dark {
   background-color: #136F63;
   color: white
@@ -35,9 +39,14 @@
   width: 100%;
 }
 
-.deleteProjectModal-yes {
+.deleteProjectModal-yes-light {
   background-color: red;
   color: white
+}
+
+.deleteProjectModal-yes-dark {
+  background-color: #B74F6F;
+  color: white;
 }
 
 .deleteProjectModal-no {

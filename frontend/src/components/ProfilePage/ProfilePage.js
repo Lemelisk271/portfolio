@@ -43,19 +43,20 @@ const ProfilePage = () => {
 
   if (!sessionUser) return <Redirect to="/"/>
 
+  const profilePageClass = "profilePage" + (darkMode ? " profilePage-dark" : " profilePage-light")
   const profileInfoClass = "profilePage-info" + (darkMode ? " profilePage-info-dark" : " profilePage-info-light")
   const profileUserClass = "profilePage-user" + (darkMode ? " profilePage-user-dark" : " profilePage-user-light")
   const profileUserButtonClass = "profilePage-userButtons" + (darkMode ? " profilePage-userButtons-dark" : " profilePage-userButtons-light")
   const profileProjectsClass = "profilePage-projects" + (darkMode ? " profilePage-projects-dark" : " profilePage-projects-light")
 
   return (
-    <div className="profilePage">
+    <div className={profilePageClass}>
       {isLoaded ? (
-        <>
+        <div className='profilePage-content'>
           <h1>{sessionUser.firstName} {sessionUser.lastName}'s Profile</h1>
+          <h2>User Information</h2>
           <div className={profileInfoClass}>
             <div className={profileUserClass}>
-              <h2>User Information</h2>
               <img src={user.profileImage} alt={user.firstName}/>
               <table>
                 <tbody>
@@ -104,14 +105,14 @@ const ProfilePage = () => {
                 />
               </div>
             </div>
-            <div className={profileProjectsClass}>
-              <h2>Projects</h2>
-              {projects.map((project, i) => (
-                <ProfileProjectListItem key={i} project={project} />
-              ))}
-            </div>
           </div>
-        </>
+          <div className={profileProjectsClass}>
+            <h2>Projects</h2>
+            {projects.map((project, i) => (
+              <ProfileProjectListItem key={i} project={project} />
+            ))}
+          </div>
+        </div>
       ):(
         <>
           <h1>Loading...</h1>

@@ -16,6 +16,7 @@ const EditProjectModal = ({ project }) => {
   const { reset, setReset } = useContext(ResetContext)
   const { closeModal } = useModal()
 
+  // eslint-disable-next-line
   const urlReg = /^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$/
 
   useEffect(() => {
@@ -38,6 +39,7 @@ const EditProjectModal = ({ project }) => {
     }
 
     setValidationErrors(errors)
+    // eslint-disable-next-line
   }, [name, liveLink, repoLink, about])
 
   const handleSubmit = async (e) => {
