@@ -2,6 +2,7 @@ import { useContext } from "react"
 import { DarkModeContext } from '../../context/DarkModeContext'
 import OpenModalButton from '../OpenModalButton'
 import EditSkillModal from '../EditSkillModal'
+import ChangeUserSkillIconModal from '../ChangeUserSkillIconModal'
 import './ProfileSkillListItem.css'
 
 const ProfileSkillListItem = ({ skill }) => {
@@ -19,7 +20,10 @@ const ProfileSkillListItem = ({ skill }) => {
           buttonText="Edit Name"
           modalComponent={<EditSkillModal skill={skill}/>}
         />
-        <button>Change Icon</button>
+        <OpenModalButton
+          buttonText="Change Icon"
+          modalComponent={<ChangeUserSkillIconModal skill={skill} />}
+        />
         <button>Delete</button>
       </div>
     </div>
