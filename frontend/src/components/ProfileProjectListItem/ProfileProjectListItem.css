@@ -1,3 +1,61 @@
+.profileProjectListItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  border-radius: 20px;
+  margin: 5px 0;
+}
+
+.profileProjectListItem th {
+  text-align: left;
+  padding-right: 10px;
+}
+
+.profileProjectListItem-dark {
+  border: 1px solid white;
+}
+
+.profileProjectListItem-light {
+  border: 1px solid #136F63;
+}
+
 .profileProjectListItem img {
   width: 300px;
+}
+
+.profileProjectListItem-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profileProjectListItem-buttons button {
+  width: 100%;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: 18px;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.profileProjectListItem-buttons-dark button {
+  background-color: #B74F6F;
+  color: white;
+}
+
+.profileProjectListItem-buttons-dark button:hover {
+  background-color: #EF946C;
+}
+
+.profileProjectListItem-buttons-light button {
+  background-color: #EF946C;
+  color: black;
+}
+
+.profileProjectListItem-buttons-light button:hover {
+  background-color: #B74F6F;
 }

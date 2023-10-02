@@ -1,12 +1,38 @@
-.profilePage {
+.profilePage-content {
   display: flex;
   flex-direction: column;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.profilePage-dark {
+  background-color: #136F63;
+}
+
+.profilePage-light {
+  background-color: white;
+}
+
+.profilePage-info {
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.profilePage-info-light {
+  border: 1px solid #136F63;
+}
+
+.profilePage-info-dark {
+  border: 1px solid white;
 }
 
 .profilePage-user {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  justify-content: space-between;
 }
 
 .profilePage-user table th {
@@ -16,4 +42,44 @@
 
 .profilePage-user img {
   height: 150px;
+}
+
+.profilePage-userButtons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profilePage-userButtons button {
+  width: 100%;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: 18px;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.profilePage-userButtons-dark button {
+  background-color: #B74F6F;
+  color: white;
+}
+
+.profilePage-userButtons-dark button:hover {
+  background-color: #EF946C;
+}
+
+.profilePage-userButtons-light button {
+  background-color: #EF946C;
+  color: black;
+}
+
+.profilePage-userButtons-light button:hover {
+  background-color: #B74F6F;
+}
+
+.profilePage-projects {
+  display: flex;
+  flex-direction: column;
 }
