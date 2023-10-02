@@ -25,4 +25,26 @@
 .profileSkillListItem-button button {
   width: 100%;
   margin: 5px 0;
+  border: none;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.profileSkillListItem-button-dark button {
+  background-color: #B74F6F;
+  color: white;
+}
+
+.profileSkillListItem-button-dark button:hover {
+  background-color: #EF946C;
+}
+
+.profileSkillListItem-button-light button {
+  background-color: #EF946C;
+  color: black;
+}
+
+.profileSkillListItem-button-light button:hover {
+  background-color: #B74F6F;
 }

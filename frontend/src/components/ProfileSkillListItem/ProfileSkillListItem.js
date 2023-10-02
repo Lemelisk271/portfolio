@@ -3,6 +3,7 @@ import { DarkModeContext } from '../../context/DarkModeContext'
 import OpenModalButton from '../OpenModalButton'
 import EditSkillModal from '../EditSkillModal'
 import ChangeUserSkillIconModal from '../ChangeUserSkillIconModal'
+import DeleteSkillModal from '../DeleteSkillModal'
 import './ProfileSkillListItem.css'
 
 const ProfileSkillListItem = ({ skill }) => {
@@ -24,7 +25,10 @@ const ProfileSkillListItem = ({ skill }) => {
           buttonText="Change Icon"
           modalComponent={<ChangeUserSkillIconModal skill={skill} />}
         />
-        <button>Delete</button>
+        <OpenModalButton
+          buttonText="Delete Skill"
+          modalComponent={<DeleteSkillModal skill={skill} />}
+        />
       </div>
     </div>
   )

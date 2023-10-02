@@ -32,7 +32,7 @@ const DeleteProjectModal = ({ project }) => {
       setReset(!reset)
       closeModal()
     } else {
-      const data = (await res).json()
+      const data = await res.json()
       if (data && data.errors) {
         setErrors(data.errors)
       }

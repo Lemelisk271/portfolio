@@ -42,7 +42,7 @@ const ChangeProjectImageModal = ({ project }) => {
       setReset(!reset)
       closeModal()
     } else {
-      const data = res.json()
+      const data = await res.json()
       if (data && data.errors) {
         setValidationErrors(data.errors)
       }
