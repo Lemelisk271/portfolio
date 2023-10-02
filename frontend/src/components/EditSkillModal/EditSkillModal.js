@@ -3,6 +3,7 @@ import { DarkModeContext } from '../../context/DarkModeContext'
 import { csrfFetch } from '../../store/csrf'
 import { useModal } from '../../context/Modal'
 import { ResetContext } from '../../context/ResetContext'
+import './EditSkillModal.css'
 
 const EditSkillModal = ({ skill }) => {
   const [newSkill, setNewSkill] = useState(skill.skill)

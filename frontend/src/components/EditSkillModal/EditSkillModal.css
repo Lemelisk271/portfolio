@@ -1,0 +1,54 @@
+.editSkillModal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px;
+}
+
+.editSkillModal-dark {
+  background-color: #136F63;
+  color: white
+}
+
+.editSkillModal-light {
+  background-color: white;
+  color: black
+}
+
+.editSkillModal form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.editSkillModal form div {
+  display: flex;
+  flex-direction: column;
+}
+
+.editSkillModal form button {
+  margin-top: 20px;
+  font-size: 18px;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.editSkillModal-dark form button {
+  background-color: #B74F6F;
+  color: white;
+}
+
+.editSkillModal-dark form button:hover {
+  background-color: #EF946C;
+}
+
+.editSkillModal-light form button {
+  background-color: #EF946C;
+  color: black;
+}
+
+.editSkillModal-light form button:hover {
+  background-color: #B74F6F;
+}
