@@ -10,6 +10,7 @@ import ChangeUserImageModal from '../ChangeUserImageModal'
 import AboutModal from '../AboutModal'
 import ProfileProjectListItem from '../ProfileProjectListItem'
 import ProfileSkillListItem from '../ProfileSkillListItem'
+import AddProjectModal from '../AddProjectModal'
 import { ResetContext } from '../../context/ResetContext'
 import './ProfilePage.css'
 
@@ -54,6 +55,7 @@ const ProfilePage = () => {
   const profileUserClass = "profilePage-user" + (darkMode ? " profilePage-user-dark" : " profilePage-user-light")
   const profileUserButtonClass = "profilePage-userButtons" + (darkMode ? " profilePage-userButtons-dark" : " profilePage-userButtons-light")
   const profileProjectsClass = "profilePage-projects" + (darkMode ? " profilePage-projects-dark" : " profilePage-projects-light")
+  const profileProjectsButtonClass = "profilePage-projectsButtons" + (darkMode ? " profilePage-projectsButtons-dark" : " profilePage-projectsButtons-light")
   const profileSkillClass = "profilePage-skills" + (darkMode ? " profilePage-skills-dark" : " profilePage-skills-light")
 
   return (
@@ -118,6 +120,12 @@ const ProfilePage = () => {
             {projects.map((project, i) => (
               <ProfileProjectListItem key={i} project={project} />
             ))}
+            <div className={profileProjectsButtonClass}>
+              <OpenModalButton
+                buttonText="Add Project"
+                modalComponent={<AddProjectModal />}
+              />
+            </div>
           </div>
           <h2>Skills</h2>
           <div className={profileSkillClass}>
