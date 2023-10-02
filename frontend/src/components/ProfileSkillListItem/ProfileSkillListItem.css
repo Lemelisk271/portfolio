@@ -1,0 +1,28 @@
+.profileSkillListItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profileSkillListItem img {
+  height: 50px;
+  background-color: white;
+  padding: 10px;
+  border-radius: 50%;
+  margin-bottom: 5px;
+}
+
+.profileSkillListItem h3 {
+  margin: 0;
+}
+
+.profileSkillListItem-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profileSkillListItem-button button {
+  width: 100%;
+  margin: 5px 0;
+}
