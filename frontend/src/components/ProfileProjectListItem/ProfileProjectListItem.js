@@ -3,6 +3,7 @@ import { DarkModeContext } from '../../context/DarkModeContext'
 import EditProjectModal from '../EditProjectModal'
 import OpenModalButton from '../OpenModalButton'
 import ChangeProjectImageModal from '../ChangeProjectImageModal'
+import DeleteProjectModal from '../DeleteProjectModal'
 import './ProfileProjectListItem.css'
 
 const ProfileProjectListItem = ({ project }) => {
@@ -43,7 +44,10 @@ const ProfileProjectListItem = ({ project }) => {
           buttonText="Change Project Image"
           modalComponent={<ChangeProjectImageModal project={project} />}
         />
-        <button>Delete Project</button>
+        <OpenModalButton
+          buttonText="Delete Project"
+          modalComponent={<DeleteProjectModal project={project} />}
+        />
       </div>
     </div>
   )

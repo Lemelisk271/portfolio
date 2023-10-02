@@ -47,4 +47,24 @@ router.put("/images/:projectId", requireAuth, singleMulterUpload("image"), async
   return res.status(201).json(project)
 })
 
+router.delete("/:projectId", requireAuth, async (req, res, next) => {
+  const project = await Project.findByPk(req.params.projectId)
+
+  if (!project) {
+    const err = new Error("Not Found")
+    err.status = 404
+    err.title = "Project Not Found"
+    err.errors = {message: "The Requested Project Couldn't be Found."}
+    return next(err)
+  }
+
+  if (project.previewImage.split(".")[0] === 'https://zwsmith-portfolio') {
+    removeFileFromS3(project.previewImage)
+  }
+
+  project.destroy()
+
+  res.json({message: "SuccessFully Deleted"})
+})
+
 module.exports = router
