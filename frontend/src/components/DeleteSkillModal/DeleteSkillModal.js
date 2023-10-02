@@ -3,6 +3,7 @@ import { DarkModeContext } from '../../context/DarkModeContext'
 import { useModal } from '../../context/Modal'
 import { csrfFetch } from '../../store/csrf'
 import { ResetContext } from '../../context/ResetContext'
+import './DeleteSkillModal.css'
 
 const DeleteSkillModal = ({ skill }) => {
   const [isSubMitted, setIsSubmitted] = useState(false)
@@ -48,8 +49,10 @@ const DeleteSkillModal = ({ skill }) => {
             <li key={i} className='error'>{error}</li>
           ))}
         </ul>}
-      <button className={deleteSkillYesButtonClass} onClick={deleteButton}>Yes</button>
-      <button className={deleteSkillNoButtonClass} onClick={cancelButton}>No</button>
+      <div>
+        <button className={deleteSkillYesButtonClass} onClick={deleteButton}>Yes</button>
+        <button className={deleteSkillNoButtonClass} onClick={cancelButton}>No</button>
+      </div>
     </div>
   )
 }

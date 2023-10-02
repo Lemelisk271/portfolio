@@ -1,29 +1,29 @@
-.deleteProjectModal {
+.deleteSkillModal {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 50px;
 }
 
-.deleteProjectModal h2 span {
-  color: red;
+.deleteSkillModal h2 span {
+  color: red
 }
 
-.deleteProjectModal-dark h2 span {
-  color: #B74F6F;
+.deleteSkillModal-dark h2 span {
+  color: #B74F6F
 }
 
-.deleteProjectModal-dark {
+.deleteSkillModal-dark {
   background-color: #136F63;
   color: white
 }
 
-.deleteProjectModal-light {
+.deleteSkillModal-light {
   background-color: white;
   color: black
 }
 
-.deleteProjectModal button {
+.deleteSkillModal button {
   margin-top: 20px;
   font-size: 18px;
   padding: 10px;
@@ -33,24 +33,24 @@
   width: 30%;
 }
 
-.deleteProjectModal div {
+.deleteSkillModal div {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   width: 100%;
 }
 
-.deleteProjectModal-yes-light {
+.deleteSkillModal-yes-light {
   background-color: red;
   color: white
 }
 
-.deleteProjectModal-yes-dark {
+.deleteSkillModal-yes-dark {
   background-color: #B74F6F;
-  color: white;
+  color: white
 }
 
-.deleteProjectModal-no {
+.deleteSkillModal-no {
   background-color: green;
   color: white
 }
