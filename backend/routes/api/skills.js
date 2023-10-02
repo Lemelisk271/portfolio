@@ -47,4 +47,24 @@ router.put("/:skillId/image", requireAuth, singleMulterUpload("image"), async (r
   res.status(201).json(skill)
 })
 
+router.delete("/:skillId", requireAuth, async (req, res, next) => {
+  const skill = await Skill.findByPk(req.params.skillId)
+
+  if (!skill) {
+    const err = new Error("Not Found")
+    err.status = 404
+    err.title = "Skill Not Found"
+    err.errors = {message: "The requested skill couldn't be found."}
+    next(err)
+  }
+
+  if (skill.icon.split(".")[0] === 'https://zwsmith-portfolio') {
+    removeFileFromS3(skill.icon)
+  }
+
+  skill.destroy()
+
+  res.json({message: "SuccessFully Deleted"})
+})
+
 module.exports = router
