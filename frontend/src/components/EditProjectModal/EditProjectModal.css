@@ -1,0 +1,48 @@
+.editProjectModal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px;
+}
+
+.editProjectModal-dark {
+  background-color: #136F63;
+  color: white
+}
+
+.editProjectModal-light {
+  background-color: white;
+  color: black
+}
+
+.editProjectModal form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.editProjectModal form div {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.editProjectModal form button {
+  margin-top: 20px;
+  font-size: 18px;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.editProjectModal-dark form button {
+  background-color: #B74F6F;
+  color: white;
+}
+
+.editProjectModal-light form button {
+  background-color: #EF946C;
+  color: black;
+}

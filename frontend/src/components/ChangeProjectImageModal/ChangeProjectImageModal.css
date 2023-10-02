@@ -1,0 +1,41 @@
+.changeProjectImageModal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px;
+}
+
+.changeProjectImageModal-dark {
+  background-color: #136F63;
+  color: white
+}
+
+.changeProjectImageModal-light {
+  background-color: white;
+  color: black
+}
+
+.changeProjectImageModal form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.changeProjectImageModal form button {
+  margin-top: 20px;
+  font-size: 18px;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.changeProjectImageModal-dark form button {
+  background-color: #B74F6F;
+  color: white;
+}
+
+.changeProjectImageModal-light form button {
+  background-color: #EF946C;
+  color: black;
+}

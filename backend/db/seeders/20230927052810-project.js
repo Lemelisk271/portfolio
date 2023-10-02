@@ -16,7 +16,7 @@ const projectList = [
     liveLink: 'https://showup.onrender.com/',
     repoLink: 'https://github.com/Lemelisk271/ShowUp',
     about: 'A site based off of Meetup',
-    previewImage: 'https://zwsmith-portfolio.s3.us-west-2.amazonaws.com/showup.png'
+    previewImage: 'https://patchstagram-zwsmith.s3.us-west-2.amazonaws.com/showup.png'
   },
   {
     username: 'zwsmith27',
@@ -24,7 +24,7 @@ const projectList = [
     liveLink: 'https://welp-686p.onrender.com/',
     repoLink: 'https://github.com/Lemelisk271/welp-group-project',
     about: 'A site based off of Yelp',
-    previewImage: 'https://zwsmith-portfolio.s3.us-west-2.amazonaws.com/welp.png'
+    previewImage: 'https://patchstagram-zwsmith.s3.us-west-2.amazonaws.com/welp.png'
   },
   {
     username: 'zwsmith27',
@@ -32,7 +32,7 @@ const projectList = [
     liveLink: 'https://taskwombat.onrender.com/',
     repoLink: 'https://github.com/Lemelisk271/taskwombat',
     about: 'A site based off of TaskRabbit',
-    previewImage: 'https://zwsmith-portfolio.s3.us-west-2.amazonaws.com/taskwombat.png'
+    previewImage: 'https://patchstagram-zwsmith.s3.us-west-2.amazonaws.com/taskwombat.png'
   }
 ]
 

@@ -1,0 +1,41 @@
+.changeUserImageModal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px;
+}
+
+.changeUserImageModal-dark {
+  background-color: #136F63;
+  color: white
+}
+
+.changeUserImageModal-light {
+  background-color: white;
+  color: black
+}
+
+.changeUserImageModal form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.changeUserImageModal form button {
+  margin-top: 20px;
+  font-size: 18px;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.changeUserImageModal-dark form button {
+  background-color: #B74F6F;
+  color: white;
+}
+
+.changeUserImageModal-light form button {
+  background-color: #EF946C;
+  color: black;
+}

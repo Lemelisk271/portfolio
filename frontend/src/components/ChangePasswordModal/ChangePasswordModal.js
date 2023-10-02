@@ -24,7 +24,7 @@ const ChangePasswordModal = ({ user }) => {
     }
 
     setValidationErrors(errors)
-  }, [password])
+  }, [password, confirmPassword])
 
   const handleSubmit = async (e) => {
     e.preventDefault()

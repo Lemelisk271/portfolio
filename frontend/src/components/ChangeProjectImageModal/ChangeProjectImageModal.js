@@ -1,17 +1,16 @@
 import { useContext, useState, useEffect } from 'react'
-import { useDispatch } from 'react-redux'
 import { DarkModeContext } from '../../context/DarkModeContext'
+import { csrfFetch } from '../../store/csrf'
 import { useModal } from '../../context/Modal'
-import { updateImage } from '../../store/session'
-import './ChangeUserImageModal.css'
+import { ResetContext } from '../../context/ResetContext'
+import './ChangeProjectImageModal.css'
 
-
-const ChangeUserImageModal = ({ user }) => {
-  const dispatch = useDispatch()
+const ChangeProjectImageModal = ({ project }) => {
   const [image, setImage] = useState(null)
   const [validationErrors, setValidationErrors] = useState({})
   const [isSubmitted, setIsSubmitted] = useState(false)
   const { darkMode } = useContext(DarkModeContext)
+  const { reset, setReset } = useContext(ResetContext)
   const { closeModal } = useModal()
 
   useEffect(() => {
@@ -24,20 +23,30 @@ const ChangeUserImageModal = ({ user }) => {
     setValidationErrors(errors)
   }, [image])
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     setIsSubmitted(true)
 
     if (Object.values(validationErrors).length > 0) return
 
-    dispatch(updateImage(user.id, {image}))
-      .then(closeModal)
-      .catch(async (res) => {
-        const data = res.json()
-        if (data && data.errors) {
-          setValidationErrors(data.errors)
-        }
-      })
+    const formData = new FormData()
+    formData.append("image", image)
+    const res = await csrfFetch(`/api/projects/images/${project.id}`, {
+      method: 'PUT',
+      headers: {
+        "Content-Type": "multipart/form-data"
+      },
+      body: formData
+    })
+    if (res.ok) {
+      setReset(!reset)
+      closeModal()
+    } else {
+      const data = res.json()
+      if (data && data.errors) {
+        setValidationErrors(data.errors)
+      }
+    }
   }
 
   const updateFile = (e) => {
@@ -45,11 +54,11 @@ const ChangeUserImageModal = ({ user }) => {
     if (file) setImage(file)
   }
 
-  const userImageModalClass = "changeUserImageModal" + (darkMode ? " changeUserImageModal-dark" : " changeUserImageModal-light")
+  const changeProjectImageClass = "changeProjectImageModal" + (darkMode ? " changeProjectImageModal-dark" : " changeProjectImageModal-light")
 
   return (
-    <div className={userImageModalClass}>
-      <h1>Change Profile Image</h1>
+    <div className={changeProjectImageClass}>
+      <h1>Change {project.name}'s Image</h1>
       {(isSubmitted && Object.values(validationErrors).length > 0) && <ul>
           {Object.values(validationErrors).map((error, i) => (
             <li key={i} className='error'>{error}</li>
@@ -57,8 +66,8 @@ const ChangeUserImageModal = ({ user }) => {
         </ul>}
       <form onSubmit={handleSubmit}>
         <input
-          type="file"
-          accept="image/*"
+          type='file'
+          accept='image/*'
           onChange={updateFile}
         />
         <button type="submit">Save</button>
@@ -67,4 +76,4 @@ const ChangeUserImageModal = ({ user }) => {
   )
 }
 
-export default ChangeUserImageModal
+export default ChangeProjectImageModal

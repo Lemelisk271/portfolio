@@ -13,6 +13,7 @@ const AboutModal = ({ user }) => {
     const aboutArray = user.about.split("\n")
     setAbout(aboutArray)
     setIsLoaded(true)
+    // eslint-disable-next-line
   }, [])
 
   const aboutModalClass = "aboutModal" + (darkMode ? " aboutModal-dark" : " aboutModal-light")

@@ -11,6 +11,7 @@ import * as sessionActions from './store/session'
 import DarkModeProvider from './context/DarkModeContext'
 import UltraDarkModeProvider from './context/UltraDarkContext'
 import PageProvider from './context/PageContext'
+import ResetProvider from './context/ResetContext'
 
 const store = configureStore()
 
@@ -24,20 +25,22 @@ if (process.env.NODE_ENV !== 'production') {
 
 function Root() {
   return (
-    <UltraDarkModeProvider>
-      <PageProvider>
-        <DarkModeProvider>
-          <ModalProvider>
-            <Provider store={store}>
-              <BrowserRouter>
-                <App />
-                <Modal />
-              </BrowserRouter>
-            </Provider>
-          </ModalProvider>
-        </DarkModeProvider>
-      </PageProvider>
-    </UltraDarkModeProvider>
+    <ResetProvider>
+      <UltraDarkModeProvider>
+        <PageProvider>
+          <DarkModeProvider>
+            <ModalProvider>
+              <Provider store={store}>
+                <BrowserRouter>
+                  <App />
+                  <Modal />
+                </BrowserRouter>
+              </Provider>
+            </ModalProvider>
+          </DarkModeProvider>
+        </PageProvider>
+      </UltraDarkModeProvider>
+    </ResetProvider>
   )
 }
 
