@@ -1,0 +1,63 @@
+.addSkillModal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px;
+}
+
+.addSkillModal-dark {
+  background-color: #136F63;
+  color: white;
+}
+
+.addSkillModal-light {
+  background-color: white;
+  color: black;
+}
+
+.addSkillModal img {
+  height: 50px;
+  background-color: white;
+  padding: 10px;
+  border-radius: 50%;
+  margin: 10px 0;
+}
+
+.addSkillModal form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.addSkillModal form div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.addSkillModal form button {
+  margin-top: 20px;
+  font-size: 18px;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.addSkillModal-dark form button {
+  background-color: #B74F6F;
+  color: white;
+}
+
+.addSkillModal-dark form button:hover {
+  background-color: #EF946C;
+}
+
+.addSkillModal-light form button {
+  background-color: #EF946C;
+  color: black;
+}
+
+.addSkillModal-light form button:hover {
+  background-color: #B74F6F;
+}
