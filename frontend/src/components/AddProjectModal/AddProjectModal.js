@@ -1,6 +1,9 @@
 import { useContext, useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { DarkModeContext } from '../../context/DarkModeContext'
+import { csrfFetch } from '../../store/csrf'
+import { useModal } from '../../context/Modal'
+import { ResetContext } from '../../context/ResetContext'
 
 const AddProjectModal = () => {
   const sessionUser = useSelector(state => state.session.user)
@@ -13,6 +16,9 @@ const AddProjectModal = () => {
   const [validationErrors, setValidationErrors] = useState({})
   const [isSubmitted, setIsSubmitted] = useState(false)
   const { darkMode } = useContext(DarkModeContext)
+  const { reset, setReset } = useContext(ResetContext)
+  const { closeModal } = useModal()
+
    // eslint-disable-next-line
    const urlReg = /^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$/
 
@@ -40,6 +46,7 @@ const AddProjectModal = () => {
     }
 
     setValidationErrors(errors)
+    // eslint-disable-next-line
   }, [image, name, liveLink, repoLink, about])
 
   useEffect(() => {
@@ -60,15 +67,6 @@ const AddProjectModal = () => {
 
     if (Object.values(validationErrors).length > 0) return
 
-    const projectObj = {
-      image,
-      userId: sessionUser.id,
-      name,
-      liveLink,
-      repoLink,
-      about
-    }
-
     const formData = new FormData()
     formData.append("image", image)
     formData.append("userId", sessionUser.id)
@@ -77,7 +75,22 @@ const AddProjectModal = () => {
     formData.append("repoLink", repoLink)
     formData.append("about", about)
 
-    console.log(projectObj)
+    const res = await csrfFetch(`/api/projects`, {
+      method: 'POST',
+      headers: {
+        "Content-Type": "multipart/form-data"
+      },
+      body: formData
+    })
+    if (res.ok) {
+      setReset(!reset)
+      closeModal()
+    } else {
+      const data = await res.json()
+      if (data && data.errors) {
+        setValidationErrors(data.errors)
+      }
+    }
   }
 
   const updateFile = (e) => {
