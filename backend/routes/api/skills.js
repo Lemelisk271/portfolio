@@ -67,4 +67,21 @@ router.delete("/:skillId", requireAuth, async (req, res, next) => {
   res.json({message: "SuccessFully Deleted"})
 })
 
+router.post('/', requireAuth, singleMulterUpload("image"), async (req, res, next) => {
+  const { skill, userId } = req.body
+  const icon = await singlePublicFileUpload(req.file)
+  try {
+    const newSkill = Skill.build({
+      skill,
+      icon,
+      userId
+    })
+    newSkill.validate()
+    await newSkill.save()
+    return res.status(201).json(newSkill)
+  } catch (err) {
+    return next(err)
+  }
+})
+
 module.exports = router

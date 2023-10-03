@@ -135,3 +135,36 @@
 .profilePage-skills-dark {
   border: 1px solid white;
 }
+
+.profilePage-skillButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.profilePage-skillButton button {
+  font-size: 18px;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.profilePage-skillButton-light button {
+  background-color: #EF946C;
+  color: black;
+}
+
+.profilePage-skillButton-light button:hover {
+  background-color: #B74F6F;
+}
+
+.profilePage-skillButton-dark button {
+  background-color: #B74F6F;
+  color: white;
+}
+
+.profilePage-skillButton-dark button:hover {
+  background-color: #EF946C;
+}
