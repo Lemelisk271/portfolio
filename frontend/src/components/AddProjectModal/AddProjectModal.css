@@ -1,0 +1,63 @@
+.addProjectModal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px;
+  overflow-y: scroll;
+  max-height: 75vh;
+}
+
+.addProjectModal-dark {
+  background-color: #136F63;
+  color: white
+}
+
+.addProjectModal-light {
+  background-color: white;
+  color: black
+}
+
+.addProjectModal img {
+  max-width: 400px;
+  margin: 30px 0;
+}
+
+.addProjectModal form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.addProjectModal form div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 5px 0;
+}
+
+.addProjectModal form button {
+  margin-top: 20px;
+  font-size: 18px;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.addProjectModal-dark form button {
+  background-color: #B74F6F;
+  color: white;
+}
+
+.addProjectModal-dark form button:hover {
+  background-color: #EF946C;
+}
+
+.addProjectModal-light form button {
+  background-color: #EF946C;
+  color: black;
+}
+
+.addProjectModal-light form button:hover {
+  background-color: #B74F6F;
+}

@@ -4,6 +4,7 @@ import { DarkModeContext } from '../../context/DarkModeContext'
 import { csrfFetch } from '../../store/csrf'
 import { useModal } from '../../context/Modal'
 import { ResetContext } from '../../context/ResetContext'
+import './AddProjectModal.css'
 
 const AddProjectModal = () => {
   const sessionUser = useSelector(state => state.session.user)
