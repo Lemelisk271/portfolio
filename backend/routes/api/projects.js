@@ -81,7 +81,7 @@ router.post('/', requireAuth, singleMulterUpload("image"), async (req, res, next
     })
     newProject.validate()
     await newProject.save()
-    res.status(201).json(newProject)
+    return res.status(201).json(newProject)
   } catch (err) {
     return next(err)
   }
