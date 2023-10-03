@@ -3,6 +3,7 @@ import { DarkModeContext } from '../../context/DarkModeContext'
 import { csrfFetch } from '../../store/csrf'
 import { useModal } from '../../context/Modal'
 import { ResetContext } from '../../context/ResetContext'
+import './ChangeUserSkillIconModal.css'
 
 const ChangeUserSkillIconModal = ({ skill }) => {
   const [image, setImage] = useState(null)
@@ -70,7 +71,7 @@ const ChangeUserSkillIconModal = ({ skill }) => {
 
   return (
     <div className={skillIconClass}>
-      <h1>Change Icon For {skill.skill}</h1>
+      <h1>Change Icon for {skill.skill}</h1>
       {image && <>
         <p>Preview Image</p>
         <img src={previewImage} alt={skill.skill}/>

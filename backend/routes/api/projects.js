@@ -67,4 +67,24 @@ router.delete("/:projectId", requireAuth, async (req, res, next) => {
   res.json({message: "SuccessFully Deleted"})
 })
 
+router.post('/', requireAuth, singleMulterUpload("image"), async (req, res, next) => {
+  const { name, liveLink, repoLink, about, userId } = req.body
+  const previewImage = await singlePublicFileUpload(req.file)
+  try {
+    const newProject = Project.build({
+      name,
+      liveLink,
+      repoLink,
+      about,
+      previewImage,
+      userId
+    })
+    newProject.validate()
+    await newProject.save()
+    res.status(201).json(newProject)
+  } catch (err) {
+    return next(err)
+  }
+})
+
 module.exports = router
