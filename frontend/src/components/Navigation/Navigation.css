@@ -123,3 +123,9 @@
 .profileButton-light a {
   color: black;
 }
+
+@media screen and (max-width: 900px) {
+  .ultraDarkMode button {
+    display: none;
+  }
+}
