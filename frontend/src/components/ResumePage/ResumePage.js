@@ -8,6 +8,7 @@ const ResumePage = ({ id }) => {
   const [user, setUser] = useState({})
   const [phone, setPhone] = useState('')
   const [socials, setSocials] = useState([])
+  const [skills, setSkills] = useState('')
   const [isLoaded, setIsLoaded] = useState(false)
   const { darkMode } = useContext(DarkModeContext)
 
@@ -21,6 +22,16 @@ const ResumePage = ({ id }) => {
       const firstThree = userPhone.slice(3, 6)
       const lastFour = userPhone.slice(6)
       setPhone(`(${areaCode}) ${firstThree}-${lastFour}`)
+
+      const userSkills = resumeData.ResumeSkills
+
+      const skillArray = []
+
+      userSkills.forEach(el => {
+        skillArray.push(el.skill)
+      })
+
+      setSkills(skillArray.join(", "))
 
       setResume(resumeData)
       setUser(resumeData.User)
@@ -52,6 +63,7 @@ const ResumePage = ({ id }) => {
           </div>
           <div className='resumePage-resumeSkills'>
             <h2>TECHNICAL SKILLS</h2>
+            <p>{skills}</p>
           </div>
         </div>
       ):(
