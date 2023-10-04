@@ -13,15 +13,6 @@ const Navigation = ({ isLoaded }) => {
   const { darkMode, setDarkMode } = useContext(DarkModeContext)
   const { ultraDarkMode, setUltraDarkMode } = useContext(UltraDarkModeContext)
 
-  const isTouchDevice = () => {
-    try {
-      document.createEvent('TouchEvent')
-      return true
-    } catch (e) {
-      return false
-    }
-  }
-
   useEffect(() => {
     const loadUser = async () => {
       const res = await csrfFetch('/api/users')
@@ -51,8 +42,6 @@ const Navigation = ({ isLoaded }) => {
     setUltraDarkMode(!ultraDarkMode)
   }
 
-  const ultraDarkModeClass = "ultraDarkMode" + (isTouchDevice() ? " ultraDarkMode-hidden" : "")
-
   let sessionLinks
 
   if (sessionUser) {
@@ -66,7 +55,7 @@ const Navigation = ({ isLoaded }) => {
     sessionLinks = (
       <>
         <button onClick={darkModeButton}>{darkButton}</button>
-        <div className={ultraDarkModeClass}>
+        <div className='ultraDarkMode'>
           <button onClick={ultraDarkButton}>Ultra Dark Mode: Off</button>
         </div>
       </>
