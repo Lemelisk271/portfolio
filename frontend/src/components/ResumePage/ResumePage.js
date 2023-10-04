@@ -21,7 +21,8 @@ const ResumePage = ({ id }) => {
 
       const projectRes = await csrfFetch(`/api/users/${id}/projects`)
       const projectData = await projectRes.json()
-      setProjects(projectData)
+      const filteredProjects = projectData.filter(project => project.name === "TaskWombat" || project.name === "Welp")
+      setProjects(filteredProjects)
 
       const userPhone = resumeData.User.phone
       const areaCode = userPhone.slice(0, 3)
@@ -64,7 +65,7 @@ const ResumePage = ({ id }) => {
             <p>{user.location}</p>
             <a href={user.portfolio} target='_blank' rel="noreferrer">Portfolio</a>
             {socials.map((social, i) => (
-              <a href={social.link} target='_blank' rel="noreferrer">{social.name}</a>
+              <a key={i} href={social.link} target='_blank' rel="noreferrer">{social.name}</a>
             ))}
           </div>
           <div className='resumePage-resumeSkills'>
