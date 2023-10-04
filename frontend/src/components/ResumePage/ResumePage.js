@@ -2,6 +2,7 @@ import { useContext, useState, useEffect } from 'react'
 import { csrfFetch } from '../../store/csrf'
 import { DarkModeContext } from '../../context/DarkModeContext'
 import ResumeProjectListItem from '../ResumeProjectListItem'
+import ResumeEmployerListItem from '../ResumeEmployerListItem'
 import './ResumePage.css'
 
 const ResumePage = ({ id }) => {
@@ -11,6 +12,7 @@ const ResumePage = ({ id }) => {
   const [socials, setSocials] = useState([])
   const [skills, setSkills] = useState('')
   const [projects, setProjects] = useState([])
+  const [employers, setEmployers] = useState([])
   const [isLoaded, setIsLoaded] = useState(false)
   const { darkMode } = useContext(DarkModeContext)
 
@@ -23,6 +25,10 @@ const ResumePage = ({ id }) => {
       const projectData = await projectRes.json()
       const filteredProjects = projectData.filter(project => project.name === "TaskWombat" || project.name === "Welp")
       setProjects(filteredProjects)
+
+      const employerRes = await csrfFetch(`/api/resumes/employer/${id}`)
+      const employerData = await employerRes.json()
+      setEmployers(employerData)
 
       const userPhone = resumeData.User.phone
       const areaCode = userPhone.slice(0, 3)
@@ -43,7 +49,6 @@ const ResumePage = ({ id }) => {
       setResume(resumeData)
       setUser(resumeData.User)
       setSocials(resumeData.User.Socials)
-      console.log(resumeData)
       setIsLoaded(true)
     }
     loadPage()
@@ -80,6 +85,9 @@ const ResumePage = ({ id }) => {
           </div>
           <div className='resumePage-resumeWork'>
             <h2>WORK EXPERIENCE</h2>
+            {employers.map((employer, i) => (
+              <ResumeEmployerListItem key={i} employer={employer}/>
+            ))}
           </div>
         </div>
       ):(

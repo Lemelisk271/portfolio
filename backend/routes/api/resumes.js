@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const { Resume, User, Social, ResumeSkill, ProjectBullets } = require('../../db/models')
+const { Resume, User, Social, ResumeSkill, ProjectBullets, Employer } = require('../../db/models')
 
 router.get('/:userId', async (req, res, next) => {
   const resume = await Resume.findOne({
@@ -49,6 +49,24 @@ router.get('/projectBullets/:projectId', async (req, res, next) => {
   }
 
   return res.json(projectBullets)
+})
+
+router.get('/employer/:userId', async (req, res, next) => {
+  const employers = await Employer.findAll({
+    where: {
+      userId: req.params.userId
+    }
+  })
+
+  if (!employers) {
+    const err = new Error("Not Found")
+    err.status = 404
+    err.title = "Employer Not Found"
+    err.errors = {message: "The Requested User Doesn't have any Employers"}
+    return next(err)
+  }
+
+  return res.json(employers)
 })
 
 module.exports = router

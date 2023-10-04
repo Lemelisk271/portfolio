@@ -11,14 +11,11 @@ const ResumeProjectListItem = ({ project }) => {
     const loadPage = async () => {
       const res = await csrfFetch(`/api/resumes/projectBullets/${project.id}`)
       const bulletData = await res.json()
-      console.log(bulletData)
       setBullets(bulletData)
       setIsLoaded(true)
     }
     loadPage()
   }, [])
-
-  console.log(project)
 
   const resumeProjectListItemClass = "resumeProjectListItem" + (darkMode ? " resumeProjectListItem-dark" : " resumeProjectListItem-light")
 
