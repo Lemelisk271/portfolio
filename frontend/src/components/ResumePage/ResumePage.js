@@ -89,6 +89,9 @@ const ResumePage = ({ id }) => {
               <ResumeEmployerListItem key={i} employer={employer}/>
             ))}
           </div>
+          <div className='resumePage-resumeEducation'>
+            <h2>EDUCATION</h2>
+          </div>
         </div>
       ):(
         <>

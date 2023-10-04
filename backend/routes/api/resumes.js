@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const { Resume, User, Social, ResumeSkill, ProjectBullets, Employer, EmployerBullet } = require('../../db/models')
+const { Resume, User, Social, ResumeSkill, ProjectBullets, Employer, EmployerBullet, Education } = require('../../db/models')
 
 router.get('/:userId', async (req, res, next) => {
   const resume = await Resume.findOne({
@@ -85,6 +85,24 @@ router.get('/employerbullet/:employerId', async (req, res, next) => {
   }
 
   return res.json(employerBullets)
+})
+
+router.get('/education/:userId', async (req, res, next) => {
+  const education = await Education.findAll({
+    where: {
+      userId: req.params.userId
+    }
+  })
+
+  if (!education) {
+    const err = new Error("Not Found")
+    err.status = 404
+    err.title = "Education Not Found"
+    err.errors = {message: "The Requested User Doesn't Have any Education Listed"}
+    return next(err)
+  }
+
+  return res.json(education)
 })
 
 module.exports = router
