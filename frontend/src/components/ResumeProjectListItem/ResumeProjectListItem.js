@@ -1,6 +1,7 @@
 import { useContext, useState, useEffect } from 'react'
 import { DarkModeContext } from '../../context/DarkModeContext'
 import { csrfFetch } from '../../store/csrf'
+import './ResumeProjectListItem.css'
 
 const ResumeProjectListItem = ({ project }) => {
   const [bullets, setBullets] = useState([])
@@ -29,8 +30,9 @@ const ResumeProjectListItem = ({ project }) => {
               <p>A site based on <a href={project.cloneLink} target='_blank' rel="noreferrer">{project.cloneName}</a></p>
             </div>
             <div className='resumeProjectListItem-headerLinks'>
-              <a href={project.liveLink} target='_blank' rel="noreferrer">Live</a>
-              <a href={project.repoLink} target='_blank' rel="noreferrer">GitHub Repo</a>
+              <a href={project.liveLink} target='_blank' rel="noreferrer">{project.name} Live</a>
+              <p>|</p>
+              <a href={project.repoLink} target='_blank' rel="noreferrer">{project.name} GitHub Repo</a>
             </div>
           </div>
           <div className='resumeProjectListItem-bulletPoints'>

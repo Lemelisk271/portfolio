@@ -1,5 +1,6 @@
 import { useContext } from 'react'
 import { DarkModeContext } from '../../context/DarkModeContext'
+import './ResumeEducationListItem.css'
 
 const ResumeEducationListItem = ({ edu }) => {
   const { darkMode } = useContext(DarkModeContext)

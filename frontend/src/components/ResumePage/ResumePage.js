@@ -61,40 +61,52 @@ const ResumePage = ({ id }) => {
   }, [])
 
   const resumePageClass = "resumePage" + (darkMode ? " resumePage-dark" : " resumePage-light")
+  const resumeClass = "resumePage-resume" + (darkMode ? " resumePage-resume-dark": " resumePage-resume-light")
 
   return (
     <div className={resumePageClass}>
       {isLoaded ? (
-        <div className='resumePage-resume'>
+        <div className={resumeClass}>
           <div className='resumePage-resumeHeader'>
             <h1>{user.firstName} {user.lastName}</h1>
-            <h3>{resume.title}</h3>
+            <p>{resume.title}</p>
           </div>
+          <div className='resumePage-line'/>
           <div className='resumePage-resumeContact'>
             <p>{phone}</p>
+            <p>|</p>
             <p>{user.email}</p>
+            <p>|</p>
             <p>{user.location}</p>
+            <p>|</p>
             <a href={user.portfolio} target='_blank' rel="noreferrer">Portfolio</a>
             {socials.map((social, i) => (
-              <a key={i} href={social.link} target='_blank' rel="noreferrer">{social.name}</a>
+              <>
+                <p>|</p>
+                <a key={i} href={social.link} target='_blank' rel="noreferrer">{social.name}</a>
+              </>
             ))}
           </div>
+          <div className='resumePage-line'/>
           <div className='resumePage-resumeSkills'>
             <h2>TECHNICAL SKILLS</h2>
             <p>{skills}</p>
           </div>
+          <div className='resumePage-line'/>
           <div className='resumePage-resumeProjects'>
             <h2>Projects</h2>
             {projects.map((project, i) => (
               <ResumeProjectListItem key={i} project={project} />
             ))}
           </div>
+          <div className='resumePage-line'/>
           <div className='resumePage-resumeWork'>
             <h2>WORK EXPERIENCE</h2>
             {employers.map((employer, i) => (
               <ResumeEmployerListItem key={i} employer={employer}/>
             ))}
           </div>
+          <div className='resumePage-line'/>
           <div className='resumePage-resumeEducation'>
             <h2>EDUCATION</h2>
             {education.map((edu, i) => (

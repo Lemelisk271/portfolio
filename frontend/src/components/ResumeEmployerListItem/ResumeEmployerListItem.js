@@ -1,6 +1,7 @@
 import { useContext, useState, useEffect } from 'react'
 import { DarkModeContext } from '../../context/DarkModeContext'
 import { csrfFetch } from '../../store/csrf'
+import './ResumeEmployerListItem.css'
 
 const ResumeEmployerListItem = ({ employer }) => {
   const [employerBullets, setEmployerBullets] = useState([])

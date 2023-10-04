@@ -1,0 +1,37 @@
+.resumeProjectListItem {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.resumeProjectListItem h3, p, a {
+  margin: 0 0 5px 0;
+}
+
+.resumeProjectListItem a {
+  color: blue;
+}
+
+.resumeProjectListItem a:hover {
+  color: black;
+}
+
+.resumeProjectListItem-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.resumeProjectListItem-headerLinks {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.resumeProjectListItem-headerLinks a {
+  padding: 0 10px;
+}
+
+.resumeProjectListItem-bulletPoints ul {
+  margin: 0 0 10px 0;
+}

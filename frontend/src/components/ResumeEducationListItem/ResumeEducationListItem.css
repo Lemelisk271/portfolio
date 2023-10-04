@@ -1,0 +1,10 @@
+.resumeEducationListItem {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.resumeEducationListItem p {
+  margin: 0 0 5px 0;
+}
