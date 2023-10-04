@@ -49,6 +49,10 @@ module.exports = {
         type: Sequelize.STRING(50),
         allowNull: false
       },
+      portFolio: {
+        type: Sequelize.STRING(256),
+        allowNull: false
+      },
       hashedPassword: {
         type: Sequelize.STRING.BINARY,
         allowNull: false
