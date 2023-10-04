@@ -13,6 +13,9 @@ module.exports = (sequelize, DataTypes) => {
       Employer.belongsTo(models.User, {
         foreignKey: 'userId'
       })
+      Employer.hasMany(models.EmployerBullet, {
+        foreignKey: 'employerId'
+      })
     }
   }
   Employer.init({
