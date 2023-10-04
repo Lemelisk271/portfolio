@@ -22,20 +22,19 @@ const UltraDarkPage = () => {
     }
 
     const getMousePosition = (e) => {
-      mouseX = !isTouchDevice() ? e.pageX : e.touches[0].pageX
-      mouseY = !isTouchDevice() ? e.pageY : e.touches[0].pageY
+      // mouseX = !isTouchDevice() ? e.pageX : e.touches[0].pageX
+      // mouseY = !isTouchDevice() ? e.pageY : e.touches[0].pageY
+
+      mouseX = e.pageX
+      mouseY = e.pageY
 
       flashlight.style.setProperty("--pointerX", mouseX + 'px')
       flashlight.style.setProperty("--pointerY", mouseY + 'px')
     }
 
     document.addEventListener("mousemove", getMousePosition)
-    document.addEventListener("touchmove", getMousePosition)
 
-    return () => {
-      document.removeEventListener("mousemove", getMousePosition)
-      document.removeEventListener("touchmove", getMousePosition)
-    }
+    return () => document.removeEventListener("mousemove", getMousePosition)
   }, [ultraDarkMode])
 
   const ultraDarkButton = (e) => {
