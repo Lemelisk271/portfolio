@@ -124,8 +124,10 @@
   color: black;
 }
 
-.ultraDarkMode-hidden {
-  display: none;
+@media screen and (max-width: 1200px) {
+  .ultraDarkMode button {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 900px) {
