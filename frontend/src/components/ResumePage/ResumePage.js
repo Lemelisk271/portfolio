@@ -75,7 +75,7 @@ const ResumePage = ({ id }) => {
           <div className='resumePage-resumeContact'>
             <p>{phone}</p>
             <p>|</p>
-            <p>{user.email}</p>
+            <a href={`mailto:${user.email}`}>{user.email}</a>
             <p>|</p>
             <p>{user.location}</p>
             <p>|</p>
