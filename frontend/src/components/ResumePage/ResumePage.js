@@ -78,6 +78,9 @@ const ResumePage = ({ id }) => {
               <ResumeProjectListItem key={i} project={project} />
             ))}
           </div>
+          <div className='resumePage-resumeWork'>
+            <h2>WORK EXPERIENCE</h2>
+          </div>
         </div>
       ):(
         <>
