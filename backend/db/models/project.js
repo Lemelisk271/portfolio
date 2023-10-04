@@ -47,6 +47,13 @@ module.exports = (sequelize, DataTypes) => {
         isUrl: true
       }
     },
+    cloneName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1, 100]
+      }
+    },
     about: {
       type: DataTypes.TEXT,
       allowNull: false

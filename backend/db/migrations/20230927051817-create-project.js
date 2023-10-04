@@ -32,6 +32,10 @@ module.exports = {
         type: Sequelize.STRING(256),
         allowNull: false
       },
+      cloneName: {
+        type: Sequelize.STRING(100),
+        allowNull: false
+      },
       about: {
         type: Sequelize.TEXT,
         allowNull: false
