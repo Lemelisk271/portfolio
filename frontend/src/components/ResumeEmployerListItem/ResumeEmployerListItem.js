@@ -7,8 +7,6 @@ const ResumeEmployerListItem = ({ employer }) => {
   const [isLoaded, setIsLoaded] = useState(false)
   const { darkMode } = useContext(DarkModeContext)
 
-  console.log(employer)
-
   useEffect(() => {
     const loadPage = async () => {
       const res = await csrfFetch(`/api/resumes/employerbullet/${employer.id}`)

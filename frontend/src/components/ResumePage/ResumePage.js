@@ -3,6 +3,7 @@ import { csrfFetch } from '../../store/csrf'
 import { DarkModeContext } from '../../context/DarkModeContext'
 import ResumeProjectListItem from '../ResumeProjectListItem'
 import ResumeEmployerListItem from '../ResumeEmployerListItem'
+import ResumeEducationListItem from '../ResumeEducationListItem'
 import './ResumePage.css'
 
 const ResumePage = ({ id }) => {
@@ -13,6 +14,7 @@ const ResumePage = ({ id }) => {
   const [skills, setSkills] = useState('')
   const [projects, setProjects] = useState([])
   const [employers, setEmployers] = useState([])
+  const [education, setEducation] = useState([])
   const [isLoaded, setIsLoaded] = useState(false)
   const { darkMode } = useContext(DarkModeContext)
 
@@ -29,6 +31,10 @@ const ResumePage = ({ id }) => {
       const employerRes = await csrfFetch(`/api/resumes/employer/${id}`)
       const employerData = await employerRes.json()
       setEmployers(employerData)
+
+      const educationRes = await csrfFetch(`/api/resumes/education/${id}`)
+      const educationData = await educationRes.json()
+      setEducation(educationData)
 
       const userPhone = resumeData.User.phone
       const areaCode = userPhone.slice(0, 3)
@@ -91,6 +97,9 @@ const ResumePage = ({ id }) => {
           </div>
           <div className='resumePage-resumeEducation'>
             <h2>EDUCATION</h2>
+            {education.map((edu, i) => (
+              <ResumeEducationListItem key={i} edu={edu}/>
+            ))}
           </div>
         </div>
       ):(
