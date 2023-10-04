@@ -12,14 +12,14 @@ const UltraDarkPage = () => {
     let mouseY = 0
 
     let flashlight = document.getElementById('flashlight')
-    const isTouchDevice = () => {
-      try {
-        document.createEvent("TouchEvent")
-        return true
-      } catch (e) {
-        return false
-      }
-    }
+    // const isTouchDevice = () => {
+    //   try {
+    //     document.createEvent("TouchEvent")
+    //     return true
+    //   } catch (e) {
+    //     return false
+    //   }
+    // }
 
     const getMousePosition = (e) => {
       // mouseX = !isTouchDevice() ? e.pageX : e.touches[0].pageX

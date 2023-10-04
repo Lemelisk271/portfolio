@@ -12,11 +12,12 @@ if (process.env.NODE_ENV === 'production') {
 const projectList = [
   {
     username: 'zwsmith27',
-    name: 'Showup',
-    liveLink: 'https://showup.onrender.com/',
-    repoLink: 'https://github.com/Lemelisk271/ShowUp',
-    about: 'A site based off of Meetup',
-    previewImage: 'https://patchstagram-zwsmith.s3.us-west-2.amazonaws.com/showup.png'
+    name: 'TaskWombat',
+    liveLink: 'https://taskwombat.onrender.com/',
+    repoLink: 'https://github.com/Lemelisk271/taskwombat',
+    about: 'A site based off of TaskRabbit',
+    previewImage: 'https://patchstagram-zwsmith.s3.us-west-2.amazonaws.com/taskwombat.png',
+    cloneLink: 'https://www.taskrabbit.com/'
   },
   {
     username: 'zwsmith27',
@@ -24,15 +25,17 @@ const projectList = [
     liveLink: 'https://welp-686p.onrender.com/',
     repoLink: 'https://github.com/Lemelisk271/welp-group-project',
     about: 'A site based off of Yelp',
-    previewImage: 'https://patchstagram-zwsmith.s3.us-west-2.amazonaws.com/welp.png'
+    previewImage: 'https://patchstagram-zwsmith.s3.us-west-2.amazonaws.com/welp.png',
+    cloneLink: 'https://www.yelp.com/'
   },
   {
     username: 'zwsmith27',
-    name: 'TaskWombat',
-    liveLink: 'https://taskwombat.onrender.com/',
-    repoLink: 'https://github.com/Lemelisk271/taskwombat',
-    about: 'A site based off of TaskRabbit',
-    previewImage: 'https://patchstagram-zwsmith.s3.us-west-2.amazonaws.com/taskwombat.png'
+    name: 'Showup',
+    liveLink: 'https://showup.onrender.com/',
+    repoLink: 'https://github.com/Lemelisk271/ShowUp',
+    about: 'A site based off of Meetup',
+    previewImage: 'https://patchstagram-zwsmith.s3.us-west-2.amazonaws.com/showup.png',
+    cloneLink: 'https://www.meetup.com/'
   }
 ]
 
@@ -49,6 +52,7 @@ module.exports = {
             name: project.name,
             liveLink: project.liveLink,
             repoLink: project.repoLink,
+            cloneLink: project.cloneLink,
             about: project.about,
             previewImage: project.previewImage,
             userId: user.id

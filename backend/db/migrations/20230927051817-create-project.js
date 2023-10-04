@@ -28,6 +28,10 @@ module.exports = {
         type: Sequelize.STRING(256),
         allowNull: false
       },
+      cloneLink: {
+        type: Sequelize.STRING(256),
+        allowNull: false
+      },
       about: {
         type: Sequelize.TEXT,
         allowNull: false
