@@ -1,0 +1,19 @@
+.resumeEmployerListItem {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.resumeEmployerListItem h3, p {
+  margin: 0 0 5px 0;
+}
+
+.resumeEmployerListItem-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.resumeEmployerListItem ul {
+  margin: 0 0 10px 0;
+}

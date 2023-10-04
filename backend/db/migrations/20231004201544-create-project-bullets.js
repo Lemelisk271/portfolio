@@ -8,47 +8,21 @@ if (process.env.NODE_ENV === 'production') {
 
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Projects', {
+    await queryInterface.createTable('ProjectBullets', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      name: {
-        type: Sequelize.STRING(100),
-        allowNull: false,
-        unique: true
-      },
-      liveLink: {
-        type: Sequelize.STRING(256),
-        allowNull: false
-      },
-      repoLink: {
-        type: Sequelize.STRING(256),
-        allowNull: false
-      },
-      cloneLink: {
-        type: Sequelize.STRING(256),
-        allowNull: false
-      },
-      cloneName: {
-        type: Sequelize.STRING(100),
-        allowNull: false
-      },
-      about: {
+      bullet: {
         type: Sequelize.TEXT,
         allowNull: false
       },
-      previewImage: {
-        type: Sequelize.STRING(256),
-        allowNull: false
-      },
-      userId: {
+      projectId: {
         type: Sequelize.INTEGER,
-        allowNull: false,
         references: {
-          model: 'Users',
+          model: 'Projects',
           key: 'id'
         },
         onDelete: 'cascade'
@@ -66,7 +40,7 @@ module.exports = {
     }, options);
   },
   async down(queryInterface, Sequelize) {
-    options.tableName = "Projects"
+    options.tableName = "ProjectBullets"
     await queryInterface.dropTable(options);
   }
 };

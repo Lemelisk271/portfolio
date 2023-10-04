@@ -22,6 +22,7 @@ module.exports = {
         profileImage: 'https://patchstagram-zwsmith.s3.us-west-2.amazonaws.com/IMG_0893.jpg',
         phone: '4256985340',
         location: 'Ravensdale, WA',
+        portfolio: 'https://portfolio-sugg.onrender.com/',
         hashedPassword: bcrypt.hashSync('password')
       }
     ]

@@ -13,6 +13,9 @@ module.exports = (sequelize, DataTypes) => {
       Project.belongsTo(models.User, {
         foreignKey: 'userId'
       })
+      Project.hasMany(models.ProjectBullets, {
+        foreignKey: 'projectId'
+      })
     }
   }
   Project.init({
@@ -37,6 +40,21 @@ module.exports = (sequelize, DataTypes) => {
       validate: {
         len: [1, 256],
         isUrl: true
+      }
+    },
+    cloneLink: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1, 256],
+        isUrl: true
+      }
+    },
+    cloneName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1, 100]
       }
     },
     about: {

@@ -1,0 +1,108 @@
+.resumePage-dark {
+  background-color: #136F63;
+}
+
+.resumePage-light {
+  background-color: white;
+}
+
+.resumePage-resume h1, h2, h3, p, a, li {
+  font-family: 'Didact Gothic', sans-serif;
+}
+
+.resumePage-resume {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70%;
+  margin: 20px auto;
+  padding: 50px;
+  background-color: white;
+}
+
+.resumePage-resume-light {
+  border: 1px solid black;
+}
+
+.resumePage-resume-dark {
+  border: none
+}
+
+.resumePage-resumeHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px
+}
+
+.resumePage-resumeHeader > h1 {
+  margin: 0;
+  font-size: 50px;
+}
+
+.resumePage-resumeHeader > p {
+  margin: 0;
+}
+
+.resumePage-line {
+  width: 100%;
+  border-bottom: 2px solid lightgray;
+  margin-bottom: 20px;
+  padding-top: 20px;
+}
+
+.resumePage-resumeContact {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.resumePage-resumeContact a {
+  color: blue;
+}
+
+.resumePage-resumeContact a:hover {
+  color: black;
+}
+
+.resumePage-resumeSkills {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.resumePage-resumeSkills h2 {
+  margin: 0 0 10px 0;
+}
+
+.resumePage-resumeProjects {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.resumePage-resumeProjects h2 {
+  margin: 0 0 10px 0;
+}
+
+.resumePage-resumeWork {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.resumePage-resumeWork h2 {
+  margin: 0 0 10px 0;
+}
+
+.resumePage-resumeEducation {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.resumePage-resumeEducation h2 {
+  margin: 0 0 10px 0;
+}

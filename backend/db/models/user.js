@@ -19,6 +19,15 @@ module.exports = (sequelize, DataTypes) => {
       User.hasMany(models.Social, {
         foreignKey: 'userId'
       })
+      User.hasMany(models.Resume, {
+        foreignKey: 'userId'
+      })
+      User.hasMany(models.Employer, {
+        foreignKey: 'userId'
+      })
+      User.hasMany(models.Education, {
+        foreignKey: 'userId'
+      })
     }
   }
   User.init({
@@ -75,6 +84,14 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       validate: {
         len: [1, 50]
+      }
+    },
+    portfolio: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1, 256],
+        isUrl: true
       }
     },
     hashedPassword: {
