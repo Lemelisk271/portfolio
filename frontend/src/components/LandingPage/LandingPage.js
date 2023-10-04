@@ -5,6 +5,7 @@ import { PageContext } from '../../context/PageContext'
 import AboutPage from '../AboutPage'
 import ContactPage from '../ContactPage'
 import ProjectPage from '../ProjectPage'
+import ResumePage from '../ResumePage'
 import Resume from '../Resume/Zach_Smith_Resume.pdf'
 import './LandingPage.css'
 
@@ -46,6 +47,10 @@ const LandingPage = () => {
     pageContent = (
       <ProjectPage user={user}/>
     )
+  } else if (page === 'resume') {
+    pageContent = (
+      <ResumePage />
+    )
   } else {
     pageContent = (
       <ContactPage user={user}/>
@@ -67,6 +72,11 @@ const LandingPage = () => {
     setPage('contact')
   }
 
+  const resumeButton = (e) => {
+    e.preventDefault()
+    setPage('resume')
+  }
+
   return (
     <>
       {isLoaded ? (
@@ -83,6 +93,7 @@ const LandingPage = () => {
             <div className={selectClass}>
               <button onClick={aboutButton}>About Me</button>
               <button onClick={projectButton}>Projects</button>
+              <button onClick={resumeButton}>Resume</button>
               <button onClick={contactButton}>Contact Me</button>
             </div>
           </div>
