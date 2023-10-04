@@ -49,7 +49,7 @@ const LandingPage = () => {
     )
   } else if (page === 'resume') {
     pageContent = (
-      <ResumePage />
+      <ResumePage id={user.id}/>
     )
   } else {
     pageContent = (

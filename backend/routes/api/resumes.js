@@ -1,12 +1,22 @@
 const express = require('express')
 const router = express.Router()
-const { Resume } = require('../../db/models')
+const { Resume, User, Social } = require('../../db/models')
 
 router.get('/:userId', async (req, res, next) => {
   const resume = await Resume.findOne({
     where: {
       userId: req.params.userId
-    }
+    },
+    include: [
+      {
+        model: User,
+        include: [
+          {
+            model: Social
+          }
+        ]
+      }
+    ]
   })
 
   if (!resume) {

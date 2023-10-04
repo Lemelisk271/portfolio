@@ -80,7 +80,7 @@ module.exports = (sequelize, DataTypes) => {
         len: [1, 50]
       }
     },
-    portFolio: {
+    portfolio: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
