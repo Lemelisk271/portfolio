@@ -113,3 +113,27 @@
 .landingPage-select-dark button:hover {
   background-color: #B74F6F;
 }
+
+@media screen and (max-width: 900px) {
+  .landingPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .landingPage-userSelect {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .landingPage-user img {
+    width: 150px;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+}
