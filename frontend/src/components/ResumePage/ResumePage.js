@@ -25,8 +25,7 @@ const ResumePage = ({ id }) => {
 
       const projectRes = await csrfFetch(`/api/users/${id}/projects`)
       const projectData = await projectRes.json()
-      const filteredProjects = projectData.filter(project => project.name === "TaskWombat" || project.name === "Welp")
-      setProjects(filteredProjects)
+      setProjects(projectData)
 
       const employerRes = await csrfFetch(`/api/resumes/employer/${id}`)
       const employerData = await employerRes.json()
@@ -58,6 +57,7 @@ const ResumePage = ({ id }) => {
       setIsLoaded(true)
     }
     loadPage()
+    // eslint-disable-next-line
   }, [])
 
   const resumePageClass = "resumePage" + (darkMode ? " resumePage-dark" : " resumePage-light")

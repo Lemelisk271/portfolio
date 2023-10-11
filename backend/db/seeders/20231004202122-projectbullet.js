@@ -19,12 +19,32 @@ const bulletSeeds = [
     bullet: "Implemented React throughout the site to allow the content to dynamically change as needed."
   },
   {
+    project: "TaskWombat",
+    bullet: "Built an express backend to allow the site to communicate with the database."
+  },
+  {
     project: "Welp",
     bullet: "Integrated a flask backend to allow the site to query the database."
   },
   {
     project: "Welp",
     bullet: "Streamlined database queries by creating and using a Redux store."
+  },
+  {
+    project: "Welp",
+    bullet: "Coordinated with team members to ensure project requirements were met."
+  },
+  {
+    project: "Showup",
+    bullet: "Designed the site using Meetup as a template."
+  },
+  {
+    project: "Showup",
+    bullet: "Incorporated an express backend with a react frontend"
+  },
+  {
+    project: "Showup",
+    bullet: "Launched the website using Render.com"
   }
 ]
 
