@@ -1,6 +1,7 @@
 import { useContext, useState, useEffect } from 'react'
 import { csrfFetch } from '../../store/csrf'
 import { DarkModeContext } from '../../context/DarkModeContext'
+import ContactForm from '../ContactForm'
 import './ContactPage.css'
 
 const ContactPage = ({ user }) => {
@@ -48,6 +49,7 @@ const ContactPage = ({ user }) => {
               <a key={i} href={social.link} target='_blank' rel="noreferrer"><i className={social.icon}></i></a>
             ))}
           </div>
+          <ContactForm />
         </>
       ):(
         <>
