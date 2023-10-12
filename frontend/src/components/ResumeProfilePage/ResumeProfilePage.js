@@ -2,6 +2,7 @@ import { useContext, useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { csrfFetch } from '../../store/csrf'
 import { DarkModeContext } from '../../context/DarkModeContext'
+import { ResetContext } from '../../context/ResetContext'
 import EditResumeTitleModal from '../EditResumeTitleModal'
 import OpenModalButton from '../OpenModalButton'
 
@@ -10,6 +11,7 @@ const ResumeProfilePage = () => {
   const [resume, setResume] = useState({})
   const [isLoaded, setIsLoaded] = useState(false)
   const { darkMode } = useContext(DarkModeContext)
+  const { reset } = useContext(ResetContext)
 
   useEffect(() => {
     const loadPage = async () => {
@@ -21,7 +23,7 @@ const ResumeProfilePage = () => {
       setIsLoaded(true)
     }
     loadPage()
-  }, [])
+  }, [reset])
 
   const resumeProfileClass = "resumeProfilePage" + (darkMode ? " resumeProfilePage-dark" : " resumeProfilePage-light")
 
@@ -34,7 +36,7 @@ const ResumeProfilePage = () => {
             <h2>Title: {resume.title}</h2>
             <OpenModalButton
               buttonText="Edit Title"
-              modalComponent={<EditResumeTitleModal />}
+              modalComponent={<EditResumeTitleModal user={sessionUser} resume={resume}/>}
             />
           </div>
         </>
