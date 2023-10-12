@@ -1,5 +1,6 @@
 import { useContext, useRef, useState, useEffect } from 'react'
 import { DarkModeContext } from '../../context/DarkModeContext'
+import emailjs from '@emailjs/browser'
 
 const ContactForm = () => {
   const form = useRef()
@@ -7,6 +8,7 @@ const ContactForm = () => {
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [isSent, setIsSent] = useState(false)
   const [validationErrors, setValidationErrors] = useState({})
   const { darkMode } = useContext(DarkModeContext)
 
@@ -29,6 +31,7 @@ const ContactForm = () => {
     }
 
     setValidationErrors(errors)
+    // eslint-disable-next-line
   }, [name, email, message])
 
   const sendEmail = (e) => {
@@ -36,50 +39,70 @@ const ContactForm = () => {
     setIsSubmitted(true)
 
     if (Object.values(validationErrors).length > 0) return
+
+    emailjs.sendForm('service_upieoze', 'template_wbocc9e', form.current, '17ns15ZdA3E6fuMG8')
+      .then((result) => {
+        setName('')
+        setEmail('')
+        setMessage('')
+        setIsSubmitted(false)
+        setIsSent(true)
+      }, (error) => {
+        console.log(error.text)
+      })
   }
 
   const contactFormClass = "contactForm" + (darkMode ? " contactForm-dark" : " contactForm-light")
 
   return (
     <div className={contactFormClass}>
-      <h2>Send Me a Message</h2>
-      {(isSubmitted && Object.values(validationErrors).length > 0) && <ul>
-          {Object.values(validationErrors).map((error, i) => (
-            <li key={i} className='error'>{error}</li>
-          ))}
-        </ul>}
-      <form ref={form} onSubmit={sendEmail}>
-        <div>
-          <label htmlFor='name'>Your Name</label>
-          <input
-            id='name'
-            type='text'
-            name='user_name'
-            value={name}
-            onChange={e => setName(e.target.value)}
-          />
-        </div>
-        <div>
-          <label htmlFor='email'>Your Email</label>
-          <input
-            id='email'
-            type='email'
-            name='user_email'
-            value={email}
-            onChange={e => setEmail(e.target.value)}
-          />
-        </div>
-        <div>
-          <label htmlFor='message'>Message</label>
-          <textarea
-            id='message'
-            name='message'
-            value={message}
-            onChange={e => setMessage(e.target.value)}
-          />
-        </div>
-        <button type='submit'>Send</button>
-      </form>
+      {isSent ? (
+        <>
+          <h2>Your Message Has Been Sent</h2>
+          <p>I will get back to you as soon as I can.</p>
+        </>
+      ):(
+        <>
+          <h2>Send Me a Message</h2>
+          {(isSubmitted && Object.values(validationErrors).length > 0) && <ul>
+              {Object.values(validationErrors).map((error, i) => (
+                <li key={i} className='error'>{error}</li>
+              ))}
+            </ul>}
+          <form ref={form} onSubmit={sendEmail}>
+            <div>
+              <label htmlFor='name'>Your Name</label>
+              <input
+                id='name'
+                type='text'
+                name='user_name'
+                value={name}
+                onChange={e => setName(e.target.value)}
+              />
+            </div>
+            <div>
+              <label htmlFor='email'>Your Email</label>
+              <input
+                id='email'
+                type='email'
+                name='user_email'
+                value={email}
+                onChange={e => setEmail(e.target.value)}
+              />
+            </div>
+            <div>
+              <label htmlFor='message'>Message</label>
+              <textarea
+                id='message'
+                name='message'
+                value={message}
+                onChange={e => setMessage(e.target.value)}
+              />
+            </div>
+            <button type='submit'>Send</button>
+          </form>
+        </>
+      )}
     </div>
   )
 }
