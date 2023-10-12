@@ -49,6 +49,7 @@ const ProfileButton = ({ user }) => {
         <li>{user.email}</li>
         <div className={profileLineClass}/>
         <li><Link to='/profile'>My Profile</Link></li>
+        <li><Link to='/resume'>My Resume</Link></li>
         <div className={profileLineClass}/>
         <li>
           <button onClick={logoutButton}>Log Out</button>
