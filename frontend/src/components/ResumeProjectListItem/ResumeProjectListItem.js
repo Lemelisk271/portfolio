@@ -16,6 +16,7 @@ const ResumeProjectListItem = ({ project }) => {
       setIsLoaded(true)
     }
     loadPage()
+    // eslint-disable-next-line
   }, [])
 
   const resumeProjectListItemClass = "resumeProjectListItem" + (darkMode ? " resumeProjectListItem-dark" : " resumeProjectListItem-light")

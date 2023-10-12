@@ -16,6 +16,7 @@ const ResumeEmployerListItem = ({ employer }) => {
       setIsLoaded(true)
     }
     loadPage()
+    // eslint-disable-next-line
   }, [])
 
   const resumeEmployerClass = "resumeEmployerListItem" + (darkMode ? " resumeEmployerListItem-dark" : " resumeEmployerListItem-light")
