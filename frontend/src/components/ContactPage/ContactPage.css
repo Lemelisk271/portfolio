@@ -5,6 +5,24 @@
   flex-direction: column;
 }
 
+.contactPage-content {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  border-top: 1px solid black;
+}
+
+.contactPage-info {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.contactPage-form {
+  width: 50%;
+}
+
 .contactPage-email a {
   margin-left: 20px;
   text-decoration: none;
@@ -31,7 +49,7 @@
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  width: 25%;
+  width: 50%;
 }
 
 .contactPage-social i {

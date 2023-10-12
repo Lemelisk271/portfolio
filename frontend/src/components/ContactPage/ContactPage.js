@@ -1,6 +1,7 @@
 import { useContext, useState, useEffect } from 'react'
 import { csrfFetch } from '../../store/csrf'
 import { DarkModeContext } from '../../context/DarkModeContext'
+import ContactForm from '../ContactForm'
 import './ContactPage.css'
 
 const ContactPage = ({ user }) => {
@@ -33,20 +34,27 @@ const ContactPage = ({ user }) => {
     <div className='contactPage'>
       {isLoaded ? (
         <>
-          <h1>Contact {user.firstName}</h1>
-          <div className={contactPageEmail}>
-            <h2>Email:</h2>
-            <a href={`mailto:${user.email}`}>{user.email}</a>
-          </div>
-          <div className={contactPagePhone}>
-            <h2>Phone:</h2>
-            <p>{phone}</p>
-          </div>
-          <h2>Social Media:</h2>
-          <div className={contactPageSocial}>
-            {socials.map((social, i) => (
-              <a key={i} href={social.link} target='_blank' rel="noreferrer"><i className={social.icon}></i></a>
-            ))}
+          <h1>Contact {user.firstName} {user.lastName}</h1>
+          <div className='contactPage-content'>
+            <div className='contactPage-info'>
+              <div className={contactPageEmail}>
+                <h2>Email:</h2>
+                <a href={`mailto:${user.email}`}>{user.email}</a>
+              </div>
+              <div className={contactPagePhone}>
+                <h2>Phone:</h2>
+                <p>{phone}</p>
+              </div>
+              <h2>Social Media:</h2>
+              <div className={contactPageSocial}>
+                {socials.map((social, i) => (
+                  <a key={i} href={social.link} target='_blank' rel="noreferrer"><i className={social.icon}></i></a>
+                ))}
+              </div>
+            </div>
+            <div className='contactPage-form'>
+              <ContactForm />
+            </div>
           </div>
         </>
       ):(
