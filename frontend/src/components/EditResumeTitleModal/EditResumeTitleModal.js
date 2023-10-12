@@ -2,12 +2,15 @@ import { useState, useEffect, useContext } from 'react'
 import { csrfFetch } from '../../store/csrf'
 import { useModal } from '../../context/Modal'
 import { ResetContext } from '../../context/ResetContext'
+import './EditResumeTitleModal.css'
+import { DarkModeContext } from '../../context/DarkModeContext'
 
 const EditResumeTitleModal = ({ user, resume }) => {
   const [title, setTitle] = useState(resume.title)
   const [validationErrors, setValidationErrors] = useState({})
   const [isSubmitted, setIsSubmitted] = useState(false)
   const { reset, setReset } = useContext(ResetContext)
+  const { darkMode } = useContext(DarkModeContext)
   const { closeModal } = useModal()
 
   useEffect (() => {
@@ -49,8 +52,10 @@ const EditResumeTitleModal = ({ user, resume }) => {
     }
   }
 
+  const editResumeTitleClass = "editResumeTitleModal" + (darkMode ? " editResumeTitleModal-dark" : " editResumeTitleModal-light")
+
   return (
-    <div>
+    <div className={editResumeTitleClass}>
       <h1>Edit Resume Title</h1>
       {(isSubmitted && Object.values(validationErrors).length > 0) && <ul>
           {Object.values(validationErrors).map((error, i) => (
