@@ -1,6 +1,7 @@
 import { useContext, useRef, useState, useEffect } from 'react'
 import { DarkModeContext } from '../../context/DarkModeContext'
 import emailjs from '@emailjs/browser'
+import './ContactForm.css'
 
 const ContactForm = () => {
   const form = useRef()
@@ -63,7 +64,7 @@ const ContactForm = () => {
         </>
       ):(
         <>
-          <h2>Send Me a Message</h2>
+          <h2>Send me a Message</h2>
           {(isSubmitted && Object.values(validationErrors).length > 0) && <ul>
               {Object.values(validationErrors).map((error, i) => (
                 <li key={i} className='error'>{error}</li>
@@ -97,6 +98,7 @@ const ContactForm = () => {
                 name='message'
                 value={message}
                 onChange={e => setMessage(e.target.value)}
+                rows={10}
               />
             </div>
             <button type='submit'>Send</button>

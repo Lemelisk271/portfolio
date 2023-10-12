@@ -1,0 +1,62 @@
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.contactForm form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+
+.contactForm form div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-align: left;
+  margin: 5px 0;
+}
+
+.contactForm form input {
+  border-radius: 5px;
+  border: 1px solid black;
+  height: 20px;
+}
+
+.contactForm form textarea {
+  border-radius: 5px;
+  border: 1px solid black;
+}
+
+.contactForm form button {
+  margin: 10px 0;
+  font-size: 18px;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.contactForm-light form button {
+  background-color: #EF946C;
+  color: black;
+}
+
+.contactForm-light form button:hover {
+  background-color: #B74F6F;
+}
+
+.contactForm-dark form button {
+  background-color: #B74F6F;
+  color: white;
+}
+
+.contactForm-dark form button:hover {
+  background-color: #EF946C;
+}
+
+.contactForm-dark form label {
+  color: white;
+}
