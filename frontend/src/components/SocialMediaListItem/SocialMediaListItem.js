@@ -1,5 +1,7 @@
 import { useContext } from 'react'
 import { DarkModeContext } from '../../context/DarkModeContext'
+import SocialMediaForm from '../SocialMediaForm'
+import OpenModalButton from '../OpenModalButton'
 
 const SocialMediaListItem = ({ social }) => {
   const { darkMode } = useContext(DarkModeContext)
@@ -28,7 +30,10 @@ const SocialMediaListItem = ({ social }) => {
         </tbody>
       </table>
       <div className={socialMediaListButtonClass}>
-        <button>Edit Social Media</button>
+        <OpenModalButton
+          buttonText="Edit Social Media"
+          modalComponent={<SocialMediaForm social={social} page='edit'/>}
+        />
         <button>Delete Social Media</button>
       </div>
     </div>
