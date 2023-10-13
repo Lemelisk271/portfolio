@@ -1,0 +1,56 @@
+.deleteSocialMediaModal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px;
+}
+
+.deleteSocialMediaModal h2 span {
+  color: red;
+}
+
+.deleteSocialMediaModal-dark h2 span {
+  color: #B74F6F
+}
+
+.deleteSocialMediaModal-dark {
+  background-color: #136F63;
+  color: white;
+}
+
+.deleteSocialMediaModal-light {
+  background-color: white;
+  color: black
+}
+
+.deleteSocialMediaModal button {
+  margin-top: 20px;
+  font-size: 18px;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 30%;
+}
+
+.deleteSocialMediaModal div {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.deleteSocialMediaModal-yesButton-light {
+  background-color: red;
+  color: white;
+}
+
+.deleteSocialMediaModal-yesButton-dark {
+  background-color: #B74F6F;
+  color: white
+}
+
+.deleteSocialMediaModal-noButton {
+  background-color: green;
+  color: white;
+}
