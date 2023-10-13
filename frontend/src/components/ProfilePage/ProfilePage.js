@@ -12,6 +12,7 @@ import ProfileProjectListItem from '../ProfileProjectListItem'
 import ProfileSkillListItem from '../ProfileSkillListItem'
 import AddProjectModal from '../AddProjectModal'
 import AddSkillModal from '../AddSkillModal'
+import SocialMediaListItem from '../SocialMediaListItem'
 import { ResetContext } from '../../context/ResetContext'
 import './ProfilePage.css'
 
@@ -22,6 +23,7 @@ const ProfilePage = () => {
   const [phone, setPhone] = useState('')
   const [projects, setProjects] = useState([])
   const [skills, setSkills] = useState([])
+  const [socials, setSocials] = useState([])
   const { darkMode } = useContext(DarkModeContext)
   const { reset } = useContext(ResetContext)
 
@@ -44,6 +46,10 @@ const ProfilePage = () => {
       const skillData = await skillRes.json()
       setSkills(skillData)
 
+      const socialsRes = await csrfFetch(`/api/socials/${sessionUser.id}`)
+      const socialsData = await socialsRes.json()
+      setSocials(socialsData)
+
       setIsLoaded(true)
     }
     loadPage()
@@ -59,6 +65,7 @@ const ProfilePage = () => {
   const profileProjectsButtonClass = "profilePage-projectsButtons" + (darkMode ? " profilePage-projectsButtons-dark" : " profilePage-projectsButtons-light")
   const profileSkillClass = "profilePage-skills" + (darkMode ? " profilePage-skills-dark" : " profilePage-skills-light")
   const skillButtonClass = "profilePage-skillButton" + (darkMode ? " profilePage-skillButton-dark" : " profilePage-skillButton-light")
+  const socialMediaClass = "profilePage-socialMedia" + (darkMode ? " profilePage-socialMedia-dark" : " profilePage-socialMedia-light")
 
   return (
     <div className={profilePageClass}>
@@ -116,6 +123,12 @@ const ProfilePage = () => {
                 />
               </div>
             </div>
+          </div>
+          <div className={socialMediaClass}>
+            <h2>Social Media</h2>
+            {socials.map((social, i) => (
+              <SocialMediaListItem key={i} social={social} />
+            ))}
           </div>
           <div className={profileProjectsClass}>
             <h2>Projects</h2>
