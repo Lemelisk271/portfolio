@@ -39,4 +39,20 @@ router.put('/:socialId', requireAuth, async (req, res, next) => {
   return res.status(201).json(social)
 })
 
+router.delete('/:socialId', requireAuth, async (req, res, next) => {
+  const social = await Social.findByPk(req.params.socialId)
+
+  if (!social) {
+    const err = new Error("Not Found")
+    err.status = 404
+    err.title = "Social Media Not Found"
+    err.errors = {message: "The requested social media couldn't be found"}
+    return next(err)
+  }
+
+  social.destroy()
+
+  res.json({message: "Successfully Deleted"})
+})
+
 module.exports = router

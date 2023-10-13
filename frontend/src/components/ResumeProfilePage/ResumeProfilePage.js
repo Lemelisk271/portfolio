@@ -18,7 +18,6 @@ const ResumeProfilePage = () => {
       const res = await csrfFetch(`/api/resumes/${sessionUser.id}`)
       const resumeData = await res.json()
       setResume(resumeData)
-      console.log(resumeData)
 
       setIsLoaded(true)
     }

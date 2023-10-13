@@ -2,11 +2,10 @@ import { useContext } from 'react'
 import { DarkModeContext } from '../../context/DarkModeContext'
 import SocialMediaForm from '../SocialMediaForm'
 import OpenModalButton from '../OpenModalButton'
+import DeleteSocialMediaModal from '../DeleteSocialMediaModal'
 
 const SocialMediaListItem = ({ social }) => {
   const { darkMode } = useContext(DarkModeContext)
-
-  console.log(social)
 
   const socialMediaListItemClass = 'socialMediaListItem' + (darkMode ? " socialMediaListItem-dark" : " socialMediaListItem-light")
   const socialMediaListButtonClass = 'socialMediaListItem-buttons' + (darkMode ? " socialMediaListItem-buttons-dark" : " socialMediaListItem-buttons-light")
@@ -34,7 +33,10 @@ const SocialMediaListItem = ({ social }) => {
           buttonText="Edit Social Media"
           modalComponent={<SocialMediaForm social={social} page='edit'/>}
         />
-        <button>Delete Social Media</button>
+        <OpenModalButton
+          buttonText="Delete Social Media"
+          modalComponent={<DeleteSocialMediaModal social={social} />}
+        />
       </div>
     </div>
   )
