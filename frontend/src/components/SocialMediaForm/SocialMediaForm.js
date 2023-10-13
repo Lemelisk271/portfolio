@@ -3,6 +3,7 @@ import { csrfFetch } from '../../store/csrf'
 import { useModal } from '../../context/Modal'
 import { DarkModeContext } from '../../context/DarkModeContext'
 import { ResetContext } from '../../context/ResetContext'
+import './SocialMediaForm.css'
 
 const SocialMediaForm = ({ social, page }) => {
   const [title, setTitle] = useState('')
@@ -85,6 +86,7 @@ const SocialMediaForm = ({ social, page }) => {
   }
 
   const socialMediaFormClass = 'socialMediaForm' + (darkMode ? " socialMediaForm-dark" : " socialMediaForm-light")
+  const socialMediaFormButtons = 'socialMediaForm-buttons' + (darkMode ? " socialMediaForm-buttons-dark" : " socialMediaForm-buttons-light")
 
   return (
     <div className={socialMediaFormClass}>
@@ -95,10 +97,10 @@ const SocialMediaForm = ({ social, page }) => {
           ))}
         </ul>}
       {icon.length > 0 &&
-      <>
+      <div className='socialMediaForm-preview'>
         <p>Preview Icon</p>
         <i className={icon}></i>
-      </>
+      </div>
       }
       <form onSubmit={handleSubmit}>
         <div className='socialMediaForm-input'>
@@ -128,7 +130,7 @@ const SocialMediaForm = ({ social, page }) => {
             onChange={e => setLink(e.target.value)}
           />
         </div>
-        <div className='socialMediaForm-buttons'>
+        <div className={socialMediaFormButtons}>
           <button type='submit'>Submit</button>
           <button onClick={cancelButton}>Cancel</button>
         </div>
