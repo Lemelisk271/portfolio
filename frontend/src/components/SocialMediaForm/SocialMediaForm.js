@@ -1,6 +1,8 @@
 import { useState, useEffect, useContext } from 'react'
+import { csrfFetch } from '../../store/csrf'
 import { useModal } from '../../context/Modal'
 import { DarkModeContext } from '../../context/DarkModeContext'
+import { ResetContext } from '../../context/ResetContext'
 
 const SocialMediaForm = ({ social, page }) => {
   const [title, setTitle] = useState('')
@@ -10,6 +12,7 @@ const SocialMediaForm = ({ social, page }) => {
   const [validationErrors, setValidationErrors] = useState({})
   const [isSubmitted, setIsSubmitted] = useState(false)
   const { darkMode } = useContext(DarkModeContext)
+  const { reset, setReset } = useContext(ResetContext)
   const { closeModal } = useModal()
 
   // eslint-disable-next-line
@@ -57,7 +60,22 @@ const SocialMediaForm = ({ social, page }) => {
         link
       }
 
-      console.log(socialObj)
+      const res = await csrfFetch(`/api/socials/${social.id}`, {
+        method: 'PUT',
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(socialObj)
+      })
+      if (res.ok) {
+        setReset(!reset)
+        closeModal()
+      } else {
+        const data = await res.json()
+        if (data && data.errors) {
+          setValidationErrors(data.errors)
+        }
+      }
     }
   }
 
