@@ -30,6 +30,7 @@ const SocialMediaForm = ({ social, page }) => {
     } else {
       setTitle('Add Social Media')
     }
+    // eslint-disable-next-line
   }, [])
 
   useEffect(() => {
@@ -48,7 +49,8 @@ const SocialMediaForm = ({ social, page }) => {
     }
 
     setValidationErrors(errors)
-  }, [name, icon])
+    // eslint-disable-next-line
+  }, [name, icon, link])
 
   const handleSubmit = async (e) => {
     e.preventDefault()

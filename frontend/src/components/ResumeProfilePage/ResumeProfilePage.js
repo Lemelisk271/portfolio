@@ -22,6 +22,7 @@ const ResumeProfilePage = () => {
       setIsLoaded(true)
     }
     loadPage()
+    // eslint-disable-next-line
   }, [reset])
 
   const resumeProfileClass = "resumeProfilePage" + (darkMode ? " resumeProfilePage-dark" : " resumeProfilePage-light")
