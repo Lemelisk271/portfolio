@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const { Resume, User, Social, ResumeSkill, ProjectBullets, Employer, EmployerBullet, Education } = require('../../db/models')
+const { requireAuth } = require('../../utils/auth')
 
 router.get('/:userId', async (req, res, next) => {
   const resume = await Resume.findOne({
@@ -103,6 +104,24 @@ router.get('/education/:userId', async (req, res, next) => {
   }
 
   return res.json(education)
+})
+
+router.put('/:resumeId', requireAuth, async (req, res, next) => {
+  const resume = await Resume.findByPk(req.params.resumeId)
+
+  if (!resume) {
+    const err = new Error("Not Found")
+    err.status = 404
+    err.title = "Resume Not Found"
+    err.errors = {message: "The requested resume couldn't be found"}
+    return next(err)
+  }
+
+  resume.set(req.body)
+
+  await resume.save()
+
+  res.status(201).json(resume)
 })
 
 module.exports = router

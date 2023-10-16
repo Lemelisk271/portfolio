@@ -12,6 +12,7 @@ import UltraDarkPage from './components/UltraDarkPage'
 import LoginFormPage from './components/LoginFormPage'
 import NotFoundPage from './components/NotFoundPage'
 import ProfilePage from './components/ProfilePage'
+import ResumeProfilePage from './components/ResumeProfilePage'
 
 function App() {
   const dispatch = useDispatch()
@@ -60,6 +61,9 @@ function App() {
                 </Route>
                 <Route exact path='/profile'>
                   <ProfilePage />
+                </Route>
+                <Route exact path='/resume'>
+                  <ResumeProfilePage />
                 </Route>
                 <Route>
                   <NotFoundPage />

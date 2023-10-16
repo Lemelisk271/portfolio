@@ -5,8 +5,6 @@ import './ResumeEducationListItem.css'
 const ResumeEducationListItem = ({ edu }) => {
   const { darkMode } = useContext(DarkModeContext)
 
-  console.log(edu)
-
   const resumeEducationClass = "resumeEducationListItem" + (darkMode ? " resumeEducationListItem-dark" : " resumeEducationListItem-light")
 
   return (

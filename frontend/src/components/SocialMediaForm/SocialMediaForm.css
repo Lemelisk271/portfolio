@@ -1,0 +1,78 @@
+.socialMediaForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 30vw;
+  padding: 50px;
+}
+
+.socialMediaForm-dark {
+  background-color: #136F63;
+  color: white
+}
+
+.socialMediaForm-light {
+  background-color: white;
+  color: black
+}
+
+.socialMediaForm-preview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.socialMediaForm-preview i {
+  font-size: 48px;
+  color: black;
+}
+
+.socialMediaForm form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.socialMediaForm-input {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 5px 0;
+}
+
+.socialMediaForm-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.socialMediaForm-buttons button {
+  margin-top: 20px;
+  font-size: 18px;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.socialMediaForm-buttons-dark button {
+  background-color: #B74F6F;
+  color: white;
+}
+
+.socialMediaForm-buttons-dark button:hover {
+  background-color: #EF946C;
+}
+
+.socialMediaForm-buttons-light button {
+  background-color: #EF946C;
+  color: white;
+}
+
+.socialMediaForm-buttons-light button:hover {
+  background-color: #B74F6F;
+}

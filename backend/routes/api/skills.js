@@ -64,7 +64,7 @@ router.delete("/:skillId", requireAuth, async (req, res, next) => {
 
   skill.destroy()
 
-  res.json({message: "SuccessFully Deleted"})
+  res.json({message: "Successfully Deleted"})
 })
 
 router.post('/', requireAuth, singleMulterUpload("image"), async (req, res, next) => {
