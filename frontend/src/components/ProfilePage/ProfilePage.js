@@ -13,6 +13,7 @@ import ProfileSkillListItem from '../ProfileSkillListItem'
 import AddProjectModal from '../AddProjectModal'
 import AddSkillModal from '../AddSkillModal'
 import SocialMediaListItem from '../SocialMediaListItem'
+import SocialMediaForm from '../SocialMediaForm'
 import { ResetContext } from '../../context/ResetContext'
 import './ProfilePage.css'
 
@@ -129,6 +130,10 @@ const ProfilePage = () => {
             {socials.map((social, i) => (
               <SocialMediaListItem key={i} social={social} />
             ))}
+            <OpenModalButton
+              buttonText="Add Social Media"
+              modalComponent={<SocialMediaForm page="new" />}
+            />
           </div>
           <div className={profileProjectsClass}>
             <h2>Projects</h2>

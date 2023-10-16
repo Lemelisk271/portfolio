@@ -1,4 +1,5 @@
 import { useState, useEffect, useContext } from 'react'
+import { useSelector } from 'react-redux'
 import { csrfFetch } from '../../store/csrf'
 import { useModal } from '../../context/Modal'
 import { DarkModeContext } from '../../context/DarkModeContext'
@@ -6,6 +7,7 @@ import { ResetContext } from '../../context/ResetContext'
 import './SocialMediaForm.css'
 
 const SocialMediaForm = ({ social, page }) => {
+  const sessionUser = useSelector(state => state.session.user)
   const [title, setTitle] = useState('')
   const [name, setName] = useState('')
   const [icon, setIcon] = useState('')
@@ -17,7 +19,7 @@ const SocialMediaForm = ({ social, page }) => {
   const { closeModal } = useModal()
 
   // eslint-disable-next-line
-  const urlReg = /^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$/
+  const urlReg = /^(https:|http:|www\.)\S*/
 
   useEffect(() => {
     if (page === 'edit') {
@@ -67,6 +69,30 @@ const SocialMediaForm = ({ social, page }) => {
           "Content-Type": "application/json"
         },
         body: JSON.stringify(socialObj)
+      })
+      if (res.ok) {
+        setReset(!reset)
+        closeModal()
+      } else {
+        const data = await res.json()
+        if (data && data.errors) {
+          setValidationErrors(data.errors)
+        }
+      }
+    } else {
+      const newSocialObj = {
+        name,
+        icon,
+        link,
+        userId: sessionUser.id
+      }
+
+      const res = await csrfFetch('/api/socials', {
+        method: 'POST',
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(newSocialObj)
       })
       if (res.ok) {
         setReset(!reset)

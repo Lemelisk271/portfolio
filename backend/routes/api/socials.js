@@ -55,4 +55,15 @@ router.delete('/:socialId', requireAuth, async (req, res, next) => {
   res.json({message: "Successfully Deleted"})
 })
 
+router.post('/', requireAuth, async (req, res, next) => {
+  try {
+    const newSocial = Social.build(req.body)
+    newSocial.validate()
+    await newSocial.save()
+    return res.status(201).json(newSocial)
+  } catch (err) {
+    return next(err)
+  }
+})
+
 module.exports = router
