@@ -67,6 +67,7 @@ const ProfilePage = () => {
   const profileSkillClass = "profilePage-skills" + (darkMode ? " profilePage-skills-dark" : " profilePage-skills-light")
   const skillButtonClass = "profilePage-skillButton" + (darkMode ? " profilePage-skillButton-dark" : " profilePage-skillButton-light")
   const socialMediaClass = "profilePage-socialMedia" + (darkMode ? " profilePage-socialMedia-dark" : " profilePage-socialMedia-light")
+  const socialMediaButtonClass = "profilePage-socialMedia-buttons" + (darkMode ? " profilePage-socialMedia-buttons-dark" : " profilePage-socialMedia-buttons-light")
 
   return (
     <div className={profilePageClass}>
@@ -130,10 +131,12 @@ const ProfilePage = () => {
             {socials.map((social, i) => (
               <SocialMediaListItem key={i} social={social} />
             ))}
-            <OpenModalButton
-              buttonText="Add Social Media"
-              modalComponent={<SocialMediaForm page="new" />}
-            />
+            <div className={socialMediaButtonClass}>
+              <OpenModalButton
+                buttonText="Add Social Media"
+                modalComponent={<SocialMediaForm page="new" />}
+              />
+            </div>
           </div>
           <div className={profileProjectsClass}>
             <h2>Projects</h2>

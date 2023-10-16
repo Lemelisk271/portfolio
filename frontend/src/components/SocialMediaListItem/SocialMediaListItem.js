@@ -3,6 +3,7 @@ import { DarkModeContext } from '../../context/DarkModeContext'
 import SocialMediaForm from '../SocialMediaForm'
 import OpenModalButton from '../OpenModalButton'
 import DeleteSocialMediaModal from '../DeleteSocialMediaModal'
+import './SocialMediaListItem.css'
 
 const SocialMediaListItem = ({ social }) => {
   const { darkMode } = useContext(DarkModeContext)
@@ -24,7 +25,7 @@ const SocialMediaListItem = ({ social }) => {
           </tr>
           <tr>
             <th scope="row">Link:</th>
-            <td><a href={social.link} target='_blank' rel="noreferrer">{social.link}</a></td>
+            <td>{social.link}</td>
           </tr>
         </tbody>
       </table>
