@@ -20,6 +20,9 @@ router.get('/:userId', async (req, res, next) => {
       {
         model: ResumeSkill
       }
+    ],
+    order: [
+      [{model: ResumeSkill}, 'id', 'ASC']
     ]
   })
 

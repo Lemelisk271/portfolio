@@ -19,6 +19,10 @@ module.exports = {
         type: Sequelize.STRING(100),
         allowNull: false
       },
+      category: {
+        type: Sequelize.ENUM('frontend', 'backend', 'expertise'),
+        allowNull: false
+      },
       resumeId: {
         type: Sequelize.INTEGER,
         allowNull: false,

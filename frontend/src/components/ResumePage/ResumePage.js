@@ -8,6 +8,9 @@ const ResumePage = ({ userId }) => {
   const [user, setUser] = useState({})
   const [phone, setPhone] = useState('')
   const [socials, setSocials] = useState([])
+  const [frontendSkills, setFrontendSkills] = useState('')
+  const [backendSkills, setBackendSkills] = useState('')
+  const [expertiseSkills, setExpertiseSkills] = useState('')
   const { darkMode } = useContext(DarkModeContext)
 
   useEffect(() => {
@@ -24,6 +27,26 @@ const ResumePage = ({ userId }) => {
       const firstThree = rawPhone.slice(3, 6)
       const lastFour = rawPhone.slice(6)
       setPhone(`(${areaCode}) ${firstThree}-${lastFour}`)
+
+      const rawSkills = resumeData.ResumeSkills
+      const rawFront = rawSkills.filter(skill => skill.category === 'frontend')
+      const frontArray = []
+      rawFront.forEach(el => {
+        frontArray.push(el.skill)
+      })
+      setFrontendSkills(frontArray.join(", "))
+      const rawBack = rawSkills.filter(skill => skill.category === 'backend')
+      const backArray = []
+      rawBack.forEach(el => {
+        backArray.push(el.skill)
+      })
+      setBackendSkills(backArray.join(", "))
+      const rawExpertise = rawSkills.filter(skill => skill.category === 'expertise')
+      const expertiseArray = []
+      rawExpertise.forEach(el => {
+        expertiseArray.push(el.skill)
+      })
+      setExpertiseSkills(expertiseArray.join(", "))
 
       setIsLoaded(true)
     }
@@ -59,6 +82,22 @@ const ResumePage = ({ userId }) => {
             </div>
             <div className='resumePage-resumeSkills'>
               <h2>TECHNICAL SKILLS</h2>
+              <table>
+                <tbody>
+                  <tr>
+                    <th scope='row'>Frontend:</th>
+                    <td>{frontendSkills}</td>
+                  </tr>
+                  <tr>
+                    <th scope='row'>Backend:</th>
+                    <td>{backendSkills}</td>
+                  </tr>
+                  <tr>
+                    <th scope='row'>Expertise:</th>
+                    <td>{expertiseSkills}</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </>
