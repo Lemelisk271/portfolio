@@ -1,0 +1,56 @@
+.deleteResumeSkillModal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px;
+}
+
+.deleteResumeSkillModal h2 span {
+  color: red
+}
+
+.deleteResumeSkillModal-dark h2 span {
+  color: #B74F6F
+}
+
+.deleteResumeSkillModal-dark {
+  background-color: #136F63;
+  color: white;
+}
+
+.deleteResumeSkillModal-light {
+  background-color: white;
+  color: black
+}
+
+.deleteResumeSkillModal-buttons {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.deleteResumeSkillModal-buttons button {
+  margin-top: 20px;
+  font-size: 18px;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 30%;
+}
+
+.deleteResumeSkillModal-delete-light {
+  background-color: red;
+  color: white
+}
+
+.deleteResumeSkillModal-delete-dark {
+  background-color: #B74F6F;
+  color: white
+}
+
+.deleteResumeSkillModal-cancel {
+  background-color: green;
+  color: white
+}

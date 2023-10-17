@@ -3,6 +3,7 @@ import { DarkModeContext } from '../../context/DarkModeContext'
 import { useModal } from '../../context/Modal'
 import { csrfFetch } from '../../store/csrf'
 import { ResetContext } from '../../context/ResetContext'
+import './DeleteResumeSkillModal.css'
 
 const DeleteResumeSkillModal = ({ skill }) => {
   const [isSubMitted, setIsSubmitted] = useState(false)
