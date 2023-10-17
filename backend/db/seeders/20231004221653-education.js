@@ -20,7 +20,7 @@ const educationSeeds = [
     username: 'zwsmith27',
     school: 'Bellevue College',
     degree: 'Associates Degree in General Studies',
-    year: '2006'
+    year: ''
   }
 ]
 

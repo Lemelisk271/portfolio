@@ -10,10 +10,10 @@ const ResumeEducationListItem = ({ edu }) => {
   return (
     <div className={resumeEducationClass}>
       <div className='resumeEducationListItem-degree'>
-        <p>{edu.degree}</p>
+        <p><strong>{edu.school},</strong> <em>{edu.degree}</em></p>
       </div>
       <div className='resumeEducationListItem-school'>
-        <p>{edu.school} - {edu.year}</p>
+        <p>{edu.year}</p>
       </div>
     </div>
   )
