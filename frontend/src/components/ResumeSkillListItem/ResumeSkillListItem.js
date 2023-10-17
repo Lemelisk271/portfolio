@@ -12,6 +12,7 @@ const ResumeSkillListItem = ({ skill }) => {
   return (
     <div className={resumeSkillClass}>
       <h3>{skill.skill}</h3>
+      <p>{skill.category}</p>
       <div className={resumeSkillButtonClass}>
         <OpenModalButton
           buttonText="Edit Skill"
