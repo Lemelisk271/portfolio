@@ -20,4 +20,20 @@ router.put('/:skillId', requireAuth, async (req, res, next) => {
   res.status(201).json(skill)
 })
 
+router.delete('/:skillId', requireAuth, async (req, res, next) => {
+  const skill = await ResumeSkill.findByPk(req.params.skillId)
+
+  if (!skill) {
+    const err = new Error("Not Found")
+    err.status(404)
+    err.title = "Skill Not Found"
+    err.errors = {message: "The requested skill couldn't be found"}
+    return next(err)
+  }
+
+  skill.destroy()
+
+  res.json({message: "Successfully Deleted"})
+})
+
 module.exports = router

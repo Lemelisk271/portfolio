@@ -2,6 +2,7 @@ import { useContext } from 'react'
 import { DarkModeContext } from '../../context/DarkModeContext'
 import ResumeSkillForm from '../ResumeSkillForm'
 import OpenModalButton from '../OpenModalButton'
+import DeleteResumeSkillModal from '../DeleteResumeSkillModal'
 
 const ResumeSkillListItem = ({ skill }) => {
   const { darkMode } = useContext(DarkModeContext)
@@ -18,7 +19,10 @@ const ResumeSkillListItem = ({ skill }) => {
           buttonText="Edit Skill"
           modalComponent={<ResumeSkillForm skill={skill} page="edit"/>}
         />
-        <button>Delete Skill</button>
+        <OpenModalButton
+          buttonText="Delete Skill"
+          modalComponent={<DeleteResumeSkillModal skill={skill} />}
+        />
       </div>
     </div>
   )
