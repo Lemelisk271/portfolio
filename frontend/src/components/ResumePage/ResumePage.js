@@ -2,6 +2,7 @@ import { useContext, useState, useEffect } from 'react'
 import { csrfFetch } from '../../store/csrf'
 import { DarkModeContext } from '../../context/DarkModeContext'
 import ResumeProjectListItem from '../ResumeProjectListItem'
+import ResumeEmployerListItem from '../ResumeEmployerListItem'
 
 const ResumePage = ({ userId }) => {
   const [isLoaded, setIsLoaded] = useState(false)
@@ -13,6 +14,7 @@ const ResumePage = ({ userId }) => {
   const [backendSkills, setBackendSkills] = useState('')
   const [expertiseSkills, setExpertiseSkills] = useState('')
   const [projects, setProjects] = useState([])
+  const [employers, setEmployers] = useState([])
   const { darkMode } = useContext(DarkModeContext)
 
   useEffect(() => {
@@ -53,6 +55,10 @@ const ResumePage = ({ userId }) => {
       const projectRes = await csrfFetch(`/api/users/${userId}/projects`)
       const projectData = await projectRes.json()
       setProjects(projectData)
+
+      const employerRes = await csrfFetch(`/api/resumes/employer/${userId}`)
+      const employerData = await employerRes.json()
+      setEmployers(employerData)
 
       setIsLoaded(true)
     }
@@ -106,9 +112,15 @@ const ResumePage = ({ userId }) => {
               </table>
             </div>
             <div className='resumePage-resumeProjects'>
-              <h2>Projects</h2>
+              <h2>PROJECTS</h2>
               {projects.map((project, i) => (
                 <ResumeProjectListItem key={i} project={project} />
+              ))}
+            </div>
+            <div className='resumePage-resumeEducation'>
+              <h2>EXPERIENCE</h2>
+              {employers.map((employer, i) => (
+                <ResumeEmployerListItem key={i} employer={employer} />
               ))}
             </div>
           </div>

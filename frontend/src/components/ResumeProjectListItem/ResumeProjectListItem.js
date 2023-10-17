@@ -28,9 +28,9 @@ const ResumeProjectListItem = ({ project }) => {
           <div className='resumeProjectListItem-header'>
             <div className='resumeProjectListItem-headerInfo'>
               <div className='resumeProjectListItem-headerTitle'>
-                <p><strong>{project.name},</strong> {project.role} - {project.frontend} | {project.backend}</p>
+                <p><strong>{project.name},</strong> <em>{project.role}</em> - {project.frontend} | {project.backend}</p>
               </div>
-              <p>{project.about}<a href={project.cloneLink} target='_blank' rel="noreferrer">{project.cloneName}</a></p>
+              <p><em>{project.about}<a href={project.cloneLink} target='_blank' rel="noreferrer">{project.cloneName}</a></em></p>
             </div>
             <div className='resumeProjectListItem-headerLinks'>
               <a href={project.liveLink} target='_blank' rel="noreferrer">{project.name} Live</a>
