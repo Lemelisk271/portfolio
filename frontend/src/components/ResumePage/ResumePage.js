@@ -81,10 +81,10 @@ const ResumePage = ({ id }) => {
             <p>|</p>
             <a href={user.portfolio} target='_blank' rel="noreferrer">Portfolio</a>
             {socials.map((social, i) => (
-              <>
+              <div className='socialDiv' key={i}>
                 <p>|</p>
-                <a key={i} href={social.link} target='_blank' rel="noreferrer">{social.name}</a>
-              </>
+                <a href={social.link} target='_blank' rel="noreferrer">{social.name}</a>
+              </div>
             ))}
           </div>
           <div className='resumePage-line'/>
