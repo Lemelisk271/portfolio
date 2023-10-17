@@ -12,7 +12,8 @@ if (process.env.NODE_ENV === 'production') {
 const resumeList = [
   {
     username: 'zwsmith27',
-    title: 'Software Engineer'
+    title: 'Software Engineer',
+    role: 'Full Stack Developer'
   }
 ]
 
@@ -26,7 +27,8 @@ module.exports = {
         if (user.username === resume.username) {
           seeds.push({
             title: resume.title,
-            userId: user.id
+            userId: user.id,
+            role: resume.role
           })
         }
       }

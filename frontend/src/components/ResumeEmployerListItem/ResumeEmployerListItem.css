@@ -4,8 +4,9 @@
   width: 100%;
 }
 
-.resumeEmployerListItem h3, p {
+.resumeEmployerListItem p {
   margin: 0 0 5px 0;
+  font-size: 14px;
 }
 
 .resumeEmployerListItem-header {
@@ -16,4 +17,8 @@
 
 .resumeEmployerListItem ul {
   margin: 0 0 10px 0;
+}
+
+.resumeEmployerListItem li {
+  font-size: 14px;
 }

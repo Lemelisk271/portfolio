@@ -15,30 +15,39 @@ const projectList = [
     name: 'TaskWombat',
     liveLink: 'https://taskwombat.onrender.com/',
     repoLink: 'https://github.com/Lemelisk271/taskwombat',
-    about: 'A site based off of TaskRabbit',
+    about: 'A service site based on',
     previewImage: 'https://patchstagram-zwsmith.s3.us-west-2.amazonaws.com/taskwombat.png',
     cloneLink: 'https://www.taskrabbit.com/',
-    cloneName: 'TaskRabbit'
+    cloneName: 'TaskRabbit',
+    role: 'Full Stack Developer',
+    frontend: 'React',
+    backend: 'Node'
   },
   {
     username: 'zwsmith27',
     name: 'Welp',
     liveLink: 'https://welp-686p.onrender.com/',
     repoLink: 'https://github.com/Lemelisk271/welp-group-project',
-    about: 'A site based off of Yelp',
+    about: 'A group project based on',
     previewImage: 'https://patchstagram-zwsmith.s3.us-west-2.amazonaws.com/welp.png',
     cloneLink: 'https://www.yelp.com/',
-    cloneName: 'Yelp'
+    cloneName: 'Yelp',
+    role: 'Full Stack Developer',
+    frontend: 'React',
+    backend: 'Flask'
   },
   {
     username: 'zwsmith27',
     name: 'Showup',
     liveLink: 'https://showup.onrender.com/',
     repoLink: 'https://github.com/Lemelisk271/ShowUp',
-    about: 'A site based off of Meetup',
+    about: 'A meeting site based on',
     previewImage: 'https://patchstagram-zwsmith.s3.us-west-2.amazonaws.com/showup.png',
     cloneLink: 'https://www.meetup.com/',
-    cloneName: 'Meetup'
+    cloneName: 'Meetup',
+    role: 'Full Stack Developer',
+    frontend: 'React',
+    backend: 'Node'
   }
 ]
 
@@ -59,7 +68,10 @@ module.exports = {
             cloneName: project.cloneName,
             about: project.about,
             previewImage: project.previewImage,
-            userId: user.id
+            userId: user.id,
+            role: project.role,
+            frontend: project.frontend,
+            backend: project.backend
           })
         }
       }

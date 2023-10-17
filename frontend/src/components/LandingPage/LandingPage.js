@@ -49,7 +49,7 @@ const LandingPage = () => {
     )
   } else if (page === 'resume') {
     pageContent = (
-      <ResumePage id={user.id}/>
+      <ResumePage userId={user.id}/>
     )
   } else {
     pageContent = (
@@ -88,12 +88,12 @@ const LandingPage = () => {
               <p>{user.location}</p>
               <a href={`mailto:${user.email}`}>{user.email}</a>
               <p>{phone}</p>
-              <a href={Resume} download="Zach_Smith_Resume" target="_blank" rel="noreferrer">Download Resume</a>
+              <a href={Resume} download="Zach_Smith_Resume" target="_blank" rel="noreferrer">Download Resum&egrave;</a>
             </div>
             <div className={selectClass}>
               <button onClick={aboutButton}>About Me</button>
               <button onClick={projectButton}>Projects</button>
-              <button onClick={resumeButton}>Resume</button>
+              <button onClick={resumeButton}>Resum&egrave;</button>
               <button onClick={contactButton}>Contact Me</button>
             </div>
           </div>

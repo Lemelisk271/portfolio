@@ -23,6 +23,10 @@ module.exports = (sequelize, DataTypes) => {
         len: [1, 100]
       }
     },
+    category: {
+      type: DataTypes.ENUM('frontend', 'backend', 'expertise'),
+      allowNull: false
+    },
     resumeId: {
       type: DataTypes.INTEGER,
       allowNull: false,

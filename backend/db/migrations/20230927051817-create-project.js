@@ -44,6 +44,18 @@ module.exports = {
         type: Sequelize.STRING(256),
         allowNull: false
       },
+      role: {
+        type: Sequelize.STRING(256),
+        allowNull: false
+      },
+      frontend: {
+        type: Sequelize.STRING(256),
+        allowNull: false
+      },
+      backend: {
+        type: Sequelize.STRING(256),
+        allowNull: false
+      },
       userId: {
         type: Sequelize.INTEGER,
         allowNull: false,

@@ -5,6 +5,7 @@
 }
 
 .resumeProjectListItem h3, p, a {
+  font-size: 14px;
   margin: 0 0 5px 0;
 }
 
@@ -34,4 +35,8 @@
 
 .resumeProjectListItem-bulletPoints ul {
   margin: 0 0 10px 0;
+}
+
+.resumeProjectListItem-bulletPoints li {
+  font-size: 14px;
 }
