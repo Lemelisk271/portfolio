@@ -69,6 +69,27 @@ module.exports = (sequelize, DataTypes) => {
         isUrl: true
       }
     },
+    role: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1, 256]
+      }
+    },
+    frontend: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1, 256]
+      }
+    },
+    backend: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1, 256]
+      }
+    },
     userId: {
       type: DataTypes.INTEGER,
       allowNull: false,

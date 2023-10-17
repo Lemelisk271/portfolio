@@ -16,35 +16,35 @@ const bulletSeeds = [
   },
   {
     project: "TaskWombat",
-    bullet: "Implemented React throughout the site to allow the content to dynamically change as needed."
+    bullet: "Implemented a styled web page using Wireframing as a guide and CSS to implement the site. This provided the user with a finished site that was easier to navigate."
   },
   {
     project: "TaskWombat",
-    bullet: "Built an express backend to allow the site to communicate with the database."
+    bullet: "Built a database using Sequelize to structure, store, and access data then render that data to the client via a front end framework."
   },
   {
     project: "Welp",
-    bullet: "Integrated a flask backend to allow the site to query the database."
+    bullet: "Integrated a database using SQLAlchemy to store data, create an API to access, update, and remove that data and render that data to the client through React."
   },
   {
     project: "Welp",
-    bullet: "Streamlined database queries by creating and using a Redux store."
+    bullet: "Created a Redux store using React0Redux to streamline database queries."
   },
   {
     project: "Welp",
-    bullet: "Coordinated with team members to ensure project requirements were met."
+    bullet: "Coordinated with team members through Git branches allowing us to use a single code base."
   },
   {
     project: "Showup",
-    bullet: "Designed the site using Meetup as a template."
+    bullet: "Designed the site to use Node and Express this allowed the React front end to communicate with the back end framework."
   },
   {
     project: "Showup",
-    bullet: "Incorporated an express backend with a react frontend"
+    bullet: "Incorporated custom user authentication utilizing the BCryptJs hashsync function on the backend and React Auth Routes on the frontend to prevent the storage of plain text passwords and restrict access to user specific data and features."
   },
   {
     project: "Showup",
-    bullet: "Launched the website using Render.com"
+    bullet: "Launched the website using a PostgreSQL database allowing the user to access, update, and remove data."
   }
 ]
 

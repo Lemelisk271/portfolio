@@ -1,6 +1,7 @@
 import { useContext, useState, useEffect } from 'react'
 import { csrfFetch } from '../../store/csrf'
 import { DarkModeContext } from '../../context/DarkModeContext'
+import ResumeProjectListItem from '../ResumeProjectListItem'
 
 const ResumePage = ({ userId }) => {
   const [isLoaded, setIsLoaded] = useState(false)
@@ -11,6 +12,7 @@ const ResumePage = ({ userId }) => {
   const [frontendSkills, setFrontendSkills] = useState('')
   const [backendSkills, setBackendSkills] = useState('')
   const [expertiseSkills, setExpertiseSkills] = useState('')
+  const [projects, setProjects] = useState([])
   const { darkMode } = useContext(DarkModeContext)
 
   useEffect(() => {
@@ -47,6 +49,10 @@ const ResumePage = ({ userId }) => {
         expertiseArray.push(el.skill)
       })
       setExpertiseSkills(expertiseArray.join(", "))
+
+      const projectRes = await csrfFetch(`/api/users/${userId}/projects`)
+      const projectData = await projectRes.json()
+      setProjects(projectData)
 
       setIsLoaded(true)
     }
@@ -98,6 +104,12 @@ const ResumePage = ({ userId }) => {
                   </tr>
                 </tbody>
               </table>
+            </div>
+            <div className='resumePage-resumeProjects'>
+              <h2>Projects</h2>
+              {projects.map((project, i) => (
+                <ResumeProjectListItem key={i} project={project} />
+              ))}
             </div>
           </div>
         </>

@@ -12,7 +12,7 @@ const ProjectListItem = ({ project }) => {
     <div className={projectListItemClass}>
       <h2>{project.name}</h2>
       <a href={project.liveLink} target='_blank' rel="noreferrer"><img src={project.previewImage} alt={project.name}/></a>
-      <p>{project.about}</p>
+      <p>{project.about} <a href={project.cloneLink} target='_blank' rel='noreferrer'>{project.cloneName}</a></p>
       <div className={projectListItemLinksClass}>
         <a href={project.liveLink} target='_blank' rel="noreferrer">Live Site</a>
         <a href={project.repoLink} target='_blank' rel="noreferrer">Repository</a>

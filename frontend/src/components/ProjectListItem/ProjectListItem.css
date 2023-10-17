@@ -15,6 +15,27 @@
   margin-top: 10px;
 }
 
+.projectListItem p {
+  margin: 5px 0;
+}
+
+.projectListItem a {
+  text-decoration: none;
+  margin: 0;
+}
+
+.projectListItem a:hover {
+  text-decoration: underline;
+}
+
+.projectListItem-light a {
+  color: #136F63
+}
+
+.projectListItem-dark a {
+  color: white
+}
+
 .projectListItem-links {
   display: flex;
   flex-direction: row;
