@@ -26,6 +26,13 @@ module.exports = (sequelize, DataTypes) => {
         len: [1, 256]
       }
     },
+    role: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1, 256]
+      }
+    },
     userId: {
       type: DataTypes.INTEGER,
       allowNull: false,
