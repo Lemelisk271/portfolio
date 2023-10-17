@@ -4,6 +4,7 @@ import { DarkModeContext } from '../../context/DarkModeContext'
 import ResumeProjectListItem from '../ResumeProjectListItem'
 import ResumeEmployerListItem from '../ResumeEmployerListItem'
 import ResumeEducationListItem from '../ResumeEducationListItem'
+import './ResumePage.css'
 
 const ResumePage = ({ userId }) => {
   const [isLoaded, setIsLoaded] = useState(false)
@@ -85,52 +86,39 @@ const ResumePage = ({ userId }) => {
             </div>
             <div className='resumePage-resumeContact'>
               <p>{user.location}</p>
-              <p>|</p>
               <p>{phone}</p>
-              <p>|</p>
               <a href={`mailto:${user.email}`}>{user.email}</a>
-              <p>|</p>
+              <a href={user.portfolio} target='_blank' rel='noreferrer'>Portfolio</a>
               {socials.map((social, i) => (
                 <div className='socialDiv' key={i}>
                   <a href={social.link} target='_blank' rel="noreferrer">{social.name}</a>
-                  <p>|</p>
                 </div>
               ))}
-              <a href={user.portfolio} target='_blank' rel='noreferrer'>Portfolio</a>
             </div>
             <div className='resumePage-resumeSkills'>
               <h2>TECHNICAL SKILLS</h2>
-              <table>
-                <tbody>
-                  <tr>
-                    <th scope='row'>Frontend:</th>
-                    <td>{frontendSkills}</td>
-                  </tr>
-                  <tr>
-                    <th scope='row'>Backend:</th>
-                    <td>{backendSkills}</td>
-                  </tr>
-                  <tr>
-                    <th scope='row'>Expertise:</th>
-                    <td>{expertiseSkills}</td>
-                  </tr>
-                </tbody>
-              </table>
+              <div className='resumePage-line'/>
+              <p><strong>Frontend:</strong> {frontendSkills}</p>
+              <p><strong>Backend:</strong> {backendSkills}</p>
+              <p><strong>Expertise:</strong> {expertiseSkills}</p>
             </div>
             <div className='resumePage-resumeProjects'>
               <h2>PROJECTS</h2>
+              <div className='resumePage-line'/>
               {projects.map((project, i) => (
                 <ResumeProjectListItem key={i} project={project} />
               ))}
             </div>
-            <div className='resumePage-resumeEducation'>
+            <div className='resumePage-resumeWork'>
               <h2>EXPERIENCE</h2>
+              <div className='resumePage-line'/>
               {employers.map((employer, i) => (
                 <ResumeEmployerListItem key={i} employer={employer} />
               ))}
             </div>
             <div className='resumePage-resumeEducation'>
               <h2>EDUCATION</h2>
+              <div className='resumePage-line'/>
               {education.map((edu, i) => (
                 <ResumeEducationListItem key={i} edu={edu} />
               ))}

@@ -1,0 +1,130 @@
+.resumePage-resume h1, h2, h3, p, a, li {
+  font-family: 'Lato', sans-serif;
+}
+
+.resumePage-dark {
+  background-color: #136F63;
+}
+
+.resumePage-light {
+  background-color: white;
+}
+
+.resumePage-resume {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 70%;
+  margin: 20px auto;
+  padding: 50px;
+  background-color: white;
+}
+
+.resumePage-resume-light {
+  border: 1px solid black;
+}
+
+.resumePage-resume-dark {
+  border: none
+}
+
+.resumePage-resumeHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.resumePage-resumeHeader > h1 {
+  font-size: 40px;
+  margin: 5px 0;
+}
+
+.resumePage-resumeHeader > p {
+  font-weight: bold;
+  font-size: 16px;
+  margin: 0;
+}
+
+.resumePage-line {
+  width: 100%;
+  border-bottom: 2px solid lightgray;
+  margin-bottom: 10px;
+  padding-top: 10px;
+}
+
+.resumePage-resumeContact {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin: 10px 0;
+}
+
+.resumePage-resumeContact p {
+  font-size: 14px;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  padding: 0 10px;
+}
+
+.resumePage-resumeContact a {
+  font-size: 14px;
+  color: blue;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  padding: 0 10px;
+}
+
+.resumePage-resumeContact a:hover {
+  color: black
+}
+
+.socialDiv {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.resumePage-resumeSkills {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.resumePage-resumeSkills h2 {
+  margin: 10px 0 0 0;
+  font-size: 20px;
+}
+
+.resumePage-resumeSkills p {
+  font-size: 14px;
+  margin: 0;
+}
+
+.resumePage-resumeProjects h2 {
+  margin: 10px 0 0 0;
+  font-size: 20px;
+}
+
+.resumePage-resumeProjects {
+  width: 100%;
+}
+
+.resumePage-resumeWork {
+  width: 100%;
+}
+
+.resumePage-resumeWork h2 {
+  margin: 10px 0 0 0;
+  font-size: 20px;
+}
+
+.resumePage-resumeEducation {
+  width: 100%;
+}
+
+.resumePage-resumeEducation h2 {
+  margin: 10px 0 0 0;
+  font-size: 20px;
+}
