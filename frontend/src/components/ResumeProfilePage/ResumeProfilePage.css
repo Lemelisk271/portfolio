@@ -1,0 +1,31 @@
+.resumeProfilePage-content {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.resumeProfilePage-dark {
+  background-color: #136F63;
+}
+
+.resumeProfilePage-light {
+  background-color: white;
+}
+
+.resumeProfilePage-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.resumeProfilePage-title-light {
+  border: 1px solid #136F63;
+}
+
+.resumeProfilePage-title-dark {
+  border: 1px solid white;
+}
