@@ -5,7 +5,7 @@ import { useModal } from '../../context/Modal'
 import { ResetContext } from '../../context/ResetContext'
 import './ResumeSkillForm.css'
 
-const ResumeSkillForm = ({ skill, page }) => {
+const ResumeSkillForm = ({ skill, page, resumeId }) => {
   const [title, setTitle] = useState("")
   const [newSkill, setNewSkill] = useState('')
   const [category, setCategory] = useState('')
@@ -57,6 +57,29 @@ const ResumeSkillForm = ({ skill, page }) => {
           "Content-Type": "application/json"
         },
         body: JSON.stringify(skillObj)
+      })
+      if (res.ok) {
+        setReset(!reset)
+        closeModal()
+      } else {
+        const data = await res.json()
+        if (data && data.errors) {
+          setValidationErrors(data.errors)
+        }
+      }
+    } else {
+      const newSkillObj = {
+        skill: newSkill,
+        category,
+        resumeId
+      }
+
+      const res = await csrfFetch('/api/resumeSkills', {
+        method: 'POST',
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(newSkillObj)
       })
       if (res.ok) {
         setReset(!reset)

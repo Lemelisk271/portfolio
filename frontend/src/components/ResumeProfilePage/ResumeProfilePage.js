@@ -6,6 +6,7 @@ import { ResetContext } from '../../context/ResetContext'
 import EditResumeTitleModal from '../EditResumeTitleModal'
 import OpenModalButton from '../OpenModalButton'
 import ResumeSkillListItem from '../ResumeSkillListItem'
+import ResumeSkillForm from '../ResumeSkillForm'
 import './ResumeProfilePage.css'
 
 const ResumeProfilePage = () => {
@@ -34,6 +35,7 @@ const ResumeProfilePage = () => {
   const resumeProfileContentClass = "resumeProfilePage-content" + (darkMode ? " resumeProfilePage-content-dark" : " resumeProfilePage-content-light")
   const resumeTitleClass = "resumeProfilePage-title" + (darkMode ? " resumeProfilePage-title-dark" : " resumeProfilePage-title-light")
   const resumeSkillClass = "resumeProfilePage-skills" + (darkMode ? " resumeProfilePage-skills-dark" : " resumeProfilePage-skills-light")
+  const addSkillButtonClass = "resumeProfilePage-addSkillButton" + (darkMode ? " resumeProfilePage-addSkillButton-dark" : " resumeProfilePage-addSkillButton-light")
 
   return (
     <div className={resumeProfileClass}>
@@ -55,6 +57,12 @@ const ResumeProfilePage = () => {
             {skills.map((skill, i) => (
               <ResumeSkillListItem key={i} skill={skill}/>
             ))}
+          </div>
+          <div className={addSkillButtonClass}>
+            <OpenModalButton
+              buttonText="Add Skill"
+              modalComponent={<ResumeSkillForm resumeId={resume.id} page="new" />}
+            />
           </div>
         </div>
       ):(

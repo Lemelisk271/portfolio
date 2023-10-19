@@ -36,4 +36,15 @@ router.delete('/:skillId', requireAuth, async (req, res, next) => {
   res.json({message: "Successfully Deleted"})
 })
 
+router.post('/', requireAuth, async (req, res, next) => {
+  try {
+    const newSkill = ResumeSkill.build(req.body)
+    newSkill.validate()
+    await newSkill.save()
+    return res.status(201).json(newSkill)
+  } catch (err) {
+    return next(err)
+  }
+})
+
 module.exports = router

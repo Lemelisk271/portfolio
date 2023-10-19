@@ -4,6 +4,7 @@
   width: 90%;
   margin: 0 auto;
   min-height: calc(100vh - 150px);
+  align-items: center;
 }
 
 .resumeProfilePage-dark {
@@ -21,6 +22,7 @@
   align-items: center;
   border-radius: 20px;
   padding: 20px;
+  width: 100%;
 }
 
 .resumeProfilePage-title-light {
@@ -52,7 +54,7 @@
 
 .resumeProfilePage-title-light button {
   background-color: #EF946C;
-  color: white;
+  color: black;
 }
 
 .resumeProfilePage-title-light button:hover {
@@ -67,6 +69,7 @@
   align-items: center;
   border-radius: 20px;
   padding: 20px;
+  width: 100%;
 }
 
 .resumeProfilePage-skills-light {
@@ -75,4 +78,38 @@
 
 .resumeProfilePage-skills-dark {
   border: 1px solid white;
+}
+
+.resumeProfilePage-addSkillButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin: 10px 0;
+}
+
+.resumeProfilePage-addSkillButton button {
+  font-size: 18px;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.resumeProfilePage-addSkillButton-dark button {
+  background-color: #B74F6F;
+  color: white;
+}
+
+.resumeProfilePage-addSkillButton-dark button:hover {
+  background-color: #EF946C;
+}
+
+.resumeProfilePage-addSkillButton-light button {
+  background-color: #EF946C;
+  color: black;
+}
+
+.resumeProfilePage-addSkillButton-light button:hover {
+  background-color: #B74F6F;
 }
