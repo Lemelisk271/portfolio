@@ -3,6 +3,7 @@ import { DarkModeContext } from '../../context/DarkModeContext'
 import { csrfFetch } from '../../store/csrf'
 import { useModal } from '../../context/Modal'
 import { ResetContext } from '../../context/ResetContext'
+import './ResumeSkillForm.css'
 
 const ResumeSkillForm = ({ skill, page }) => {
   const [title, setTitle] = useState("")
@@ -75,6 +76,7 @@ const ResumeSkillForm = ({ skill, page }) => {
   }
 
   const resumeSkillFormClass = "resumeSkillForm" + (darkMode ? " resumeSkillForm-dark" : " resumeSkillForm-light")
+  const resumeSkillFormButtonClass = "resumeSkillForm-buttons" + (darkMode ? " resumeSkillForm-buttons-dark" : " resumeSkillForm-buttons-light")
 
   return (
     <div className={resumeSkillFormClass}>
@@ -107,7 +109,7 @@ const ResumeSkillForm = ({ skill, page }) => {
             <option value='expertise'>Expertise</option>
           </select>
         </div>
-        <div className='resumeSkillForm-buttons'>
+        <div className={resumeSkillFormButtonClass}>
           <button type='submit'>Save</button>
           <button onClick={cancelButton}>Cancel</button>
         </div>
