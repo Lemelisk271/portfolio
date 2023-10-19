@@ -1,17 +1,25 @@
 import { useContext, useState, useEffect } from 'react'
 import { DarkModeContext } from '../../context/DarkModeContext'
+import { csrfFetch } from '../../store/csrf'
+import { useModal } from '../../context/Modal'
+import { ResetContext } from '../../context/ResetContext'
+import './ResumeSkillForm.css'
 
-const ResumeSkillForm = ({ skill, page }) => {
+const ResumeSkillForm = ({ skill, page, resumeId }) => {
   const [title, setTitle] = useState("")
   const [newSkill, setNewSkill] = useState('')
+  const [category, setCategory] = useState('')
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [validationErrors, setValidationErrors] = useState({})
   const { darkMode } = useContext(DarkModeContext)
+  const { reset, setReset } = useContext(ResetContext)
+  const { closeModal } = useModal()
 
   useEffect(() => {
     if (page === 'edit') {
       setTitle(`Edit ${skill.skill}`)
       setNewSkill(skill.skill)
+      setCategory(skill.category)
     } else {
       setTitle('Add Skill')
     }
@@ -24,8 +32,12 @@ const ResumeSkillForm = ({ skill, page }) => {
       errors.newSkill = "Please Enter a Skill"
     }
 
+    if (category.length === 0) {
+      errors.category = "Please select a Category"
+    }
+
     setValidationErrors(errors)
-  }, [newSkill])
+  }, [newSkill, category])
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -35,14 +47,59 @@ const ResumeSkillForm = ({ skill, page }) => {
 
     if (page === 'edit') {
       const skillObj = {
-        skill: newSkill
+        skill: newSkill,
+        category
       }
 
-      console.log(skillObj)
+      const res = await csrfFetch(`/api/resumeSkills/${skill.id}`, {
+        method: 'PUT',
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(skillObj)
+      })
+      if (res.ok) {
+        setReset(!reset)
+        closeModal()
+      } else {
+        const data = await res.json()
+        if (data && data.errors) {
+          setValidationErrors(data.errors)
+        }
+      }
+    } else {
+      const newSkillObj = {
+        skill: newSkill,
+        category,
+        resumeId
+      }
+
+      const res = await csrfFetch('/api/resumeSkills', {
+        method: 'POST',
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(newSkillObj)
+      })
+      if (res.ok) {
+        setReset(!reset)
+        closeModal()
+      } else {
+        const data = await res.json()
+        if (data && data.errors) {
+          setValidationErrors(data.errors)
+        }
+      }
     }
   }
 
+  const cancelButton = (e) => {
+    e.preventDefault()
+    closeModal()
+  }
+
   const resumeSkillFormClass = "resumeSkillForm" + (darkMode ? " resumeSkillForm-dark" : " resumeSkillForm-light")
+  const resumeSkillFormButtonClass = "resumeSkillForm-buttons" + (darkMode ? " resumeSkillForm-buttons-dark" : " resumeSkillForm-buttons-light")
 
   return (
     <div className={resumeSkillFormClass}>
@@ -62,9 +119,22 @@ const ResumeSkillForm = ({ skill, page }) => {
               onChange={e => setNewSkill(e.target.value)}
             />
         </div>
-        <div className='resumeSkillForm-buttons'>
-          <button>Save</button>
-          <button>Cancel</button>
+        <div className='resumeSkillForm-input'>
+          <label htmlFor='category'>Category</label>
+          <select
+            id='category'
+            value={category}
+            onChange={e => setCategory(e.target.value)}
+          >
+            <option disabled value=''>Select a Category</option>
+            <option value='frontend'>Frontend</option>
+            <option value='backend'>Backend</option>
+            <option value='expertise'>Expertise</option>
+          </select>
+        </div>
+        <div className={resumeSkillFormButtonClass}>
+          <button type='submit'>Save</button>
+          <button onClick={cancelButton}>Cancel</button>
         </div>
       </form>
     </div>

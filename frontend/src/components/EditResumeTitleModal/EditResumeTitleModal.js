@@ -7,6 +7,7 @@ import { DarkModeContext } from '../../context/DarkModeContext'
 
 const EditResumeTitleModal = ({ user, resume }) => {
   const [title, setTitle] = useState(resume.title)
+  const [role, setRole] = useState(resume.role)
   const [validationErrors, setValidationErrors] = useState({})
   const [isSubmitted, setIsSubmitted] = useState(false)
   const { reset, setReset } = useContext(ResetContext)
@@ -20,6 +21,10 @@ const EditResumeTitleModal = ({ user, resume }) => {
       errors.title = "Please enter a title"
     }
 
+    if (role.length === 0) {
+      errors.role = "Please enter a role"
+    }
+
     setValidationErrors(errors)
   }, [title])
 
@@ -31,6 +36,7 @@ const EditResumeTitleModal = ({ user, resume }) => {
 
     const resumeObj = {
       title,
+      role,
       userId: user.id
     }
 
@@ -70,6 +76,15 @@ const EditResumeTitleModal = ({ user, resume }) => {
             type='text'
             value={title}
             onChange={e => setTitle(e.target.value)}
+          />
+        </div>
+        <div>
+          <label htmlFor='role'>Role</label>
+          <input
+            id='role'
+            type='text'
+            value={role}
+            onChange={e => setRole(e.target.value)}
           />
         </div>
         <button type='submit'>Submit</button>

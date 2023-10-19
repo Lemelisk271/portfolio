@@ -1,0 +1,115 @@
+.resumeProfilePage-content {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: 0 auto;
+  min-height: calc(100vh - 150px);
+  align-items: center;
+}
+
+.resumeProfilePage-dark {
+  background-color: #136F63;
+}
+
+.resumeProfilePage-light {
+  background-color: white;
+}
+
+.resumeProfilePage-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 20px;
+  padding: 20px;
+  width: 100%;
+}
+
+.resumeProfilePage-title-light {
+  border: 1px solid #136F63;
+}
+
+.resumeProfilePage-title-dark {
+  border: 1px solid white;
+}
+
+.resumeProfilePage-title button {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: 18px;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.resumeProfilePage-title-dark button {
+  background-color: #B74F6F;
+  color: white;
+}
+
+.resumeProfilePage-title-dark button:hover {
+  background-color: #EF946C;
+}
+
+.resumeProfilePage-title-light button {
+  background-color: #EF946C;
+  color: black;
+}
+
+.resumeProfilePage-title-light button:hover {
+  background-color: #B74F6F;
+}
+
+.resumeProfilePage-skills {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  border-radius: 20px;
+  padding: 20px;
+  width: 100%;
+}
+
+.resumeProfilePage-skills-light {
+  border: 1px solid #136F63;
+}
+
+.resumeProfilePage-skills-dark {
+  border: 1px solid white;
+}
+
+.resumeProfilePage-addSkillButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin: 10px 0;
+}
+
+.resumeProfilePage-addSkillButton button {
+  font-size: 18px;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.resumeProfilePage-addSkillButton-dark button {
+  background-color: #B74F6F;
+  color: white;
+}
+
+.resumeProfilePage-addSkillButton-dark button:hover {
+  background-color: #EF946C;
+}
+
+.resumeProfilePage-addSkillButton-light button {
+  background-color: #EF946C;
+  color: black;
+}
+
+.resumeProfilePage-addSkillButton-light button:hover {
+  background-color: #B74F6F;
+}

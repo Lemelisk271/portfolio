@@ -6,6 +6,8 @@ import { ResetContext } from '../../context/ResetContext'
 import EditResumeTitleModal from '../EditResumeTitleModal'
 import OpenModalButton from '../OpenModalButton'
 import ResumeSkillListItem from '../ResumeSkillListItem'
+import ResumeSkillForm from '../ResumeSkillForm'
+import './ResumeProfilePage.css'
 
 const ResumeProfilePage = () => {
   const sessionUser = useSelector(state => state.session.user)
@@ -30,28 +32,39 @@ const ResumeProfilePage = () => {
   }, [reset])
 
   const resumeProfileClass = "resumeProfilePage" + (darkMode ? " resumeProfilePage-dark" : " resumeProfilePage-light")
+  const resumeProfileContentClass = "resumeProfilePage-content" + (darkMode ? " resumeProfilePage-content-dark" : " resumeProfilePage-content-light")
   const resumeTitleClass = "resumeProfilePage-title" + (darkMode ? " resumeProfilePage-title-dark" : " resumeProfilePage-title-light")
-  const resumeSkillClass = "resumeProfilePage-skills" + (darkMode ? " resumeProfilePage-dark" : " resumeProfilePage-light")
+  const resumeSkillClass = "resumeProfilePage-skills" + (darkMode ? " resumeProfilePage-skills-dark" : " resumeProfilePage-skills-light")
+  const addSkillButtonClass = "resumeProfilePage-addSkillButton" + (darkMode ? " resumeProfilePage-addSkillButton-dark" : " resumeProfilePage-addSkillButton-light")
 
   return (
     <div className={resumeProfileClass}>
       {isLoaded ? (
-        <>
+        <div className={resumeProfileContentClass}>
           <h1>{sessionUser.firstName} {sessionUser.lastName}'s Resume</h1>
           <div className={resumeTitleClass}>
-            <h2>Title: {resume.title}</h2>
+            <div>
+              <h2>Title: {resume.title}</h2>
+              <h2>Role: {resume.role}</h2>
+            </div>
             <OpenModalButton
-              buttonText="Edit Title"
+              buttonText="Edit Title/Role"
               modalComponent={<EditResumeTitleModal user={sessionUser} resume={resume}/>}
             />
           </div>
+          <h2>Skills</h2>
           <div className={resumeSkillClass}>
-            <h2>Skills</h2>
             {skills.map((skill, i) => (
               <ResumeSkillListItem key={i} skill={skill}/>
             ))}
           </div>
-        </>
+          <div className={addSkillButtonClass}>
+            <OpenModalButton
+              buttonText="Add Skill"
+              modalComponent={<ResumeSkillForm resumeId={resume.id} page="new" />}
+            />
+          </div>
+        </div>
       ):(
         <>
           <h1>Loading...</h1>

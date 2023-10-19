@@ -1,0 +1,56 @@
+.resumeSkillListItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border-radius: 20px;
+  width: 10%;
+  margin: 5px 0;
+}
+
+.resumeSkillListItem-dark {
+  border: 1px solid white;
+}
+
+.resumeSkillListItem-light {
+  border: 1px solid #136F63;
+}
+
+.resumeSkillListItem p {
+  font-size: 18px;
+  margin: 0;
+}
+
+.resumeSkillListItem-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.resumeSkillListItem-buttons button {
+  width: 100%;
+  margin: 5px 0;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.resumeSkillListItem-buttons-dark button {
+  background-color: #B74F6F;
+  color: white;
+}
+
+.resumeSkillListItem-buttons-dark button:hover {
+  background-color: #EF946C;
+}
+
+.resumeSkillListItem-buttons-light button {
+  background-color: #EF946C;
+  color: black;
+}
+
+.resumeSkillListItem-buttons-light button:hover {
+  background-color: #B74F6F;
+}
