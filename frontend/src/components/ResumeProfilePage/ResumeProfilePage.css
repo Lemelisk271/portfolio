@@ -3,6 +3,7 @@
   flex-direction: column;
   width: 90%;
   margin: 0 auto;
+  min-height: calc(100vh - 150px);
 }
 
 .resumeProfilePage-dark {
@@ -27,5 +28,51 @@
 }
 
 .resumeProfilePage-title-dark {
+  border: 1px solid white;
+}
+
+.resumeProfilePage-title button {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: 18px;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.resumeProfilePage-title-dark button {
+  background-color: #B74F6F;
+  color: white;
+}
+
+.resumeProfilePage-title-dark button:hover {
+  background-color: #EF946C;
+}
+
+.resumeProfilePage-title-light button {
+  background-color: #EF946C;
+  color: white;
+}
+
+.resumeProfilePage-title-light button:hover {
+  background-color: #B74F6F;
+}
+
+.resumeProfilePage-skills {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.resumeProfilePage-skills-light {
+  border: 1px solid #136F63;
+}
+
+.resumeProfilePage-skills-dark {
   border: 1px solid white;
 }

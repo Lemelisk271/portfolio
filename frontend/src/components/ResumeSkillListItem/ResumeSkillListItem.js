@@ -3,6 +3,7 @@ import { DarkModeContext } from '../../context/DarkModeContext'
 import ResumeSkillForm from '../ResumeSkillForm'
 import OpenModalButton from '../OpenModalButton'
 import DeleteResumeSkillModal from '../DeleteResumeSkillModal'
+import './ResumeSkillListItem.css'
 
 const ResumeSkillListItem = ({ skill }) => {
   const { darkMode } = useContext(DarkModeContext)
@@ -12,7 +13,7 @@ const ResumeSkillListItem = ({ skill }) => {
 
   return (
     <div className={resumeSkillClass}>
-      <h3>{skill.skill}</h3>
+      <p><strong>{skill.skill}</strong></p>
       <p>{skill.category}</p>
       <div className={resumeSkillButtonClass}>
         <OpenModalButton

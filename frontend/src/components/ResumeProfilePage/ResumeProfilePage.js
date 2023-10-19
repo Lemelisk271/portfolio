@@ -33,7 +33,7 @@ const ResumeProfilePage = () => {
   const resumeProfileClass = "resumeProfilePage" + (darkMode ? " resumeProfilePage-dark" : " resumeProfilePage-light")
   const resumeProfileContentClass = "resumeProfilePage-content" + (darkMode ? " resumeProfilePage-content-dark" : " resumeProfilePage-content-light")
   const resumeTitleClass = "resumeProfilePage-title" + (darkMode ? " resumeProfilePage-title-dark" : " resumeProfilePage-title-light")
-  const resumeSkillClass = "resumeProfilePage-skills" + (darkMode ? " resumeProfilePage-dark" : " resumeProfilePage-light")
+  const resumeSkillClass = "resumeProfilePage-skills" + (darkMode ? " resumeProfilePage-skills-dark" : " resumeProfilePage-skills-light")
 
   return (
     <div className={resumeProfileClass}>
@@ -50,8 +50,8 @@ const ResumeProfilePage = () => {
               modalComponent={<EditResumeTitleModal user={sessionUser} resume={resume}/>}
             />
           </div>
+          <h2>Skills</h2>
           <div className={resumeSkillClass}>
-            <h2>Skills</h2>
             {skills.map((skill, i) => (
               <ResumeSkillListItem key={i} skill={skill}/>
             ))}
