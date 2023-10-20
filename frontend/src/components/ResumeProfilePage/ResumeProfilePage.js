@@ -7,12 +7,14 @@ import EditResumeTitleModal from '../EditResumeTitleModal'
 import OpenModalButton from '../OpenModalButton'
 import ResumeSkillListItem from '../ResumeSkillListItem'
 import ResumeSkillForm from '../ResumeSkillForm'
+import ResumeProfileProjectListItem from '../ResumeProfileProjectListItem'
 import './ResumeProfilePage.css'
 
 const ResumeProfilePage = () => {
   const sessionUser = useSelector(state => state.session.user)
   const [resume, setResume] = useState({})
   const [skills, setSkills] = useState([])
+  const [projects, setProjects] = useState([])
   const [isLoaded, setIsLoaded] = useState(false)
   const { darkMode } = useContext(DarkModeContext)
   const { reset } = useContext(ResetContext)
@@ -25,6 +27,10 @@ const ResumeProfilePage = () => {
       setSkills(resumeData.ResumeSkills)
       console.log(resumeData)
 
+      const projectRes = await csrfFetch(`/api/users/${resumeData.User.id}/projects`)
+      const projectData = await projectRes.json()
+      setProjects(projectData)
+
       setIsLoaded(true)
     }
     loadPage()
@@ -36,6 +42,7 @@ const ResumeProfilePage = () => {
   const resumeTitleClass = "resumeProfilePage-title" + (darkMode ? " resumeProfilePage-title-dark" : " resumeProfilePage-title-light")
   const resumeSkillClass = "resumeProfilePage-skills" + (darkMode ? " resumeProfilePage-skills-dark" : " resumeProfilePage-skills-light")
   const addSkillButtonClass = "resumeProfilePage-addSkillButton" + (darkMode ? " resumeProfilePage-addSkillButton-dark" : " resumeProfilePage-addSkillButton-light")
+  const projectBulletClass = "resumeProfilePage-projectBullets" + (darkMode ? " resumeProfilePage-projectBullets-dark" : " resumeProfilePage-projectBullets-light")
 
   return (
     <div className={resumeProfileClass}>
@@ -63,6 +70,12 @@ const ResumeProfilePage = () => {
               buttonText="Add Skill"
               modalComponent={<ResumeSkillForm resumeId={resume.id} page="new" />}
             />
+          </div>
+          <h2>Project Bullets</h2>
+          <div className={projectBulletClass}>
+            {projects.map((project, i) => (
+              <ResumeProfileProjectListItem key={i} project={project} />
+            ))}
           </div>
         </div>
       ):(

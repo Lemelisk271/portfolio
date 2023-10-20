@@ -1,0 +1,3 @@
+import ResumeProfileProjectListItem from './ResumeProfileProjectListItem'
+
+export default ResumeProfileProjectListItem
