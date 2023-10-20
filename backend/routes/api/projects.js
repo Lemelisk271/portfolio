@@ -68,7 +68,7 @@ router.delete("/:projectId", requireAuth, async (req, res, next) => {
 })
 
 router.post('/', requireAuth, singleMulterUpload("image"), async (req, res, next) => {
-  const { name, liveLink, repoLink, about, userId } = req.body
+  const { name, liveLink, repoLink, about, userId, cloneName, cloneLink, frontend, backend, role } = req.body
   const previewImage = await singlePublicFileUpload(req.file)
   try {
     const newProject = Project.build({
@@ -77,7 +77,12 @@ router.post('/', requireAuth, singleMulterUpload("image"), async (req, res, next
       repoLink,
       about,
       previewImage,
-      userId
+      userId,
+      cloneName,
+      cloneLink,
+      frontend,
+      backend,
+      role
     })
     newProject.validate()
     await newProject.save()

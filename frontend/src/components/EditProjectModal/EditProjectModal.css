@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: center;
   padding: 50px;
+  min-width: 30vw;
 }
 
 .editProjectModal-dark {
@@ -19,6 +20,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 }
 
 .editProjectModal form div {
@@ -26,6 +28,7 @@
   flex-direction: column;
   margin-top: 5px;
   margin-bottom: 5px;
+  width: 100%;
 }
 
 .editProjectModal form button {
