@@ -33,6 +33,26 @@ const ProfileProjectListItem = ({ project }) => {
             <th scope='row'>About:</th>
             <td>{project.about}</td>
           </tr>
+          <tr>
+            <th scope='row'>Clone Name:</th>
+            <td>{project.cloneName}</td>
+          </tr>
+          <tr>
+            <th scope='row'>Clone Link:</th>
+            <td>{project.cloneLink}</td>
+          </tr>
+          <tr>
+            <th scope='row'>Role:</th>
+            <td>{project.role}</td>
+          </tr>
+          <tr>
+            <th scope='row'>Frontend:</th>
+            <td>{project.frontend}</td>
+          </tr>
+          <tr>
+            <th scope='row'>Backend:</th>
+            <td>{project.backend}</td>
+          </tr>
         </tbody>
       </table>
       <div className={listItemButtonClass}>

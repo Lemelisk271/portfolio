@@ -10,6 +10,11 @@ const EditProjectModal = ({ project }) => {
   const [liveLink, setLiveLink] = useState(project.liveLink)
   const [repoLink, setRepoLink] = useState(project.repoLink)
   const [about, setAbout] = useState(project.about)
+  const [cloneName, setCloneName] = useState(project.cloneName)
+  const [cloneLink, setCloneLink] = useState(project.cloneLink)
+  const [role, setRole] = useState(project.role)
+  const [frontend, setFrontend] = useState(project.frontend)
+  const [backend, setBackend] = useState(project.backend)
   const [validationErrors, setValidationErrors] = useState({})
   const [isSubmitted, setIsSubmitted] = useState(false)
   const { darkMode } = useContext(DarkModeContext)
@@ -38,9 +43,29 @@ const EditProjectModal = ({ project }) => {
       errors.about = "Please Fill out the About Section"
     }
 
+    if (cloneName.length === 0) {
+      errors.cloneName = "Please enter the name of the cloned site"
+    }
+
+    if (!urlReg.test(cloneLink)) {
+      errors.cloneLink = "Please enter a valid clone link"
+    }
+
+    if (role.length === 0) {
+      errors.role = "Please enter a role"
+    }
+
+    if (frontend.length === 0) {
+      errors.frontend = "Please enter a frontend"
+    }
+
+    if (backend.length === 0) {
+      errors.backend = "Please enter a backend"
+    }
+
     setValidationErrors(errors)
     // eslint-disable-next-line
-  }, [name, liveLink, repoLink, about])
+  }, [name, liveLink, repoLink, about, cloneLink, cloneName, role, frontend, backend])
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -52,7 +77,12 @@ const EditProjectModal = ({ project }) => {
       name,
       liveLink,
       repoLink,
-      about
+      about,
+      cloneLink,
+      cloneName,
+      role,
+      frontend,
+      backend
     }
 
     const res = await csrfFetch(`/api/projects/${project.id}`, {
@@ -111,6 +141,51 @@ const EditProjectModal = ({ project }) => {
             type='text'
             value={repoLink}
             onChange={e => setRepoLink(e.target.value)}
+          />
+        </div>
+        <div>
+          <label htmlFor='cloneName'>Clone Name:</label>
+          <input
+            id='cloneName'
+            type='text'
+            value={cloneName}
+            onChange={e => setCloneName(e.target.value)}
+          />
+        </div>
+        <div>
+          <label htmlFor='cloneLink'>Clone Link:</label>
+          <input
+            id='cloneLink'
+            type='text'
+            value={cloneLink}
+            onChange={e => setCloneLink(e.target.value)}
+          />
+        </div>
+        <div>
+          <label htmlFor='role'>Role:</label>
+          <input
+            id='role'
+            type='text'
+            value={role}
+            onChange={e => setRole(e.target.value)}
+          />
+        </div>
+        <div>
+          <label htmlFor='frontend'>Frontend:</label>
+          <input
+            id='frontend'
+            type='text'
+            value={frontend}
+            onChange={e => setFrontend(e.target.value)}
+          />
+        </div>
+        <div>
+          <label htmlFor='backend'>Backend:</label>
+          <input
+            id='backend'
+            type='text'
+            value={backend}
+            onChange={e => setBackend(e.target.value)}
           />
         </div>
         <div>
