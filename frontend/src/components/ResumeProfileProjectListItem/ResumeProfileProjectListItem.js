@@ -1,14 +1,14 @@
 import { useContext, useState, useEffect } from 'react'
 import { csrfFetch } from '../../store/csrf'
 import { DarkModeContext } from '../../context/DarkModeContext'
+import { ResetContext } from '../../context/ResetContext'
 import ResumeProfileProjectBullets from '../ResumeProfileProjectBullets'
 
 const ResumeProfileProjectListItem = ({ project }) => {
   const [bullets, setBullets] = useState([])
   const [isLoaded, setIsLoaded] = useState(false)
   const { darkMode } = useContext(DarkModeContext)
-
-  console.log(project)
+  const { reset } = useContext(ResetContext)
 
   useEffect(() => {
     const loadPage = async () => {
@@ -18,7 +18,7 @@ const ResumeProfileProjectListItem = ({ project }) => {
       setIsLoaded(true)
     }
     loadPage()
-  }, [])
+  }, [reset])
 
   const resumeProfileProjectClass = "resumeProfileProjectListItem" + (darkMode ? " resumeProfileProjectListItem-dark" : " resumeProfileProjectListItem-light")
   const resumeProfileProjectBulletClass = "resumeProfileProjectListItem-bullets" + (darkMode ? " resumeProfileProjectListItem-bullets-dark" : " resumeProfileProjectListItem-bullets-light")

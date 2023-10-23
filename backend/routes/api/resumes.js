@@ -55,6 +55,23 @@ router.get('/projectBullets/:projectId', async (req, res, next) => {
   return res.json(projectBullets)
 })
 
+router.put('/projectBullets/:bulletId', requireAuth, async (req, res, next) => {
+  const bullets = await ProjectBullets.findByPk(req.params.bulletId)
+
+  if (!bullets) {
+    const err = new Error("Not Found")
+    err.status = 404
+    err.title = "Bullet Not Found"
+    err.errors = {message: "The requested bullet couldn't be found"}
+    return next(err)
+  }
+
+  bullets.set(req.body)
+  await bullets.save()
+
+  res.status(201).json(bullets)
+})
+
 router.get('/employer/:userId', async (req, res, next) => {
   const employers = await Employer.findAll({
     where: {
