@@ -3,6 +3,7 @@ import { DarkModeContext } from '../../context/DarkModeContext'
 import { useModal } from '../../context/Modal'
 import { csrfFetch } from '../../store/csrf'
 import { ResetContext } from '../../context/ResetContext'
+import './ProjectBulletPointForm.css'
 
 const ProjectBulletPointForm = ({ bullet, page }) => {
   const [title, setTitle] = useState('')
@@ -70,6 +71,7 @@ const ProjectBulletPointForm = ({ bullet, page }) => {
   }
 
   const projectBulletFormClass = "projectBulletPointForm" + (darkMode ? " projectBulletPointForm-dark" : " projectBulletPointForm-light")
+  const projectBulletButtonClass = "projectBulletPointForm-formButtons" + (darkMode ? " projectBulletPointForm-formButtons-dark" : " projectBulletPointForm-formButtons-light")
 
   return (
     <div className={projectBulletFormClass}>
@@ -86,9 +88,10 @@ const ProjectBulletPointForm = ({ bullet, page }) => {
             id='newBullet'
             value={newBullet}
             onChange={e => setNewBullet(e.target.value)}
+            rows={5}
           />
         </div>
-        <div className='projectBulletPointForm-formButtons'>
+        <div className={projectBulletButtonClass}>
           <button type='submit'>Save</button>
           <button onClick={cancelButton}>Cancel</button>
         </div>
