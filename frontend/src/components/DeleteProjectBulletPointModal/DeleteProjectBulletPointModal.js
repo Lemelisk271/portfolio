@@ -3,6 +3,7 @@ import { DarkModeContext } from '../../context/DarkModeContext'
 import { useModal } from '../../context/Modal'
 import { ResetContext } from '../../context/ResetContext'
 import { csrfFetch } from '../../store/csrf'
+import './DeleteProjectBulletPointModal.css'
 
 const DeleteProjectBulletPointModal = ({ bullet }) => {
   const [isSubMitted, setIsSubmitted] = useState(false)
