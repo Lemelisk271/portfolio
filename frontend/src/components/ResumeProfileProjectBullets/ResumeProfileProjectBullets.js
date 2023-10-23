@@ -2,6 +2,7 @@ import { useContext } from 'react'
 import { DarkModeContext } from '../../context/DarkModeContext'
 import OpenModalButton from '../OpenModalButton'
 import ProjectBulletPointForm from '../ProjectBulletPointForm'
+import DeleteProjectBulletPointModal from '../DeleteProjectBulletPointModal'
 
 const ResumeProfileProjectBullets = ({ bullet }) => {
   const { darkMode } = useContext(DarkModeContext)
@@ -17,7 +18,10 @@ const ResumeProfileProjectBullets = ({ bullet }) => {
           buttonText="Edit Bullet"
           modalComponent={<ProjectBulletPointForm bullet={bullet} page="edit" />}
         />
-        <button>Delete Bullet</button>
+        <OpenModalButton
+          buttonText="Delete Bullet"
+          modalComponent={<DeleteProjectBulletPointModal bullet={bullet} />}
+        />
       </div>
     </div>
   )

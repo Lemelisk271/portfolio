@@ -72,6 +72,22 @@ router.put('/projectBullets/:bulletId', requireAuth, async (req, res, next) => {
   res.status(201).json(bullets)
 })
 
+router.delete('/projectBullets/:bulletId', requireAuth, async (req, res, next) => {
+  const bullet = await ProjectBullets.findByPk(req.params.bulletId)
+
+  if (!bullet) {
+    const err = new Error("Not Found")
+    err.status = 404
+    err.title = "Bullet Not Found"
+    err.errors = {message: "The requested bullet couldn't be found"}
+    return next(err)
+  }
+
+  bullet.destroy()
+
+  res.json({message: "Successfully Deleted"})
+})
+
 router.get('/employer/:userId', async (req, res, next) => {
   const employers = await Employer.findAll({
     where: {
