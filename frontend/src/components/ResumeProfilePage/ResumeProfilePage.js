@@ -1,5 +1,6 @@
 import { useContext, useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
+import { Redirect } from 'react-router-dom'
 import { csrfFetch } from '../../store/csrf'
 import { DarkModeContext } from '../../context/DarkModeContext'
 import { ResetContext } from '../../context/ResetContext'
@@ -35,6 +36,8 @@ const ResumeProfilePage = () => {
     loadPage()
     // eslint-disable-next-line
   }, [reset])
+
+  if (!sessionUser) return <Redirect to="/"/>
 
   const resumeProfileClass = "resumeProfilePage" + (darkMode ? " resumeProfilePage-dark" : " resumeProfilePage-light")
   const resumeProfileContentClass = "resumeProfilePage-content" + (darkMode ? " resumeProfilePage-content-dark" : " resumeProfilePage-content-light")
