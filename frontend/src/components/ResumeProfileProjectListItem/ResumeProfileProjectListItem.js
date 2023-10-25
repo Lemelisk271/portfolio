@@ -21,6 +21,7 @@ const ResumeProfileProjectListItem = ({ project }) => {
       setIsLoaded(true)
     }
     loadPage()
+    // eslint-disable-next-line
   }, [reset])
 
   const resumeProfileProjectClass = "resumeProfileProjectListItem" + (darkMode ? " resumeProfileProjectListItem-dark" : " resumeProfileProjectListItem-light")

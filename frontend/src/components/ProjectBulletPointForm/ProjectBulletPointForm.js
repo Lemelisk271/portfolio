@@ -21,6 +21,7 @@ const ProjectBulletPointForm = ({ bullet, page, project }) => {
     } else {
       setTitle(`Add Bullet to ${project.name}`)
     }
+    // eslint-disable-next-line
   }, [])
 
   useEffect(() => {
