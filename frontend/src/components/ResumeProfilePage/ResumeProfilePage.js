@@ -36,7 +36,6 @@ const ResumeProfilePage = () => {
       const employerRes = await csrfFetch(`/api/resumes/employer/${sessionUser.id}`)
       const employerData = await employerRes.json()
       setEmployers(employerData)
-      console.log(employerData)
 
       setIsLoaded(true)
     }
