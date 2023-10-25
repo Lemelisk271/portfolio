@@ -1,0 +1,52 @@
+.resumeProfileProjectBullets {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 20px;
+  border-radius: 20px;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+.resumeProfileProjectBullets p {
+  margin: 10px 0;
+}
+
+.resumeProfileProjectBullets-light {
+  border: 1px solid #136F63;
+}
+
+.resumeProfileProjectBullets-dark {
+  border: 1px solid white;
+}
+
+.resumeProfileProjectBullets-buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+.resumeProfileProjectBullets-buttons button {
+  margin: 5px 0;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.resumeProfileProjectBullets-buttons-dark button {
+  background-color: #B74F6F;
+  color: white;
+}
+
+.resumeProfileProjectBullets-buttons-dark button:hover {
+  background-color: #EF946C;
+}
+
+.resumeProfileProjectBullets-buttons-light button {
+  background-color: #EF946C;
+  color: black;
+}
+
+.resumeProfileProjectBullets-buttons-light button:hover {
+  background-color: #B74F6F;
+}

@@ -1,0 +1,67 @@
+.projectBulletPointForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px;
+  min-width: 30vw;
+}
+
+.projectBulletPointForm-dark {
+  background-color: #136F63;
+  color: white
+}
+
+.projectBulletPointForm-light {
+  background-color: white;
+  color: black
+}
+
+.projectBulletPointForm form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.projectBulletPointForm-formInput {
+  display: flex;
+  flex-direction: column;
+  margin: 5px 0;
+  width: 100%;
+}
+
+.projectBulletPointForm-formButtons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.projectBulletPointForm-formButtons button {
+  margin-top: 20px;
+  font-size: 18px;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 30%;
+}
+
+.projectBulletPointForm-formButtons-dark button {
+  background-color: #B74F6F;
+  color: white;
+}
+
+.projectBulletPointForm-formButtons-dark button:hover {
+  background-color: #EF946C;
+}
+
+.projectBulletPointForm-formButtons-light button {
+  background-color: #EF946C;
+  color: white;
+}
+
+.projectBulletPointForm-formButtons-light button:hover {
+  background-color: #B74F6F;
+}

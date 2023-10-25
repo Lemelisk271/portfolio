@@ -25,7 +25,6 @@ const ResumeProfilePage = () => {
       const resumeData = await res.json()
       setResume(resumeData)
       setSkills(resumeData.ResumeSkills)
-      console.log(resumeData)
 
       const projectRes = await csrfFetch(`/api/users/${resumeData.User.id}/projects`)
       const projectData = await projectRes.json()

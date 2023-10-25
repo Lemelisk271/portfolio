@@ -27,7 +27,6 @@ const ResumePage = ({ userId }) => {
       setResume(resumeData)
       setUser(resumeData.User)
       setSocials(resumeData.User.Socials)
-      console.log(resumeData)
 
       const rawPhone = resumeData.User.phone
       const areaCode = rawPhone.slice(0, 3)
