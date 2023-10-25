@@ -5,7 +5,7 @@ import { csrfFetch } from '../../store/csrf'
 import { ResetContext } from '../../context/ResetContext'
 import './ProjectBulletPointForm.css'
 
-const ProjectBulletPointForm = ({ bullet, page }) => {
+const ProjectBulletPointForm = ({ bullet, page, projectId }) => {
   const [title, setTitle] = useState('')
   const [newBullet, setNewBullet] = useState('')
   const [isSubmitted, setIsSubmitted] = useState(false)
@@ -13,7 +13,6 @@ const ProjectBulletPointForm = ({ bullet, page }) => {
   const { darkMode } = useContext(DarkModeContext)
   const { closeModal } = useModal()
   const { reset, setReset } = useContext(ResetContext)
-  console.log(bullet)
 
   useEffect(() => {
     if (page === 'edit') {
@@ -52,6 +51,28 @@ const ProjectBulletPointForm = ({ bullet, page }) => {
           "Content-Type": "application/json"
         },
         body: JSON.stringify(bulletObj)
+      })
+      if (res.ok) {
+        setReset(!reset)
+        closeModal()
+      } else {
+        const data = await res.json()
+        if (data && data.errors) {
+          setValidationErrors(data.errors)
+        }
+      }
+    } else {
+      const newBulletObj = {
+        bullet: newBullet,
+        projectId
+      }
+
+      const res = await csrfFetch('/api/resumes/projectBullets', {
+        method: 'POST',
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(newBulletObj)
       })
       if (res.ok) {
         setReset(!reset)

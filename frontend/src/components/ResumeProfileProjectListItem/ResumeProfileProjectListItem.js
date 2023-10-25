@@ -3,6 +3,8 @@ import { csrfFetch } from '../../store/csrf'
 import { DarkModeContext } from '../../context/DarkModeContext'
 import { ResetContext } from '../../context/ResetContext'
 import ResumeProfileProjectBullets from '../ResumeProfileProjectBullets'
+import ProjectBulletPointForm from '../ProjectBulletPointForm'
+import OpenModalButton from '../OpenModalButton'
 import './ResumeProfileProjectListItem.css'
 
 const ResumeProfileProjectListItem = ({ project }) => {
@@ -34,6 +36,10 @@ const ResumeProfileProjectListItem = ({ project }) => {
               <ResumeProfileProjectBullets key={i} bullet={bullet}/>
             ))}
           </div>
+          <OpenModalButton
+            buttonText="Add Bullet"
+            modalComponent={<ProjectBulletPointForm page='new' projectId={project.id} />}
+          />
         </>
       ):(
         <>

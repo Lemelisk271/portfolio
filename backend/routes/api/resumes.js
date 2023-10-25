@@ -72,6 +72,17 @@ router.put('/projectBullets/:bulletId', requireAuth, async (req, res, next) => {
   res.status(201).json(bullets)
 })
 
+router.post('/projectBullets', requireAuth, async (req, res, next) => {
+  try {
+    const newBullet = ProjectBullets.build(req.body)
+    newBullet.validate()
+    await newBullet.save()
+    return res.status(201).json(newBullet)
+  } catch(err) {
+    return next(err)
+  }
+})
+
 router.delete('/projectBullets/:bulletId', requireAuth, async (req, res, next) => {
   const bullet = await ProjectBullets.findByPk(req.params.bulletId)
 
