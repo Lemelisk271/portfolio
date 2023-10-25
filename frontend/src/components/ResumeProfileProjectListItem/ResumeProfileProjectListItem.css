@@ -6,6 +6,7 @@
   padding: 20px;
   width: 100%;
   margin: 10px 0;
+  align-items: center;
 }
 
 .resumeProfileProjectListItem-light {
@@ -18,4 +19,34 @@
 
 .resumeProfileProjectListItem h3 {
   margin: 0;
+}
+
+.resumeProfileProjectListItem-bullets {
+  width: 100%;
+}
+
+.resumeProfileProjectListItem-buttons button {
+  margin: 5px 0;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.resumeProfileProjectListItem-buttons-dark button {
+  background-color: #B74F6F;
+  color: white;
+}
+
+.resumeProfileProjectListItem-buttons-dark button:hover {
+  background-color: #EF946C;
+}
+
+.resumeProfileProjectListItem-buttons-light button {
+  background-color: #EF946C;
+  color: black;
+}
+
+.resumeProfileProjectListItem-buttons-light button:hover {
+  background-color: #B74F6F;
 }

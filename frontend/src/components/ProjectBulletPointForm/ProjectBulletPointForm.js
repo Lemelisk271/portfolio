@@ -5,7 +5,7 @@ import { csrfFetch } from '../../store/csrf'
 import { ResetContext } from '../../context/ResetContext'
 import './ProjectBulletPointForm.css'
 
-const ProjectBulletPointForm = ({ bullet, page, projectId }) => {
+const ProjectBulletPointForm = ({ bullet, page, project }) => {
   const [title, setTitle] = useState('')
   const [newBullet, setNewBullet] = useState('')
   const [isSubmitted, setIsSubmitted] = useState(false)
@@ -19,7 +19,7 @@ const ProjectBulletPointForm = ({ bullet, page, projectId }) => {
       setTitle('Edit Bullet')
       setNewBullet(bullet.bullet)
     } else {
-      setTitle('Add Bullet')
+      setTitle(`Add Bullet to ${project.name}`)
     }
   }, [])
 
@@ -64,7 +64,7 @@ const ProjectBulletPointForm = ({ bullet, page, projectId }) => {
     } else {
       const newBulletObj = {
         bullet: newBullet,
-        projectId
+        projectId: project.id
       }
 
       const res = await csrfFetch('/api/resumes/projectBullets', {

@@ -25,6 +25,7 @@ const ResumeProfileProjectListItem = ({ project }) => {
 
   const resumeProfileProjectClass = "resumeProfileProjectListItem" + (darkMode ? " resumeProfileProjectListItem-dark" : " resumeProfileProjectListItem-light")
   const resumeProfileProjectBulletClass = "resumeProfileProjectListItem-bullets" + (darkMode ? " resumeProfileProjectListItem-bullets-dark" : " resumeProfileProjectListItem-bullets-light")
+  const resumeProfileProjectBulletButtonClass = "resumeProfileProjectListItem-buttons" + (darkMode ? " resumeProfileProjectListItem-buttons-dark" : " resumeProfileProjectListItem-buttons-light")
 
   return (
     <div className={resumeProfileProjectClass}>
@@ -36,10 +37,12 @@ const ResumeProfileProjectListItem = ({ project }) => {
               <ResumeProfileProjectBullets key={i} bullet={bullet}/>
             ))}
           </div>
-          <OpenModalButton
-            buttonText="Add Bullet"
-            modalComponent={<ProjectBulletPointForm page='new' projectId={project.id} />}
-          />
+          <div className={resumeProfileProjectBulletButtonClass}>
+            <OpenModalButton
+              buttonText={`Add Bullet to ${project.name}`}
+              modalComponent={<ProjectBulletPointForm page='new' project={project} />}
+            />
+          </div>
         </>
       ):(
         <>
