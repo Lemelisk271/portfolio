@@ -3,6 +3,7 @@ import { csrfFetch } from '../../store/csrf'
 import { DarkModeContext } from '../../context/DarkModeContext'
 import { ResetContext } from '../../context/ResetContext'
 import ResumeProfileProjectBullets from '../ResumeProfileProjectBullets'
+import './ResumeProfileProjectListItem.css'
 
 const ResumeProfileProjectListItem = ({ project }) => {
   const [bullets, setBullets] = useState([])
@@ -27,7 +28,7 @@ const ResumeProfileProjectListItem = ({ project }) => {
     <div className={resumeProfileProjectClass}>
       {isLoaded ? (
         <>
-          <p>{project.name}</p>
+          <h3>{project.name}</h3>
           <div className={resumeProfileProjectBulletClass}>
             {bullets.map((bullet, i) => (
               <ResumeProfileProjectBullets key={i} bullet={bullet}/>

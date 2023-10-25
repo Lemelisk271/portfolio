@@ -3,6 +3,7 @@ import { DarkModeContext } from '../../context/DarkModeContext'
 import OpenModalButton from '../OpenModalButton'
 import ProjectBulletPointForm from '../ProjectBulletPointForm'
 import DeleteProjectBulletPointModal from '../DeleteProjectBulletPointModal'
+import './ResumeProfileProjectBullets.css'
 
 const ResumeProfileProjectBullets = ({ bullet }) => {
   const { darkMode } = useContext(DarkModeContext)

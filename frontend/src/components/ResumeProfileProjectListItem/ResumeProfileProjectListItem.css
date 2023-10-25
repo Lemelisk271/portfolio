@@ -1,0 +1,21 @@
+.resumeProfileProjectListItem {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border-radius: 20px;
+  padding: 20px;
+  width: 100%;
+  margin: 10px 0;
+}
+
+.resumeProfileProjectListItem-light {
+  border: 1px solid #136F63;
+}
+
+.resumeProfileProjectListItem-dark {
+  border: 1px solid white;
+}
+
+.resumeProfileProjectListItem h3 {
+  margin: 0;
+}
