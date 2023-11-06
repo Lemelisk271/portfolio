@@ -7,7 +7,6 @@ const ResumeEmployerListItem = ({ employer }) => {
   const [employerBullets, setEmployerBullets] = useState([])
   const [isLoaded, setIsLoaded] = useState(false)
   const { darkMode } = useContext(DarkModeContext)
-  console.log(employer)
 
   useEffect(() => {
     const loadPage = async () => {

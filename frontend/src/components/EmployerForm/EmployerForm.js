@@ -1,8 +1,12 @@
 import { useContext, useState, useEffect } from 'react'
+import { useSelector } from 'react-redux'
 import { DarkModeContext } from '../../context/DarkModeContext'
 import { useModal } from '../../context/Modal'
+import { csrfFetch } from '../../store/csrf'
+import { ResetContext } from '../../context/ResetContext'
 
 const EmployerForm = ({ employer, page }) => {
+  const sessionUser = useSelector(state => state.session.user)
   const [title, setTitle] = useState('')
   const [company, setCompany] = useState('')
   const [position, setPosition] = useState('')
@@ -17,6 +21,7 @@ const EmployerForm = ({ employer, page }) => {
   const [validationErrors, setValidationErrors] = useState({})
   const { darkMode } = useContext(DarkModeContext)
   const { closeModal } = useModal()
+  const { reset, setReset } = useContext(ResetContext)
   const monthOptions = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 
   useEffect(() => {
@@ -74,11 +79,11 @@ const EmployerForm = ({ employer, page }) => {
       errors.startDateYear = "Please select a start year"
     }
 
-    if (endDateMonth.length === 0) {
+    if (endDateMonth.length === 0 && !currentEmployer) {
       errors.startDateMonth = "Please select a end month"
     }
 
-    if (endDateYear.length === 0) {
+    if (endDateYear.length === 0 && !currentEmployer) {
       errors.startDateYear = "Please select a end year"
     }
 
@@ -90,7 +95,7 @@ const EmployerForm = ({ employer, page }) => {
     closeModal()
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     setIsSubmitted(true)
 
@@ -111,10 +116,26 @@ const EmployerForm = ({ employer, page }) => {
         location,
         startDate: `${startDateMonth} ${startDateYear}`,
         endDate,
-        currentEmployer
+        current: currentEmployer,
+        userId: sessionUser.id
       }
 
-      console.log(employerObj)
+      const res = await csrfFetch(`/api/employers/${employer.id}`, {
+        method: 'PUT',
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(employerObj)
+      })
+      if (res.ok) {
+        setReset(!reset)
+        closeModal()
+      } else {
+        const data = await res.json()
+        if (data && data.errors) {
+          setValidationErrors(data.errors)
+        }
+      }
     }
   }
 
