@@ -44,6 +44,7 @@ module.exports = {
         location: employer.location,
         startDate: employer.startDate,
         endDate: employer.endDate,
+        current: employer.current,
         userId: user.id
       })
     }

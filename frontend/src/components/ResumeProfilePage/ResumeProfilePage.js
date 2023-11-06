@@ -9,6 +9,7 @@ import OpenModalButton from '../OpenModalButton'
 import ResumeSkillListItem from '../ResumeSkillListItem'
 import ResumeSkillForm from '../ResumeSkillForm'
 import ResumeProfileProjectListItem from '../ResumeProfileProjectListItem'
+import ResumeProfileEmployerListItem from '../ResumeProfileEmployerListItem'
 import './ResumeProfilePage.css'
 
 const ResumeProfilePage = () => {
@@ -16,6 +17,7 @@ const ResumeProfilePage = () => {
   const [resume, setResume] = useState({})
   const [skills, setSkills] = useState([])
   const [projects, setProjects] = useState([])
+  const [employers, setEmployers] = useState([])
   const [isLoaded, setIsLoaded] = useState(false)
   const { darkMode } = useContext(DarkModeContext)
   const { reset } = useContext(ResetContext)
@@ -31,6 +33,10 @@ const ResumeProfilePage = () => {
       const projectData = await projectRes.json()
       setProjects(projectData)
 
+      const employerRes = await csrfFetch(`/api/resumes/employer/${sessionUser.id}`)
+      const employerData = await employerRes.json()
+      setEmployers(employerData)
+
       setIsLoaded(true)
     }
     loadPage()
@@ -45,6 +51,7 @@ const ResumeProfilePage = () => {
   const resumeSkillClass = "resumeProfilePage-skills" + (darkMode ? " resumeProfilePage-skills-dark" : " resumeProfilePage-skills-light")
   const addSkillButtonClass = "resumeProfilePage-addSkillButton" + (darkMode ? " resumeProfilePage-addSkillButton-dark" : " resumeProfilePage-addSkillButton-light")
   const projectBulletClass = "resumeProfilePage-projectBullets" + (darkMode ? " resumeProfilePage-projectBullets-dark" : " resumeProfilePage-projectBullets-light")
+  const employerClass = "resumeProfilePage-employers" + (darkMode ? " resumeProfilePage-employers-dark" : " resumeProfilePage-employers-light")
 
   return (
     <div className={resumeProfileClass}>
@@ -77,6 +84,12 @@ const ResumeProfilePage = () => {
           <div className={projectBulletClass}>
             {projects.map((project, i) => (
               <ResumeProfileProjectListItem key={i} project={project} />
+            ))}
+          </div>
+          <h2>Experience</h2>
+          <div className={employerClass}>
+            {employers.map((employer, i) => (
+              <ResumeProfileEmployerListItem key={i} employer={employer} />
             ))}
           </div>
         </div>
