@@ -3,6 +3,7 @@ import { DarkModeContext } from '../../context/DarkModeContext'
 import { useModal } from '../../context/Modal'
 import { ResetContext } from '../../context/ResetContext'
 import { csrfFetch } from '../../store/csrf'
+import './DeleteEmployerModal.css'
 
 const DeleteEmployerModal = ({ employer }) => {
   const [isSubmitted, setIsSubmitted] = useState(false)
