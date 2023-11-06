@@ -37,7 +37,12 @@ module.exports = (sequelize, DataTypes) => {
     },
     endDate: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
+    },
+    current: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false
     },
     userId: {
       type: DataTypes.INTEGER,

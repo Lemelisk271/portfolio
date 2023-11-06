@@ -33,7 +33,12 @@ module.exports = {
       },
       endDate: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: true
+      },
+      current: {
+        type: Sequelize.BOOLEAN,
+        allowNull: false,
+        defaultValue: false
       },
       userId: {
         type: Sequelize.INTEGER,

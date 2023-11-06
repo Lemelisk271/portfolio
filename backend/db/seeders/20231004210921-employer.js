@@ -16,7 +16,9 @@ const employerList = [
     position: 'Truck Driver',
     location: 'Springfield, MO',
     startDate: 'Oct 2018',
-    endDate: 'Apr 2021'
+    // endDate: 'Apr 2021'
+    endDate: null,
+    current: true
   },
   {
     username: 'zwsmith27',
@@ -44,6 +46,7 @@ module.exports = {
         location: employer.location,
         startDate: employer.startDate,
         endDate: employer.endDate,
+        current: employer.current,
         userId: user.id
       })
     }
