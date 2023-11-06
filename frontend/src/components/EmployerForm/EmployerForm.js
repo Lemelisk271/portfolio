@@ -55,6 +55,7 @@ const EmployerForm = ({ employer, page }) => {
     } else {
       setTitle('Add Employer')
     }
+    // eslint-disable-next-line
   }, [])
 
   useEffect(() => {
@@ -89,7 +90,7 @@ const EmployerForm = ({ employer, page }) => {
     }
 
     setValidationErrors(errors)
-  }, [company, position, location, startDateMonth, startDateYear, endDateMonth, endDateYear])
+  }, [company, position, location, startDateMonth, startDateYear, endDateMonth, endDateYear, currentEmployer])
 
   const cancelButton = (e) => {
     e.preventDefault()
