@@ -7,6 +7,7 @@ const skillRouter = require('./skills.js')
 const resumeRouter = require('./resumes.js')
 const socialsRouter = require('./socials.js')
 const resumeSkillsRouter = require('./resumeSkills.js')
+const employerRouter = require('./employer.js')
 const { restoreUser } = require('../../utils/auth.js')
 
 router.use(restoreUser)
@@ -19,5 +20,6 @@ router.use('/skills', skillRouter)
 router.use('/resumes', resumeRouter)
 router.use('/socials', socialsRouter)
 router.use('/resumeSkills', resumeSkillsRouter)
+router.use('/employers', employerRouter)
 
 module.exports = router

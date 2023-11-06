@@ -16,9 +16,7 @@ const employerList = [
     position: 'Truck Driver',
     location: 'Springfield, MO',
     startDate: 'Oct 2018',
-    // endDate: 'Apr 2021'
-    endDate: null,
-    current: true
+    endDate: 'Apr 2021'
   },
   {
     username: 'zwsmith27',
