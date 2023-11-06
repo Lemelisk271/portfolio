@@ -4,6 +4,7 @@ import { DarkModeContext } from '../../context/DarkModeContext'
 import { useModal } from '../../context/Modal'
 import { csrfFetch } from '../../store/csrf'
 import { ResetContext } from '../../context/ResetContext'
+import './EmployerForm.css'
 
 const EmployerForm = ({ employer, page }) => {
   const sessionUser = useSelector(state => state.session.user)
@@ -140,6 +141,7 @@ const EmployerForm = ({ employer, page }) => {
   }
 
   const employerFormClass = "employerForm" + (darkMode ? " employerForm-dark" : " employerForm-light")
+  const employerFormButtonClass = "employerForm-formButtons" + (darkMode ? " employerForm-formButtons-dark" : " employerForm-formButtons-light")
 
   return (
     <div className={employerFormClass}>
@@ -237,7 +239,7 @@ const EmployerForm = ({ employer, page }) => {
             </label>
           </div>
         </div>
-        <div className='employerForm-formButtons'>
+        <div className={employerFormButtonClass}>
           <button type='submit'>Save</button>
           <button onClick={cancelButton}>Cancel</button>
         </div>
