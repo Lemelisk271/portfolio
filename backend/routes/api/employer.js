@@ -37,4 +37,15 @@ router.delete('/:employerId', requireAuth, async (req, res, next) => {
   res.json({message: "Successfully Deleted"})
 })
 
+router.post('/', requireAuth, async (req, res, next) => {
+  try {
+    const newEmployer = Employer.build(req.body)
+    newEmployer.validate()
+    await newEmployer.save()
+    return res.status(201).json(newEmployer)
+  } catch (err) {
+    return next(err)
+  }
+})
+
 module.exports = router

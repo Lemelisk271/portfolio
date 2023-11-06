@@ -138,6 +138,33 @@ const EmployerForm = ({ employer, page }) => {
           setValidationErrors(data.errors)
         }
       }
+    } else {
+      const newEmployerObj = {
+        company,
+        position,
+        location,
+        startDate: `${startDateMonth} ${startDateYear}`,
+        endDate,
+        current: currentEmployer,
+        userId: sessionUser.id
+      }
+
+      const res = await csrfFetch('/api/employers', {
+        method: 'POST',
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(newEmployerObj)
+      })
+      if (res.ok) {
+        setReset(!reset)
+        closeModal()
+      } else {
+        const data = await res.json()
+        if (data && data.errors) {
+          setValidationErrors(data.errors)
+        }
+      }
     }
   }
 

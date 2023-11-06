@@ -10,6 +10,7 @@ import ResumeSkillListItem from '../ResumeSkillListItem'
 import ResumeSkillForm from '../ResumeSkillForm'
 import ResumeProfileProjectListItem from '../ResumeProfileProjectListItem'
 import ResumeProfileEmployerListItem from '../ResumeProfileEmployerListItem'
+import EmployerForm from '../EmployerForm'
 import './ResumeProfilePage.css'
 
 const ResumeProfilePage = () => {
@@ -86,12 +87,16 @@ const ResumeProfilePage = () => {
               <ResumeProfileProjectListItem key={i} project={project} />
             ))}
           </div>
-          <h2>Experience</h2>
+          <h2>Employers</h2>
           <div className={employerClass}>
             {employers.map((employer, i) => (
               <ResumeProfileEmployerListItem key={i} employer={employer} />
             ))}
           </div>
+          <OpenModalButton
+            buttonText="Add Employer"
+            modalComponent={<EmployerForm page="new" />}
+          />
         </div>
       ):(
         <>
