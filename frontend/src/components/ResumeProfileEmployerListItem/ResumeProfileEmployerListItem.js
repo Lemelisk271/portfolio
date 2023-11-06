@@ -5,7 +5,6 @@ import OpenModalButton from '../OpenModalButton'
 
 const ResumeProfileEmployerListItem = ({ employer }) => {
   const { darkMode } = useContext(DarkModeContext)
-  console.log(employer)
 
   const resumeProfileEmployerClass = "resumeProfileEmployerListItem" + (darkMode ? " resumeProfileEmployerListItem-dark" : " resumeProfileEmployerListItem-light")
   const resumeProfileEmployerButtonsClass = "resumeProfileEmployerListItem" + (darkMode ? " resumeProfileEmployerListItem-buttons-dark" : " resumeProfileEmployerListItem-buttons-light")
