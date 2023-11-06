@@ -2,6 +2,7 @@ import { useContext } from 'react'
 import { DarkModeContext } from '../../context/DarkModeContext'
 import EmployerForm from '../EmployerForm'
 import OpenModalButton from '../OpenModalButton'
+import DeleteEmployerModal from '../DeleteEmployerModal'
 
 const ResumeProfileEmployerListItem = ({ employer }) => {
   const { darkMode } = useContext(DarkModeContext)
@@ -48,7 +49,10 @@ const ResumeProfileEmployerListItem = ({ employer }) => {
           buttonText={`Edit ${employer.company}`}
           modalComponent={<EmployerForm employer={employer} page='edit' />}
         />
-        <button>Delete {employer.company}</button>
+        <OpenModalButton
+          buttonText={`Delete ${employer.company}`}
+          modalComponent={<DeleteEmployerModal employer={employer} />}
+        />
       </div>
     </div>
   )
