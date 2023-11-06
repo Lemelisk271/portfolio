@@ -7,6 +7,7 @@ const ResumeEmployerListItem = ({ employer }) => {
   const [employerBullets, setEmployerBullets] = useState([])
   const [isLoaded, setIsLoaded] = useState(false)
   const { darkMode } = useContext(DarkModeContext)
+  console.log(employer)
 
   useEffect(() => {
     const loadPage = async () => {
@@ -31,7 +32,15 @@ const ResumeEmployerListItem = ({ employer }) => {
               <p><strong><em>{employer.company}, {employer.location}</em></strong></p>
             </div>
             <div className="resumeEmployerListItem-headerDates">
-              <p>{employer.startDate} - {employer.endDate}</p>
+              {employer.current ? (
+                <>
+                  <p>{employer.startDate} - Present</p>
+                </>
+              ):(
+                <>
+                  <p>{employer.startDate} - {employer.endDate}</p>
+                </>
+              )}
             </div>
           </div>
           <div className='resumeEmployerListItem'>

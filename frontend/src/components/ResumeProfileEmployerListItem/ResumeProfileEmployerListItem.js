@@ -29,8 +29,17 @@ const ResumeProfileEmployerListItem = ({ employer }) => {
             <th scope='row'>Start Date:</th>
             <td>{employer.startDate}</td>
           </tr><tr>
-            <th scope='row'>End Date:</th>
-            <td>{employer.endDate}</td>
+            {employer.current ? (
+              <>
+                <th scope='row'>Current Employer:</th>
+                <td>True</td>
+              </>
+            ):(
+              <>
+                <th scope='row'>End Date:</th>
+                <td>{employer.endDate}</td>
+              </>
+            )}
           </tr>
         </tbody>
       </table>

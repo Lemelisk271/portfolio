@@ -38,9 +38,14 @@ const EmployerForm = ({ employer, page }) => {
       const newStartDate = employer.startDate
       setStartDateMonth(newStartDate.slice(0, 3))
       setStartDateYear(newStartDate.slice(4))
-      const newEndDate = employer.endDate
-      setEndDateMonth(newEndDate.slice(0, 3))
-      setEndDateYear(newEndDate.slice(4))
+      if (employer.endDate) {
+        const newEndDate = employer.endDate
+        setEndDateMonth(newEndDate.slice(0, 3))
+        setEndDateYear(newEndDate.slice(4))
+      }
+      if (employer.current) {
+        setCurrentEmployer(employer.current)
+      }
     } else {
       setTitle('Add Employer')
     }
