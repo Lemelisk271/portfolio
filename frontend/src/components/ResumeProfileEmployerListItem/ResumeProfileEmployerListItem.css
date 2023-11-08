@@ -1,0 +1,55 @@
+.resumeProfileEmployerListItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  margin: 10px auto;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.resumeProfileEmployerListItem table th {
+  text-align: left;
+  padding-right: 10px;
+}
+
+.resumeProfileEmployerListItem-light {
+  border: 1px solid #136F63;
+}
+
+.resumeProfileEmployerListItem-dark {
+  border: 1px solid white;
+}
+
+
+.resumeProfileEmployerListItem-buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+.resumeProfileEmployerListItem-buttons button {
+  margin: 5px 0;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.resumeProfileEmployerListItem-buttons-dark button {
+  background-color: #B74F6F;
+  color: white;
+}
+
+.resumeProfileEmployerListItem-buttons-dark button:hover {
+  background-color: #EF946C;
+}
+
+.resumeProfileEmployerListItem-buttons-light button {
+  background-color: #EF946C;
+  color: black;
+}
+
+.resumeProfileEmployerListItem-buttons-light button:hover {
+  background-color: #B74F6F;
+}

@@ -112,11 +112,11 @@ const ResumeProfilePage = () => {
             {employers.map((employer, i) => (
               <ResumeProfileEmployerListItem key={i} employer={employer} />
             ))}
+            <OpenModalButton
+              buttonText="Add Employer"
+              modalComponent={<EmployerForm page="new" />}
+            />
           </div>
-          <OpenModalButton
-            buttonText="Add Employer"
-            modalComponent={<EmployerForm page="new" />}
-          />
         </div>
       ):(
         <>

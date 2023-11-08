@@ -3,12 +3,13 @@ import { DarkModeContext } from '../../context/DarkModeContext'
 import EmployerForm from '../EmployerForm'
 import OpenModalButton from '../OpenModalButton'
 import DeleteEmployerModal from '../DeleteEmployerModal'
+import './ResumeProfileEmployerListItem.css'
 
 const ResumeProfileEmployerListItem = ({ employer }) => {
   const { darkMode } = useContext(DarkModeContext)
 
   const resumeProfileEmployerClass = "resumeProfileEmployerListItem" + (darkMode ? " resumeProfileEmployerListItem-dark" : " resumeProfileEmployerListItem-light")
-  const resumeProfileEmployerButtonsClass = "resumeProfileEmployerListItem" + (darkMode ? " resumeProfileEmployerListItem-buttons-dark" : " resumeProfileEmployerListItem-buttons-light")
+  const resumeProfileEmployerButtonsClass = "resumeProfileEmployerListItem-buttons" + (darkMode ? " resumeProfileEmployerListItem-buttons-dark" : " resumeProfileEmployerListItem-buttons-light")
 
   return (
     <div className={resumeProfileEmployerClass}>
