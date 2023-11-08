@@ -60,11 +60,32 @@ const ResumePage = ({ userId }) => {
 
       const employerRes = await csrfFetch(`/api/resumes/employer/${userId}`)
       const employerData = await employerRes.json()
+      const today = new Date()
+      const currentYear = today.getFullYear()
+      employerData.sort(function(a, b) {
+        a.endSort = a.endDate
+        b.endSort = b.endDate
+        if (a.endSort !== null && typeof a.endSort === 'string') {
+          a.endSort = parseInt(a.endSort.slice(4))
+        }
+        if (b.endSort !== null && typeof b.endSort === 'string') {
+          b.endSort = parseInt(b.endSort.slice(4))
+        }
+        if (a.endSort === null) {
+          a.endSort = currentYear
+        }
+        if (b.endSort === null) {
+          b.endSort = currentYear
+        }
+
+        return b.endSort - a.endSort
+      })
       setEmployers(employerData)
 
       const educationRes = await csrfFetch(`/api/resumes/education/${userId}`)
       const educationData = await educationRes.json()
       setEducation(educationData)
+
 
       setIsLoaded(true)
     }

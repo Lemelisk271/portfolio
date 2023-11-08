@@ -113,3 +113,45 @@
 .resumeProfilePage-addSkillButton-light button:hover {
   background-color: #B74F6F;
 }
+
+.resumeProfilePage-employers {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 20px;
+}
+
+.resumeProfilePage-employers-light {
+  border: 1px solid #136F63;
+}
+
+.resumeProfilePage-employers-dark {
+  border: 1px solid white;
+}
+
+.resumeProfilePage-employers button {
+  margin: 5px 0;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.resumeProfilePage-employers-dark button {
+  background-color: #B74F6F;
+  color: white;
+}
+
+.resumeProfilePage-employers-dark button:hover {
+  background-color: #EF946C;
+}
+
+.resumeProfilePage-employers-light button {
+  background-color: #EF946C;
+  color: black;
+}
+
+.resumeProfilePage-employers-light button:hover {
+  background-color: #B74F6F;
+}
